@@ -184,10 +184,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ टाइपिंग इफेक्ट फंक्शन
     const textArray = [
-        "Welcome to My Website!",
-        "Ankit Kaler",
-        "आपका स्वागत है!",
-        "Explore My Work!",
+        "🌟 Welcome to My Digital World!🌎🌟",
+        "🔥Ankit Kaler🔥",
+        "🌟आपका स्वागत है!🌟",
+        "🚀 Ankit Kaler – Explore My World 🌎",
         
     ];
     let textIndex = 0;

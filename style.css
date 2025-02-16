@@ -26,7 +26,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,8 +96,8 @@ header {
 }
 /* Header Styling */
 header {
-    position: absolute;
-    height: 80px; /* Height optimized */
+    position: fixed;
+    height: 100px; /* Height optimized */
     background: linear-gradient(90deg, rgba(255, 150, 150, 0.6), rgba(150, 150, 255, 0.6)); /* Lightened colors */
     display: flex;
     align-items: center;
@@ -157,6 +157,7 @@ header::after {
         height: 70px;
         padding: 15px;
         font-size: 18px; /* Mobile-friendly text size */
+        margin-top: 10px;
     }
 
     .logo-container img {
@@ -172,15 +173,15 @@ header::after {
 
 /* Advanced 3D Animated QR Code - Fixed on Right */
 .qr-code {
-    position: fixed; /* Use fixed to keep it in place on the screen */
+    position: relative; /* Use fixed to keep it in place on the screen */
     top: 20px; /* Distance from the top */
     right: 20px; /* Distance from the right */
     background: #fff;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center; /* Center the content horizontally */
     align-items: center; /* Center the content vertically */

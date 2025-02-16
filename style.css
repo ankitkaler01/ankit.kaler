@@ -96,7 +96,7 @@ header {
 }
 /* Header Styling */
 header {
-    position: absolute;
+    position: fixed;
     height: 80px; /* Height optimized */
     background: linear-gradient(90deg, rgba(255, 150, 150, 0.6), rgba(150, 150, 255, 0.6)); /* Lightened colors */
     display: flex;
@@ -104,8 +104,8 @@ header {
     justify-content: center;
     padding: 10px 20px;
     animation: glowEffect 3s infinite alternate ease-in-out;
-    box-shadow: 0 0 15px rgba(255, 150, 150, 0.5); /* Subtle glow */
-    color: white; /* Text color improved */
+    box-shadow: 0 0 15px rgba(78, 41, 41, 0.5); /* Subtle glow */
+    color: rgb(44, 2, 2); /* Text color improved */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow added for better readability */
     font-size: 22px; /* Slightly bigger text for visibility */
     font-weight: bold; /* Making text more prominent */
@@ -113,6 +113,7 @@ header {
 
 /* Floating Glow Effect */
 header::before, header::after {
+    content: "";
     position: absolute;
     width: 180px;
     filter: blur(80px);
@@ -121,8 +122,8 @@ header::before, header::after {
 }
 
 header::before {
-    top: -40px;
-    left: -40px;
+    top: 100px;
+    left:100px;
     background: radial-gradient(circle, rgba(255, 150, 150, 0.5), transparent);
 }
 
@@ -2495,4 +2496,5 @@ footer {
 
     .my-name {
         font-size: 1.2rem;
-    }   
+    }
+}

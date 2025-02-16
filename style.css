@@ -148,7 +148,7 @@ header::after {
 
 /* Advanced 3D Animated QR Code - Fixed on Right */
 .qr-code {
-    position: fixed; /* Use fixed to keep it in place on the screen */
+    position: relative; /* Use fixed to keep it in place on the screen */
     top: 20px; /* Distance from the top */
     right: 20px; /* Distance from the right */
     background: #fff;

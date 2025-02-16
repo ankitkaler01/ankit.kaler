@@ -219,7 +219,10 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add("dark-mode");
     }
 
-    // Voice Control Functionality
+   // Voice Control Functionality
+let isAssistantActive = true;
+let selectedLanguage = null;
+
 function startVoiceAssistant() {
     speak("Voice assistant activated. How can I help you?", "en"); // Default language is English
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
@@ -243,62 +246,137 @@ function detectLanguage(text) {
     return hindiRegex.test(text) ? "hi" : "en"; // Return 'hi' for Hindi, 'en' for English
 }
 
-// Function to handle voice commands in both Hindi and English
+function startVoiceCommandSystem() {
+    speak("Hello! Please choose a language: Hindi or English.", "en");
+    speak("नमस्ते! कृपया भाषा चुनें: हिंदी या अंग्रेज़ी।", "hi");
+
+    // Listen for the user's language choice
+    listenForLanguageChoice();
+}
+
+function listenForLanguageChoice() {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "en-US"; // Default language for initial choice
+    recognition.onresult = (event) => {
+        const command = event.results[0][0].transcript.toLowerCase();
+        if (command.includes("hindi") || command.includes("हिंदी")) {
+            selectedLanguage = "hi";
+            speak("हिंदी चुनी गई।", "hi");
+            speak("राम राम! मेरी वेबसाइट में आपका स्वागत है। मैं आपकी कैसे मदद कर सकता हूँ?", "hi");
+        } else if (command.includes("english") || command.includes("अंग्रेज़ी")) {
+            selectedLanguage = "en";
+            speak("English selected.", "en");
+            speak("Hello! Welcome to my website. How can I assist you today?", "en");
+        } else {
+            speak("Sorry, I didn't understand. Please choose Hindi or English.", "en");
+            speak("क्षमा करें, मैं समझ नहीं पाया। कृपया हिंदी या अंग्रेज़ी चुनें।", "hi");
+            listenForLanguageChoice(); // Retry listening for language choice
+        }
+    };
+    recognition.start();
+}
+
 function handleVoiceCommand(command, language) {
-    if (command.includes("home") || command.includes("घर")) {
+    if (!isAssistantActive) {
+        speak(language === "hi" ? "सहायक बंद है। कृपया 'शुरू' कहें।" : "Assistant is stopped. Please say 'start'.", language);
+        return;
+    }
+
+    // Home Section
+    if (
+        command.includes("home") || command.includes("घर") || command.includes("मुख्य") ||
+        command.includes("main") || command.includes("होम") || command.includes("प्रारंभ") ||
+        command.includes("start") || command.includes("शुरू") || command.includes("मुख पृष्ठ") ||
+        command.includes("मेनू") || command.includes("dashboard") || command.includes("डैशबोर्ड")
+    ) {
         document.querySelector('a[href="#home"]').click();
         speak(language === "hi" ? "होम सेक्शन पर नेविगेट कर रहा हूँ" : "Navigating to home section", language);
-    } else if (command.includes("about") || command.includes("के बारे में")) {
+    }
+    // About Section
+    else if (
+        command.includes("about") || command.includes("के बारे में") || command.includes("जानकारी") ||
+        command.includes("info") || command.includes("अबाउट") || command.includes("परिचय") ||
+        command.includes("introduction") || command.includes("विवरण") || command.includes("details") ||
+        command.includes("हमारे बारे में") || command.includes("about us") || command.includes("अबाउट अस")
+    ) {
         document.querySelector('a[href="#about"]').click();
         speak(language === "hi" ? "अबाउट सेक्शन पर नेविगेट कर रहा हूँ" : "Navigating to about section", language);
-    } else if (command.includes("gallery") || command.includes("गैलरी")) {
-        document.querySelector('a[href="#gallery"]').click();
-        speak(language === "hi" ? "गैलरी सेक्शन पर नेविगेट कर रहा हूँ" : "Navigating to gallery section", language);
-    } else if (command.includes("videos") || command.includes("वीडियो")) {
-        document.querySelector('a[href="#videos"]').click();
-        speak(language === "hi" ? "वीडियो सेक्शन पर नेविगेट कर रहा हूँ" : "Navigating to videos section", language);
-    } else if (command.includes("audio") || command.includes("ऑडियो")) {
-        document.querySelector('a[href="#audio"]').click();
-        speak(language === "hi" ? "ऑडियो सेक्शन पर नेविगेट कर रहा हूँ" : "Navigating to audio section", language);
-    } else if (command.includes("projects") || command.includes("प्रोजेक्ट्स")) {
-        document.querySelector('a[href="#projects"]').click();
-        speak(language === "hi" ? "प्रोजेक्ट्स सेक्शन पर नेविगेट कर रहा हूँ" : "Navigating to projects section", language);
-    } else if (command.includes("contact") || command.includes("संपर्क")) {
-        document.querySelector('a[href="#contact"]').click();
-        speak(language === "hi" ? "संपर्क सेक्शन पर नेविगेट कर रहा हूँ" : "Navigating to contact section", language);
-    } else if (command.includes("dark mode") || command.includes("डार्क मोड")) {
-        toggleTheme();
-        speak(language === "hi" ? "डार्क मोड सक्रिय किया गया" : "Dark mode activated", language);
-    } else if (command.includes("light mode") || command.includes("लाइट मोड")) {
-        toggleTheme();
-        speak(language === "hi" ? "लाइट मोड सक्रिय किया गया" : "Light mode activated", language);
-    } else if (command.includes("who created this website") || command.includes("इस वेबसाइट को किसने बनाया")) {
-        speak(language === "hi" ? "इस वेबसाइट को अंकित कालर ने बनाया है। वह इस वेबसाइट के मालिक हैं।" : "This website was created by Ankit Kaler. He is the owner of this website.", language);
-    } else if (command.includes("open instagram") || command.includes("इंस्टाग्राम खोलो")) {
-        window.open("https://www.instagram.com/ankit_kaler_01", "_blank");
-        speak(language === "hi" ? "इंस्टाग्राम खोल रहा हूँ" : "Opening Instagram", language);
-    } else if (command.includes("open facebook") || command.includes("फेसबुक खोलो")) {
-        window.open("https://www.facebook.com/profile.php?id=61550104302662", "_blank");
-        speak(language === "hi" ? "फेसबुक खोल रहा हूँ" : "Opening Facebook", language);
-    } else if (command.includes("open whatsapp") || command.includes("व्हाट्सएप खोलो")) {
-        window.open("https://wa.me/9216996531", "_blank");
-        speak(language === "hi" ? "व्हाट्सएप खोल रहा हूँ" : "Opening WhatsApp", language);
-    } else if (command.includes("open youtube") || command.includes("यूट्यूब खोलो")) {
-        window.open("https://www.youtube.com", "_blank");
-        speak(language === "hi" ? "यूट्यूब खोल रहा हूँ" : "Opening YouTube", language);
-    } else if (command.includes("send email") || command.includes("ईमेल भेजो")) {
-        document.getElementById("contact-email").focus();
-        speak(language === "hi" ? "कृपया ईमेल और संदेश दर्ज करें" : "Please enter your email and message to send an email.", language);
-    } else if (command.includes("subscribe") || command.includes("सब्सक्राइब करो")) {
-        document.querySelector('input[type="email"]').focus();
-        speak(language === "hi" ? "कृपया सब्सक्राइब करने के लिए अपना ईमेल दर्ज करें" : "Please enter your email to subscribe.", language);
+    }
+    // Open LinkedIn
+    else if (
+        command.includes("open linkedin") || command.includes("लिंक्डइन खोलो") || command.includes("लिंक्डइन") ||
+        command.includes("linkedin") || command.includes("लिंक्डइन पर जाएं") || command.includes("linkedin open")
+    ) {
+        window.open("https://www.linkedin.com/in/ankit-kaler", "_blank");
+        speak(language === "hi" ? "लिंक्डइन खोल रहा हूँ" : "Opening LinkedIn", language);
+    }
+    // Search Something
+    else if (
+        command.includes("search") || command.includes("खोजें") || command.includes("सर्च") ||
+        command.includes("find") || command.includes("ढूंढो") || command.includes("खोजो")
+    ) {
+        const query = command.replace("search", "").replace("खोजें", "").trim();
+        if (query) {
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
+            speak(language === "hi" ? `खोज रहा हूँ: ${query}` : `Searching for: ${query}`, language);
+        } else {
+            speak(language === "hi" ? "कृपया खोजने के लिए कुछ कहें" : "Please say something to search.", language);
+        }
+    }
+    // Confirmation Prompt for Sending Email
+    else if (command.includes("send email") || command.includes("ईमेल भेजो")) {
+        speak(language === "hi" ? "क्या आप ईमेल भेजना चाहते हैं?" : "Do you want to send an email?", language);
+        const confirmation = listenForConfirmation();
+        if (confirmation) {
+            document.getElementById("contact-email").focus();
+            speak(language === "hi" ? "कृपया ईमेल और संदेश दर्ज करें" : "Please enter your email and message.", language);
+        } else {
+            speak(language === "hi" ? "ईमेल भेजना रद्द किया गया" : "Email sending canceled.", language);
+        }
+    }
+    // Error Handling
+    else {
+        speak(language === "hi" ? "क्षमा करें, मैं समझ नहीं पाया। कृपया दोबारा कहें।" : "Sorry, I didn't understand. Please try again.", language);
+    }
+}
+
+function endInteraction(language) {
+    if (language === "hi") {
+        speak("धन्यवाद! आपका दिन शुभ हो।", "hi");
     } else {
-        speak(language === "hi" ? "क्षमा करें, मैं आपकी कमांड समझ नहीं पाया" : "Sorry, I didn't understand that command.", language);
+        speak("Thank you! Have a great day.", "en");
+    }
+}
+
+function readSectionContent(sectionId, language) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        const text = section.innerText || section.textContent;
+        speak(text, language);
+    } else {
+        speak(language === "hi" ? "यह सेक्शन उपलब्ध नहीं है" : "This section is not available.", language);
+    }
+}
+
+function toggleAssistant(command, language) {
+    if (command.includes("start") || command.includes("शुरू") || command.includes("begin")) {
+        isAssistantActive = true;
+        speak(language === "hi" ? "सहायक सक्रिय है" : "Assistant is active.", language);
+    } else if (command.includes("stop") || command.includes("रुकें") || command.includes("बंद करो")) {
+        isAssistantActive = false;
+        speak(language === "hi" ? "सहायक बंद किया गया" : "Assistant is stopped.", language);
     }
 }
 
 // Function to make the assistant speak in the selected language
-document.addEventListener("DOMContentLoaded", function() {
+function speak(text, language) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = language === "hi" ? "hi-IN" : "en-US";
+    window.speechSynthesis.speak(utterance);
+}
+
+// Event Listener for VoiceAssistantButton
+document.addEventListener("DOMContentLoaded", function () {
     let voiceButton = document.getElementById("voice-command");
     if (voiceButton) {
         voiceButton.addEventListener("click", startVoiceAssistant);
@@ -307,17 +385,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Event Listener for VoiceAssistantButton
-let voiceButton = document.getElementById("voice-command");
-if (voiceButton) {
-    voiceButton.addEventListener("click", startVoiceAssistant);
-} else { console.log("Error: 'voice-command' ID वाला एलिमेंट नहीं मिला!");
-}
-// Event Listener for Language Toggle Buttons{
-document.getElementById("language-toggle-en").addEventListener("click", () =>switchLanguage("en"));
-document.getElementById("language-toggle-hi").addEventListener("click", () =>switchLanguage("hi")) ;
-
-    // Language Translation Functionality
+// Language Translation Functionality
 function switchLanguage(lang) {
     const elements = document.querySelectorAll("[data-en], [data-hi]");
     elements.forEach(element => {
@@ -339,13 +407,44 @@ function switchLanguage(lang) {
             }
         }
     });
+}
 
-    // Save the selected language in localStorage
+// Event Listener for Language Toggle Buttons
+document.getElementById("language-toggle-en")?.addEventListener("click", () => switchLanguage("en"));
+document.getElementById("language-toggle-hi")?.addEventListener("click", () => switchLanguage("hi"));
+
+// Language Translation Functionality
+function switchLanguage(lang) {
+    const elements = document.querySelectorAll("[data-en], [data-hi]");
+    elements.forEach(element => {
+        if (lang === "en") {
+            // Set text to English
+            if (element.hasAttribute("data-en")) {
+                element.textContent = element.getAttribute("data-en");
+            }
+            if (element.hasAttribute("placeholder-en")) {
+                element.setAttribute("placeholder", element.getAttribute("placeholder-en"));
+            }
+        } else if (lang === "hi") {
+            // Set text to Hindi
+            if (element.hasAttribute("data-hi")) {
+                element.textContent = element.getAttribute("data-hi");
+            }
+            if (element.hasAttribute("placeholder-hi")) {
+                element.setAttribute("placeholder", element.getAttribute("placeholder-hi"));
+            }
+        }
+    });
+}
+
+// Event Listener for Language Toggle Buttons
+document.getElementById("language-toggle-en")?.addEventListener("click", () => switchLanguage("en"));
+document.getElementById("language-toggle-hi")?.addEventListener("click", () => switchLanguage("hi"));    // Save the selected language in localStorage
     localStorage.setItem("language", lang);
 
     // Notify the user
     speak(`Language switched to ${lang === "en" ? "English" : "Hindi"}`);
-}
+
 
 // Function to initialize language based on user preference
 function initializeLanguage() {

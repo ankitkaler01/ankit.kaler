@@ -153,6 +153,81 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000); // हर 3 सेकंड में कलर बदलेगा
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // ✅ लाइव टाइम अपडेट फंक्शन
+    function updateLiveTime() {
+        const now = new Date();
+        const days = ["रविवार", "सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"];
+        const months = ["जनवरी", "फरवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"];
+
+        let day = days[now.getDay()];
+        let date = now.getDate();
+        let month = months[now.getMonth()];
+        let year = now.getFullYear();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        let ampm = hours >= 12 ? "PM" : "AM";
+
+        // 12-घंटे के प्रारूप में बदलें
+        hours = hours % 12 || 12;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        let timeString = `🕒 ${day}, ${date} ${month} ${year} | ${hours}:${minutes}:${seconds} ${ampm}`;
+        document.getElementById("live-time").textContent = timeString;
+    }
+
+    // हर सेकंड में टाइम अपडेट करें
+    setInterval(updateLiveTime, 1000);
+    updateLiveTime(); // तुरंत भी कॉल करें
+
+    // ✅ टाइपिंग इफेक्ट फंक्शन
+    const textArray = [
+        "Welcome to My Website!",
+        "Ankit Kaler",
+        "आपका स्वागत है!",
+        "Explore My Work!",
+        
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const delayBetweenTexts = 2000;
+    const typingElement = document.querySelector(".typing-text");
+
+    function typeText() {
+        const currentText = textArray[textIndex];
+
+        if (!isDeleting) {
+            typingElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+
+            if (charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeText, delayBetweenTexts);
+            } else {
+                setTimeout(typeText, typingSpeed);
+            }
+        } else {
+            typingElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+
+            if (charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(typeText, typingSpeed);
+            } else {
+                setTimeout(typeText, deletingSpeed);
+            }
+        }
+    }
+
+    // टाइपिंग एनिमेशन स्टार्ट करें
+    typeText();
+});
 
 
 

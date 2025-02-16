@@ -413,6 +413,7 @@ function switchLanguage(lang) {
 document.getElementById("language-toggle-en")?.addEventListener("click", () => switchLanguage("en"));
 document.getElementById("language-toggle-hi")?.addEventListener("click", () => switchLanguage("hi"));
 
+
 // Language Translation Functionality
 function switchLanguage(lang) {
     const elements = document.querySelectorAll("[data-en], [data-hi]");

@@ -98,7 +98,7 @@ header {
 /* Floating Glow Effect */
 header::before, header::after {
     content: "";
-    position: relative;
+    position: absolute;
     width: 250px;
     height: 250px;
     filter: blur(100px);

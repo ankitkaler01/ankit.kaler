@@ -1,0 +1,2471 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Dark Theme */
+body.dark {
+    background: linear-gradient(to right, #141E30, #243B55);
+    color: #fff;
+}
+
+/* Light Theme */
+body.light {
+    background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+    color: #333;
+}
+
+/* Header Styling with Mixed Colors */
+header {
+    position: fixed; /* Fixed header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 0;
+    transition: all 0.5s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
+    z-index: 1000; /* Ensure header stays on top */
+    background: linear-gradient(135deg, #ffffff, #6a11cb, #ff4757, #ff6f61, #32cd32, #8e44ad); /* Mixed colors gradient */
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo Image with Auto Shadow Change */
+.logo-container img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    animation: logoShadow 8s infinite alternate, logoFlip 5s infinite alternate;
+}
+
+/* Logo Color & Shadow Animation */
+@keyframes logoShadow {
+    0% { box-shadow: 0 0 20px rgba(255, 100, 100, 0.6); }
+    50% { box-shadow: 0 0 25px rgba(100, 255, 100, 0.6); }
+    100% { box-shadow: 0 0 20px rgba(100, 100, 255, 0.6); }
+}
+
+/* Logo Flip Animation */
+@keyframes logoFlip {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* Logo Hover Effect */
+.logo-container img:hover {
+    transform: rotateY(360deg) scale(1.3);
+}
+
+/* Logo Text with Auto Color Animation */
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff6b6b;
+    text-shadow: 3px 3px 10px rgba(255, 107, 107, 0.8);
+    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+    animation: textColorShift 6s infinite alternate;
+}
+
+/* Automatic Text Color Changing */
+@keyframes textColorShift {
+    0% { color: #5c2f2f; text-shadow: 3px 3px 10px rgba(255, 107, 107, 0.8); }
+    25% { color: #6bff6b; text-shadow: 3px 3px 10px rgba(107, 255, 107, 0.8); }
+    50% { color: #6b6bff; text-shadow: 3px 3px 10px rgba(107, 107, 255, 0.8); }
+    75% { color: #ff6bff; text-shadow: 3px 3px 10px rgba(255, 107, 255, 0.8); }
+    100% { color: #ff6b6b; text-shadow: 3px 3px 10px rgba(255, 107, 107, 0.8); }
+}
+
+/* Floating Glow Effect */
+header::before, header::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: floatingGlow 6s infinite alternate;
+}
+
+header::before {
+    top: -60px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.4), transparent);
+}
+
+header::after {
+    bottom: -60px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.4), transparent);
+}
+
+/* Floating Glow Animation */
+@keyframes floatingGlow {
+    0% { transform: translateY(-20px) translateX(-20px); }
+    100% { transform: translateY(20px) translateX(20px); }
+}
+
+/* Smooth Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    .logo-container img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+}
+
+/* Advanced 3D Animated QR Code - Fixed on Right */
+.qr-code {
+    position: fixed; /* Use fixed to keep it in place on the screen */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    animation: none; /* Remove all animations */
+    transform: scale(1) rotate(0deg); /* Reset any transformations */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+/* QR Code Hover Effects */
+.qr-code:hover {
+    transform: scale(1.3) rotate(360deg);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* QR Code Canvas */
+.qr-code canvas {
+    display: block;
+    transition: filter 0.5s ease-in-out;
+}
+
+/* QR Code Glow Effect */
+.qr-code:hover canvas {
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.8));
+}
+
+/* Advanced 3D Animated Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(to bottom, #8e44ad, #c0392b);
+    color: white;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    transition: left 0.5s ease-in-out, background 5s ease-in-out;
+    z-index: 1000;
+    padding-top: 60px;
+    overflow-y: auto;
+    animation: colorShiftSidebar 10s infinite alternate;
+    transform: perspective(1000px) rotateY(-90deg);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out, background 5s ease-in-out;
+}
+
+/* Automatic Background Color Changing Effect */
+@keyframes colorShiftSidebar {
+    0% { background: linear-gradient(to bottom, #8e44ad, #c0392b); }
+    33% { background: linear-gradient(to bottom, #1e90ff, #ff6347); }
+    66% { background: linear-gradient(to bottom, #32cd32, #ffcc00); }
+    100% { background: linear-gradient(to bottom, #8e44ad, #c0392b); }
+}
+
+/* Active Sidebar */
+.sidebar.active {
+    left: 0;
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 20px;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: background 3s ease-in-out;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Profile Photo Container */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Profile Photo with Auto-Switch Effect */
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    animation: switchPhoto 8s infinite alternate;
+}
+
+/* Jump Animation on Image Change */
+.jump-animation {
+    animation: jumpEffect 0.5s ease-in-out;
+}
+
+/* Jump Effect */
+@keyframes jumpEffect {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    text-align: center;
+}
+
+.sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.sidebar-menu li:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.sidebar-menu li:hover a {
+    color: #ff4757;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger-menu .bar {
+    width: 35px;
+    height: 5px;
+    background: white;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.hamburger-menu:hover .bar {
+    background: #ff4757;
+    transform: rotate(10deg);
+}
+
+/* Digital Clock Styling */
+#live-time {
+    font-size: 40px;
+    font-weight: bold;
+    background: #000;
+    color: #0f0;
+    padding: 15px 30px;
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+    margin-top: 20px;
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Glow Animation for Digital Clock */
+@keyframes glow {
+    0% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.8); }
+    100% { box-shadow: 0 0 25px rgba(0, 255, 0, 1.2); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 250px;
+    }
+
+    .profile-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    #live-time {
+        font-size: 30px;
+        padding: 10px 20px;
+    }
+}
+
+/* Animated Buttons with Auto Color Change */
+button {
+    font-size: 18px;
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(to right, #1e90ff, #32cd32);
+    color: #fff;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+    animation: buttonColorShift 6s infinite alternate;
+}
+
+/* Auto Button Color Change */
+@keyframes buttonColorShift {
+    0% { background: linear-gradient(to right, #1e90ff, #32cd32); }
+    33% { background: linear-gradient(to right, #ff6347, #ffcc00); }
+    66% { background: linear-gradient(to right, #8e44ad, #3498db); }
+    100% { background: linear-gradient(to right, #1e90ff, #32cd32); }
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* Floating Glow Effect */
+.sidebar::before, .sidebar::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: floatingGlow 6s infinite alternate;
+}
+
+.sidebar::before {
+    top: -60px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.4), transparent);
+}
+
+.sidebar::after {
+    bottom: -60px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.4), transparent);
+}
+
+/* Floating Glow Animation */
+@keyframes floatingGlow {
+    0% { transform: translateY(-20px) translateX(-20px); }
+    100% { transform: translateY(20px) translateX(20px); }
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: linear-gradient(to right, #1e90ff, #32cd32);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #ff6347, #ffcc00);
+}
+
+/* Light Theme Adjustments */
+body.light .theme-toggle {
+    background: linear-gradient(to right, #ff6347, #ffcc00);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+body.light .theme-toggle:hover {
+    background: linear-gradient(to right, #1e90ff, #32cd32);
+}
+
+/* Advanced & High-Level 3D Animated Home Section */
+#home {
+    text-align: center;
+    background: linear-gradient(135deg, #1f1c2c, #928dab); /* Default Gradient for Dark Theme */
+    color: white;
+    padding: 150px 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 80px; /* Increased gap below the section */
+    animation: colorShiftHome 10s infinite alternate, fadeIn 1.5s ease-in-out;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Light Theme for Home Section */
+body.light #home {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light Gradient */
+    color: #333;
+}
+
+/* Automatic Background Color Changing Effect */
+@keyframes colorShiftHome {
+    0% { background: linear-gradient(135deg, #1f1c2c, #928dab); }
+    20% { background: linear-gradient(135deg, #2b5876, #4e4376); }
+    40% { background: linear-gradient(135deg, #141e30, #243b55); }
+    60% { background: linear-gradient(135deg, #3d2c8d, #8a5082); }
+    80% { background: linear-gradient(135deg, #232526, #414345); }
+    100% { background: linear-gradient(135deg, #1f1c2c, #928dab); }
+}
+
+/* Light Theme Animation */
+body.light #home {
+    animation: colorShiftHomeLight 10s infinite alternate, fadeIn 1.5s ease-in-out;
+}
+
+@keyframes colorShiftHomeLight {
+    0% { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); }
+    20% { background: linear-gradient(135deg, #e0eafc, #cfdef3); }
+    40% { background: linear-gradient(135deg, #f0f2f5, #dfe3e6); }
+    60% { background: linear-gradient(135deg, #e8eaf6, #d1d4e0); }
+    80% { background: linear-gradient(135deg, #f5f5f5, #e0e0e0); }
+    100% { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); }
+}
+
+/* Background Pattern Animation */
+#home::before {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+    background-size: 30px 30px;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: moveBackground 8s linear infinite;
+}
+
+@keyframes moveBackground {
+    from { transform: translateY(0); }
+    to { transform: translateY(-150px); }
+}
+
+/* Heading Styling */
+#home h2 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 110px;
+    animation: slideDown 1.5s ease-in-out;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    transition: color 0.5s;
+}
+
+body.light #home h2 {
+    color: #333;
+    text-shadow: 4px 4px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Paragraph Styling */
+#home p {
+    font-size: 1.6rem;
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.8;
+    animation: fadeInUp 1.5s ease-in-out;
+    color: #f5f5f5;
+    transition: color 0.5s;
+}
+
+body.light #home p {
+    color: #555;
+}
+
+/* Floating Glow Effect */
+#home::after, #home::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    filter: blur(120px);
+    opacity: 0.5;
+    animation: floatingGlow 6s infinite alternate;
+}
+
+#home::before {
+    top: -60px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.4), transparent);
+}
+
+#home::after {
+    bottom: -60px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.4), transparent);
+}
+
+/* Floating Glow Animation */
+@keyframes floatingGlow {
+    0% { transform: translateY(-20px) translateX(-20px); }
+    100% { transform: translateY(20px) translateX(20px); }
+}
+
+/* Smooth Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Fade In Up */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Slide Down */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stylish Divider */
+.home-divider {
+    width: 150px;
+    height: 5px;
+    background: linear-gradient(90deg, #ff7676, #7676ff);
+    margin: 30px auto;
+    border-radius: 3px;
+    animation: fadeIn 2s ease-in-out;
+    box-shadow: 0px 0px 15px rgba(255, 118, 118, 0.8);
+}
+
+/* Next Section Styling */
+.next-section {
+    padding-top: 80px; /* Increased gap above the next section */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #home {
+        padding: 100px 15px;
+    }
+
+    #home h2 {
+        font-size: 3rem;
+    }
+
+    #home p {
+        font-size: 1.3rem;
+    }
+
+    .home-divider {
+        width: 100px;
+    }
+}
+
+/* Typing Animation Styling */
+.typing-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #fff; /* Cursor effect */
+    animation: blink 0.8s infinite;
+}
+
+body.light .typing-text {
+    color: #333;
+    border-right: 2px solid #333; /* Cursor effect for light theme */
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Additional Paragraph Styling */
+#home p strong {
+    font-weight: bold;
+    color: #ff7676; /* Highlight color for strong text */
+}
+
+body.light #home p strong {
+    color: #7676ff; /* Highlight color for strong text in light theme */
+}
+
+#home p u {
+    text-decoration: underline;
+    color: #7676ff; /* Highlight color for underlined text */
+}
+
+body.light #home p u {
+    color: #ff7676; /* Highlight color for underlined text in light theme */
+}
+
+#home p small {
+    font-size: 0.9em;
+    color: #ccc; /* Light gray for small text */
+}
+
+body.light #home p small {
+    color: #666; /* Dark gray for small text in light theme */
+}
+
+/* Default Dark Theme */
+#about {
+    background: linear-gradient(135deg, #2e1437, #715b85); /* Dark Gradient */
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    margin-top: 80px;
+    margin-bottom: 80px;
+    animation: colorShiftAbout 10s infinite alternate, fadeIn 1.5s ease-in-out;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Light Theme */
+body.light #about {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light Gradient */
+    color: #333;
+}
+
+/* Automatic Dark Color Changing Effect */
+@keyframes colorShiftAbout {
+    0% { background: linear-gradient(135deg, #2e1437, #715b85); }
+    20% { background: linear-gradient(135deg, #1c1c3c, #4d4d7a); }
+    40% { background: linear-gradient(135deg, #141e30, #243b55); }
+    60% { background: linear-gradient(135deg, #3d2c8d, #8a5082); }
+    80% { background: linear-gradient(135deg, #2a0845, #6441a5); }
+    100% { background: linear-gradient(135deg, #2e1437, #715b85); }
+}
+
+/* Light Theme Animation */
+body.light #about {
+    animation: colorShiftAboutLight 10s infinite alternate, fadeIn 1.5s ease-in-out;
+}
+
+@keyframes colorShiftAboutLight {
+    0% { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); }
+    20% { background: linear-gradient(135deg, #e0eafc, #cfdef3); }
+    40% { background: linear-gradient(135deg, #f0f2f5, #dfe3e6); }
+    60% { background: linear-gradient(135deg, #e8eaf6, #d1d4e0); }
+    80% { background: linear-gradient(135deg, #f5f5f5, #e0e0e0); }
+    100% { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); }
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+    background-size: 30px 30px;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: moveBackground 8s linear infinite;
+}
+
+#about h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    animation: slideDown 1.5s ease-in-out;
+    transition: color 0.5s;
+}
+
+body.light #about h2 {
+    color: #333;
+    text-shadow: 4px 4px 15px rgba(255, 255, 255, 0.5);
+}
+
+#about p {
+    font-size: 1.4rem;
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #e0e0e0;
+    animation: fadeInUp 1.5s ease-in-out;
+    transition: color 0.5s;
+}
+
+body.light #about p {
+    color: #555;
+}
+
+/* About Section Cards */
+.about-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+/* About Card Styling with 3D Hover */
+.about-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+body.light .about-card {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.about-card:hover {
+    transform: translateY(-10px) rotateY(10deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.about-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+body.light .about-card h3 {
+    color: #333;
+}
+
+.about-card p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+body.light .about-card p {
+    color: #555;
+}
+
+/* Floating Glow Effect */
+#about::before, #about::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: floatingGlow 6s infinite alternate;
+}
+
+#about::before {
+    top: -60px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.4), transparent);
+}
+
+#about::after {
+    bottom: -60px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.4), transparent);
+}
+
+body.light #about::before {
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.2), transparent);
+}
+
+body.light #about::after {
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.2), transparent);
+}
+
+/* Floating Glow Animation */
+@keyframes floatingGlow {
+    0% { transform: translateY(-20px) translateX(-20px); }
+    100% { transform: translateY(20px) translateX(20px); }
+}
+
+/* Smooth Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Fade In Up */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Slide Down */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #about {
+        padding: 80px 15px;
+    }
+
+    #about h2 {
+        font-size: 2.5rem;
+    }
+
+    #about p {
+        font-size: 1.2rem;
+    }
+
+    .about-card {
+        width: 280px;
+    }
+}
+
+/* Stylish Divider */
+.about-divider {
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, #ff7676, #7676ff);
+    margin: 20px auto;
+    border-radius: 3px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+body.light .about-divider {
+    background: linear-gradient(90deg, #333, #666);
+}
+
+/* Advanced 3D Animated Gallery Section */
+#gallery {
+    background: linear-gradient(135deg, #1f1c2c, #928dab); /* Default Dark Gradient */
+    color: white;
+    padding: 120px 20px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6);
+    margin: 60px 0; /* Space above and below */
+    animation: colorShiftGallery 10s infinite alternate, fadeIn 1.5s ease-in-out;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Light Theme */
+body.light #gallery {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light Gradient */
+    color: #333;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Automatic Dark Color Changing Effect */
+@keyframes colorShiftGallery {
+    0% { background: linear-gradient(135deg, #1f1c2c, #928dab); }
+    25% { background: linear-gradient(135deg, #2b5876, #4e4376); }
+    50% { background: linear-gradient(135deg, #141e30, #243b55); }
+    75% { background: linear-gradient(135deg, #232526, #414345); }
+    100% { background: linear-gradient(135deg, #1f1c2c, #928dab); }
+}
+
+/* Light Theme Animation */
+body.light #gallery {
+    animation: colorShiftGalleryLight 10s infinite alternate, fadeIn 1.5s ease-in-out;
+}
+
+@keyframes colorShiftGalleryLight {
+    0% { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); }
+    25% { background: linear-gradient(135deg, #e0eafc, #cfdef3); }
+    50% { background: linear-gradient(135deg, #f0f2f5, #dfe3e6); }
+    75% { background: linear-gradient(135deg, #e8eaf6, #d1d4e0); }
+    100% { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); }
+}
+
+#gallery h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    animation: slideDown 1.5s ease-in-out;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
+    transition: color 0.5s ease;
+}
+
+body.light #gallery h2 {
+    color: #333;
+    text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Gallery Container */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Gallery Items */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+/* Images with 3D Effect */
+.gallery-item img {
+    width: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transform-style: preserve-3d;
+}
+
+/* Hover Effects */
+.gallery-item:hover img {
+    transform: rotateY(20deg) scale(1.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Image Caption */
+.gallery-item p {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: bottom 0.3s ease, opacity 0.3s ease;
+    z-index: 2;
+}
+
+.gallery-container img:hover {
+    transform: scale(2) rotate(4deg);
+}
+
+
+.gallery-item:hover p {
+    bottom: 20px;
+    opacity: 1;
+}
+
+/* Floating Glow Effect */
+#gallery::before, #gallery::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: floatingGlow 6s infinite alternate;
+}
+
+#gallery::before {
+    top: -60px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.4), transparent);
+}
+
+#gallery::after {
+    bottom: -60px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.4), transparent);
+}
+
+body.light #gallery::before {
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.2), transparent);
+}
+
+body.light #gallery::after {
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.2), transparent);
+}
+
+/* Floating Glow Animation */
+@keyframes floatingGlow {
+    0% { transform: translateY(-20px) translateX(-20px); }
+    100% { transform: translateY(20px) translateX(20px); }
+}
+
+/* Smooth Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Slide Down */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+
+    #gallery h2 {
+        font-size: 3rem;
+    }
+}
+
+/* Stylish Divider */
+.gallery-divider {
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, #ff7676, #7676ff);
+    margin: 20px auto;
+    border-radius: 3px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+body.light .gallery-divider {
+    background: linear-gradient(90deg, #333, #666);
+}
+
+/* Advanced & High-Level 3D Animated Video Gallery */
+#videos {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Default Gradient */
+    color: #333;
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+    margin-bottom: 80px;
+    animation: colorShift 10s infinite alternate, fadeIn 1.5s ease-in-out;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Theme */
+body.dark #videos {
+    background: linear-gradient(135deg, #1f1c2c, #928dab); /* Dark Gradient */
+    color: white;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Automatic Background Color Changing Effect */
+@keyframes colorShift {
+    0% { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+    20% { background: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+    40% { background: linear-gradient(135deg, #f8ffae, #43c6ac); }
+    60% { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+    80% { background: linear-gradient(135deg, #74ebd5, #acb6e5); }
+    100% { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+}
+
+/* Dark Theme Animation */
+body.dark #videos {
+    animation: colorShiftDark 10s infinite alternate, fadeIn 1.5s ease-in-out;
+}
+
+@keyframes colorShiftDark {
+    0% { background: linear-gradient(135deg, #1f1c2c, #928dab); }
+    20% { background: linear-gradient(135deg, #2b5876, #4e4376); }
+    40% { background: linear-gradient(135deg, #141e30, #243b55); }
+    60% { background: linear-gradient(135deg, #232526, #414345); }
+    80% { background: linear-gradient(135deg, #3d2c8d, #8a5082); }
+    100% { background: linear-gradient(135deg, #1f1c2c, #928dab); }
+}
+
+/* Floating Glow Effect */
+#videos::before, #videos::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    filter: blur(100px);
+    opacity: 0.6;
+    animation: floatingGlow 6s infinite alternate;
+}
+
+#videos::before {
+    top: -60px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.5), transparent);
+}
+
+#videos::after {
+    bottom: -60px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(173, 216, 230, 0.5), transparent);
+}
+
+body.dark #videos::before {
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.4), transparent);
+}
+
+body.dark #videos::after {
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.4), transparent);
+}
+
+#videos h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    animation: slideDown 1.5s ease-in-out;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    color: #444;
+    transition: color 0.5s ease;
+}
+
+body.dark #videos h2 {
+    color: white;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Video Container - 3D Grid Layout */
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* Video Styling */
+.video-container video {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+body.dark .video-container video {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover Effect with Soft 3D Rotation */
+.video-container video:hover {
+    transform: scale(1.08) rotateY(8deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.dark .video-container video:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Floating Glow Animation */
+@keyframes floatingGlow {
+    0% { transform: translateY(-20px) translateX(-20px); }
+    100% { transform: translateY(20px) translateX(20px); }
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Slide Down */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-container {
+        grid-template-columns: 1fr;
+    }
+
+    #videos h2 {
+        font-size: 3rem;
+    }
+}
+
+/* Adding Stylish Divider */
+.video-divider {
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, #ffb6c1, #87ceeb);
+    margin: 20px auto;
+    border-radius: 3px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+body.dark .video-divider {
+    background: linear-gradient(90deg, #ff7676, #7676ff);
+}
+/* Advanced & High-Level 3D Animated Audio Section */
+#audio {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Soft Light Gradient */
+    color: #333;
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    margin-top: 80px;  /* ऊपर का गैप */
+    margin-bottom: 80px; /* नीचे का गैप */
+    animation: fadeIn 1.5s ease-in-out;
+    transition: background 3s ease-in-out;
+}
+
+/* Dark Theme */
+body.dark #audio {
+    background: linear-gradient(135deg, #1f1c2c, #928dab); /* Dark Gradient */
+    color: white;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Dynamic 3D Background Animation */
+@keyframes colorShiftAudio {
+    0% { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+    25% { background: linear-gradient(135deg, #f8ffae, #43c6ac); }
+    50% { background: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+    75% { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+    100% { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+}
+
+/* Dark Theme Animation */
+body.dark #audio {
+    animation: colorShiftAudioDark 10s infinite alternate, fadeIn 1.5s ease-in-out;
+}
+
+@keyframes colorShiftAudioDark {
+    0% { background: linear-gradient(135deg, #1f1c2c, #928dab); }
+    25% { background: linear-gradient(135deg, #2b5876, #4e4376); }
+    50% { background: linear-gradient(135deg, #141e30, #243b55); }
+    75% { background: linear-gradient(135deg, #232526, #414345); }
+    100% { background: linear-gradient(135deg, #1f1c2c, #928dab); }
+}
+
+#audio:hover {
+    animation: colorShiftAudio 10s infinite alternate;
+}
+
+/* Floating Glow Effect */
+#audio::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.4), transparent); 
+    filter: blur(80px);
+    animation: floatingGlow 6s infinite alternate;
+}
+
+#audio::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(173, 216, 230, 0.4), transparent); 
+    filter: blur(80px);
+    animation: floatingGlow 6s infinite alternate-reverse;
+}
+
+body.dark #audio::before {
+    background: radial-gradient(circle, rgba(255, 100, 100, 0.4), transparent);
+}
+
+body.dark #audio::after {
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.4), transparent);
+}
+
+#audio h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: #444;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    animation: slideDown 1.5s ease-in-out;
+    transition: color 0.5s ease;
+}
+
+body.dark #audio h2 {
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Audio Player Styling */
+audio {
+    width: 85%;
+    max-width: 650px;
+    margin: 30px auto;
+    display: block;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.dark audio {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* 3D Audio Player Hover Effect */
+audio:hover {
+    transform: scale(1.1) rotateY(10deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* 3D Floating Animations */
+@keyframes floatingGlow {
+    0% { transform: translateY(-20px) translateX(-20px); opacity: 0.5; }
+    100% { transform: translateY(20px) translateX(20px); opacity: 1; }
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Slide Down */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stylish Gradient Divider */
+.audio-divider {
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, #ffb6c1, #87ceeb);
+    margin: 20px auto;
+    border-radius: 3px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+body.dark .audio-divider {
+    background: linear-gradient(90deg, #ff7676, #7676ff);
+}
+
+/* Next Section Padding */
+.next-section {
+    padding-top: 80px; /* ऊपर का गैप */
+}
+
+/* Projects Section */
+#projects {
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out; /* Changed to fadeInUp for a dynamic effect */
+    border: 5px solid;
+    border-image: linear-gradient(to right, #ff5733, #6c757d) 1; /* Gradient border */
+}
+
+#projects h2 {
+    font-size: 3rem;
+    color: #2c3e50;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#projects h1 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 60px;
+}
+
+#projects p {
+    font-size: 1.2rem;
+    text-align: justify;
+    margin: 15px 0;
+    padding: 10px;
+    border-left: 5px solid #6c757d;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#projects p:hover {
+    border-left-color: #ff5733;
+    transform: scale(1.05);
+}
+
+/* Project Items */
+#projects h3 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-top: 25px;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#projects h3:hover {
+    color: #ff5733;
+}
+
+#projects div {
+    margin-top: 30px;
+}
+
+#projects div p {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+}
+
+/* Project Cards */
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.project-button {
+    background: #ff5733;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.project-button:hover {
+    background: #e64a2e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #projects h2 {
+        font-size: 2.5rem;
+    }
+    #projects h1 {
+        font-size: 1.5rem;
+    }
+    #projects p {
+        font-size: 1rem;
+    }
+    #projects h3 {
+        font-size: 1.5rem;
+    }
+    .project-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Top-Level High-Quality CSS for Review Section */
+.review-section {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Ensures no overflow from animations */
+}
+
+.review-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+h2, h3 {
+    color: #222;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+}
+
+/* Star Rating */
+.rating {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px; /* Adds spacing between stars */
+}
+
+.star {
+    font-size: 3rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: transform 0.4s ease, color 0.3s ease;
+    animation: rotateStar 3s infinite linear; /* 3D rotation animation */
+}
+
+.star:hover,
+.star.active {
+    color: #ffcc00;
+    transform: scale(1.3) rotateY(360deg);
+}
+
+/* Review Textarea */
+#review-text {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    resize: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+#review-text:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+/* Photo Upload */
+.photo-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.photo-upload button {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.photo-upload button:hover {
+    background: linear-gradient(45deg, #0056b3, #003f7f);
+    transform: scale(1.1);
+}
+
+#photo-name {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #28a745, #1e7e34);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(45deg, #1e7e34, #145c2c);
+    transform: scale(1.05);
+}
+
+/* Reviews List */
+.reviews-list {
+    margin-top: 25px;
+}
+
+#review-list {
+    list-style: none;
+    padding: 0;
+}
+
+#review-list li {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds spacing between review content and rating */
+}
+
+#review-list li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Review Content */
+.review-content {
+    flex: 1;
+    text-align: left;
+}
+
+.review-content p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.review-rating {
+    font-size: 1.2rem;
+    color: #ffcc00;
+}
+
+/* 3D Animation for Stars */
+@keyframes rotateStar {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .review-section {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .star {
+        font-size: 2.5rem; /* Smaller stars on mobile */
+    }
+
+    #review-text {
+        height: 100px; /* Smaller textarea on mobile */
+    }
+
+    .photo-upload {
+        flex-direction: column; /* Stack photo upload elements vertically */
+    }
+
+    .submit-btn {
+        font-size: 1rem; /* Smaller button text on mobile */
+    }
+}
+
+/* Ask Question Section */
+#ask-question {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#ask-question:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #f4f4f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+label {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+input:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #2980b9, #1c6ea4);
+    transform: scale(1.05);
+}
+
+#response-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Error Message Styling */
+#error-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #ask-question {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input, textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+/* Chat Button */
+.chat-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite; /* Floating animation */
+}
+
+.chat-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #128C7E, #25D366); /* Reverse gradient on hover */
+}
+
+.chat-button::before {
+    content: "💬 ";
+    font-size: 1.3rem;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chat-button {
+        font-size: 1rem;
+        padding: 10px 16px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Accessibility Improvements */
+.chat-button:focus {
+    outline: 2px solid #25D366;
+    outline-offset: 2px;
+}
+
+/* Subscribe Section */
+#subscribe {
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 40px auto;
+    max-width: 800px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#subscribe h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+#subscribe p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+#subscribe form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#subscribe input {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+#subscribe input:focus {
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+#subscribe button {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+#subscribe button:hover {
+    background: #e84118;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px rgba(255, 71, 87, 0.5);
+}
+
+/* Success Message */
+#subscribe .success-message {
+    font-size: 1.1rem;
+    color: #2ecc71;
+    font-weight: bold;
+    margin-top: 15px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Error Message */
+#subscribe .error-message {
+    font-size: 1.1rem;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 15px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #subscribe {
+        padding: 40px 15px;
+    }
+
+    #subscribe h2 {
+        font-size: 2rem;
+    }
+
+    #subscribe p {
+        font-size: 1rem;
+    }
+
+    #subscribe input, #subscribe button {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+/* Contact Form Section */
+#contact-form {
+    background: white;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#contact-form h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form input, 
+#contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#contact-form input:focus, 
+#contact-form textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(52, 152, 219, 0.5);
+}
+
+#contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+#contact-form button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#contact-form button:hover {
+    background: linear-gradient(135deg, #27ae60, #219653);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(46, 204, 113, 0.5);
+}
+
+/* Success and Error Messages */
+#contact-form .success-message {
+    font-size: 1.1rem;
+    color: #2ecc71;
+    font-weight: bold;
+    margin-top: 15px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#contact-form .error-message {
+    font-size: 1.1rem;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 15px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contact-form {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    #contact-form h2 {
+        font-size: 1.8rem;
+    }
+
+    #contact-form input, 
+    #contact-form textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    #contact-form button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+/* Digital Clock Styling */
+#live-datetime {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(135deg, #ff4757, #2ed573);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    min-width: 300px;
+    animation: glow 1.5s infinite alternate, float 3s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#live-datetime:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Smooth Glow Effect */
+@keyframes glow {
+    from { box-shadow: 0px 0px 10px rgba(255, 71, 87, 0.5); }
+    to { box-shadow: 0px 0px 20px rgba(46, 213, 115, 0.8); }
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #live-datetime {
+        font-size: 2rem;
+        padding: 15px 30px;
+        min-width: 250px;
+    }
+}
+
+/* 🌟 Footer Styling */
+footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 5px solid #ff4757;
+    box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 📌 Footer Sections */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+/* 🌍 Address & Contact */
+.footer-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #ff4757;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: #ffcc00;
+}
+
+.footer-section p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-section p:hover {
+    transform: translateX(5px);
+    color: #ff4757;
+}
+
+/* 🔗 Contact Links */
+.footer-section a {
+    color: #ffcc00;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #ff4757;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* 📡 Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    background: #ff4757;
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 71, 87, 0.5);
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    background: #ffcc00;
+    box-shadow: 0px 4px 15px rgba(255, 204, 0, 0.8);
+}
+
+/* 📱 QR Code Scanner */
+.scanner {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scanner:hover {
+    transform: scale(1.1);
+    background: #ff4757;
+    box-shadow: 0px 4px 12px rgba(255, 71, 87, 0.8);
+}
+
+.qr-code {
+    width: 50px;
+    height: 50px;
+}
+
+/* ⏰ Live Date & Time */
+.live-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.live-container:hover {
+    transform: scale(1.05);
+}
+
+.live-time {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.my-name {
+    font-size: 1.5rem;
+    margin-top: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff4757;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 🎯 Footer Bottom */
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 3px solid #ff4757;
+    font-size: 1.2rem;
+    color: #ffcc00;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* 🖋️ Typing Animation */
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid white;
+    animation: typing 4s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+}
+
+/* 🎞️ Typing Effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+    }
+    
+    .social-icons a {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+
+    .scanner {
+        width: 50px;
+        height: 50px;
+    }
+
+    .live-time {
+        font-size: 1.5rem;
+    }
+
+    .my-name {
+        font-size: 1.2rem;
+    }
+}

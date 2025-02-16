@@ -441,7 +441,7 @@ function switchLanguage(lang) {
 // Event Listener for Language Toggle Buttons
 document.getElementById("language-toggle-en")?.addEventListener("click", () => switchLanguage("en"));
 document.getElementById("language-toggle-hi")?.addEventListener("click", () => switchLanguage("hi"));    // Save the selected language in localStorage
-    localStorage.setItem("language", lang);
+    localStorage.setItem("hi", hindiRegex);
 
     // Notify the user
     speak(`Language switched to ${lang === "en" ? "English" : "Hindi"}`);

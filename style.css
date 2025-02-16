@@ -96,7 +96,7 @@ header {
 }
 /* Header Styling */
 header {
-    position: fixed;
+    position: absolute;
     height: 80px; /* Height optimized */
     background: linear-gradient(90deg, rgba(255, 150, 150, 0.6), rgba(150, 150, 255, 0.6)); /* Lightened colors */
     display: flex;
@@ -104,8 +104,8 @@ header {
     justify-content: center;
     padding: 10px 20px;
     animation: glowEffect 3s infinite alternate ease-in-out;
-    box-shadow: 0 0 15px rgba(78, 41, 41, 0.5); /* Subtle glow */
-    color: rgb(44, 2, 2); /* Text color improved */
+    box-shadow: 0 0 15px rgba(255, 150, 150, 0.5); /* Subtle glow */
+    color: white; /* Text color improved */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow added for better readability */
     font-size: 22px; /* Slightly bigger text for visibility */
     font-weight: bold; /* Making text more prominent */
@@ -122,8 +122,8 @@ header::before, header::after {
 }
 
 header::before {
-    top: 100px;
-    left:100px;
+    top: -40px;
+    left: -40px;
     background: radial-gradient(circle, rgba(255, 150, 150, 0.5), transparent);
 }
 
@@ -159,22 +159,17 @@ header::after {
         font-size: 18px; /* Mobile-friendly text size */
     }
 
-    .logo-container {
-        display: flex;
-        align-items: center;
-        margin-top: 20px; /* Yeh value badha sakte hain */
-    }
-    
     .logo-container img {
         height: 70px;
         width: 70px;
+
     }
-    
+
     .logo-text {
         font-size: 18px;
-        margin-top: 10px; /* Is value se bhi neeche kar sakte hain */
     }
-    
+}
+
 /* Advanced 3D Animated QR Code - Fixed on Right */
 .qr-code {
     position: fixed; /* Use fixed to keep it in place on the screen */

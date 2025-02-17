@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     // ✅ Get user's name from localStorage or prompt
     let userName = localStorage.getItem('userName') || prompt("Enter your name:");
@@ -347,7 +348,7 @@ function listenForLanguageChoice() {
             speak("क्षमा करें, मैं समझ नहीं पाया। कृपया हिंदी या अंग्रेज़ी चुनें।", "hi");
             listenForLanguageChoice(); // Retry listening for language choice
         }
-    };
+
     recognition.start();
 }
 

@@ -8,7 +8,7 @@ body {
 
 /* Header styles */
 header {
-    position: fixed; /* Fixed position keeps the header on top */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -16,18 +16,37 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 240px; /* Height reduced from 300px to 240px */
-    background: linear-gradient(135deg, #0d4b04, #1f8c3a, #3f790c, #7beb0b, #0d4b04, #1f8c3a, #3f790c, #7beb0b); /* New gradient colors */
-    background-size: 400% 400%; /* Gradient size for moving effect */
-    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite; /* Animations */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 3D effect shadow */
-    overflow: hidden; /* Prevent content overflow */
-    perspective: 1000px; /* 3D perspective for cool effects */
-    z-index: 1000; /* Ensure header is on top of other content */
-    color: white; /* Text color white for better visibility */
-    font-size: 24px; /* Font size increased */
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+    height: 240px;
+    
+    /* Opaque Background to block transparency */
+    background: linear-gradient(135deg, #070e06, #1f8c3a, #3f790c, #7beb0b, #0d4b04, #1f8c3a, #3f790c, #7beb0b);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite;
+    
+    /* Solid Color Layer to prevent transparency */
+    position: relative;
+}
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black; /* Solid black base */
+    opacity: 0.85; /* Adjust opacity to control visibility */
+    z-index: -1;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
 }
 
 /* Gradient background animation */
@@ -68,56 +87,58 @@ header:hover {
 .logo-section {
     position: absolute;
     top: 40%; /* Logo positioned slightly above the center */
-    left: 50%; /* Logo horizontally centered */
-    transform: translate(-50%, -50%) rotateY(0deg); /* Center align and set initial rotation */
-    text-align: center; /* Center align text */
-    z-index: 2; /* Ensure logo is on top of other content */
+    right: 50%; /* Logo moved 30% from the right */
+    transform: translateY(-50%) rotateY(0deg); /* Vertical centering and initial rotation */
+    text-align: center;
+    z-index: 2;
     animation: rotateLogo 8s infinite linear; /* Rotate logo animation */
 }
 
 .logo-container {
     display: flex;
-    flex-direction: column; /* Stack logo and text vertically */
-    align-items: center; /* Center align items horizontally */
-    justify-content: center; /* Center align items vertically */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-container img {
-    height: 100px; /* Logo size */
-    width: 100px; /* Logo size */
-    border-radius: 50%; /* Circular logo */
-    border: 3px solid #ffffff; /* White border around logo */
-    box-shadow: 0 0 20px rgba(77, 60, 71, 0.5); /* Shadow effect */
-    transition: transform 0.5s ease; /* Smooth transition on hover */
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 20px rgba(77, 60, 71, 0.5);
+    transition: transform 0.5s ease;
 }
 
 .logo-container img:hover {
-    transform: scale(1.1) rotate(10deg); /* Zoom and rotate effect on hover */
+    transform: scale(1.1) rotate(10deg);
 }
 
 .logo-text {
-    font-size: 24px; /* Logo text size */
-    font-weight: bold; /* Bold text */
-    color: #281301; /* Text color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
-    margin-top: 10px; /* Space between logo and text */
-    animation: logoTextColor 5s infinite; /* Text color change animation */
+    font-size: 24px;
+    font-weight: bold;
+    color: #281301;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    animation: logoTextColor 5s infinite;
 }
 
 /* Text below the logo */
 .logo-subtext {
-    font-size: 18px; /* Smaller font size for subtext */
-    color: #ffffff; /* White color for better visibility */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
-    margin-top: 10px; /* Space between logo text and subtext */
-    animation: subtextColorChange 5s infinite; /* Optional: Add color change animation */
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    animation: subtextColorChange 5s infinite;
 }
 
 @keyframes subtextColorChange {
-    0% { color: #ffffff; } /* Start color */
-    50% { color: #f0f0f0; } /* Mid color */
-    100% { color: #ffffff; } /* End color */
+    0% { color: #ffffff; }
+    50% { color: #f0f0f0; }
+    100% { color: #ffffff; }
 }
+
+
 /* QR Code Section */
 .qr-code {
     position: absolute;
@@ -2868,43 +2889,26 @@ footer {
         font-size: 1.2rem;
     }
 }
-/* Back to Top Button Styling */
-.footer a[href="#home"] {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: whitesmoke;
-    text-decoration: none;
-    background: linear-gradient(135deg, #ff7eb3, #ff758c);
-    border-radius: 25px;
-    box-shadow: 0 5px 15px rgba(255, 118, 136, 0.4);
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 20px;
+
+/* Hover effect */
+li a:hover {
+    color: white; /* Color changes to white */
+    background-color: yellow; /* Background color changes to yellow */
+    cursor: pointer; /* Changes cursor to pointer */
 }
 
-/* Hover Effect */
-.footer a[href="#home"]:hover {
-    transform: translateX(-50%) scale(1.1);
-    box-shadow: 0 8px 20px rgba(255, 118, 136, 0.6);
+/* Jumping Animation */
+@keyframes jump {
+    0% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+    100% { transform: translateX(-50%) translateY(0); }
 }
 
-/* Footer Styling */
-.footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: whitesmoke;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    li a {
+        font-size: 16px; /* Smaller font size for smaller screens */
+        padding: 8px 16px; /* Adjusts padding */
+    }
 }
 
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}

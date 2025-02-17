@@ -1610,6 +1610,36 @@ body.dark .video-container video:hover {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Like System */
+.like-system {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 3;
+}
+
+.like-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.like-btn:hover {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+.like-count {
+    font-size: 1rem;
+    color: white;
+}
+
 /* Floating Glow Animation */
 @keyframes floatingGlow {
     0% { transform: translateY(-20px) translateX(-20px); }
@@ -1652,6 +1682,7 @@ body.dark .video-container video:hover {
 body.dark .video-divider {
     background: linear-gradient(90deg, #ff7676, #7676ff);
 }
+
 /* Advanced & High-Level 3D Animated Audio Section */
 #audio {
     background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Soft Light Gradient */

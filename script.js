@@ -1129,6 +1129,14 @@ function initializeReviewSection() {
 // Run when the page loads
 window.onload = initializeReviewSection;
 
+document.querySelectorAll('.like-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const likeCount = button.previousElementSibling;
+        let count = parseInt(likeCount.textContent);
+        likeCount.textContent = count + 1;
+    });
+});
+
 /* ================== Ask Question Section - js ================== */
 
 // Function to handle form submission

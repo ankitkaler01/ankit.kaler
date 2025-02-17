@@ -1319,7 +1319,7 @@ body.light #gallery h2 {
 }
 
 /* Gallery Items */
-.gallery-item {
+.gallery-container figure {
     position: relative;
     overflow: hidden;
     border-radius: 15px;
@@ -1329,48 +1329,31 @@ body.light #gallery h2 {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.2);
-    animation: float 6s infinite ease-in-out;
-}
-
-/* Floating Animation */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
 }
 
 /* Images with 3D Effect */
-.gallery-item img {
+.gallery-container img {
     width: 100%;
+    height: 300px;
+    object-fit: cover;
     border-radius: 15px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     transform-style: preserve-3d;
 }
 
 /* Hover Effects */
-.gallery-item:hover img {
+.gallery-container figure:hover img {
     transform: rotateY(20deg) scale(1.2);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
-.gallery-item::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 15px;
-}
-
-.gallery-item:hover::after {
-    opacity: 1;
+.gallery-container figure:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
 }
 
 /* Image Caption */
-.gallery-item p {
+.gallery-container figcaption {
     position: absolute;
     bottom: -50px;
     left: 50%;
@@ -1383,44 +1366,39 @@ body.light #gallery h2 {
     z-index: 2;
 }
 
-.gallery-item:hover p {
+.gallery-container figure:hover figcaption {
     bottom: 20px;
     opacity: 1;
 }
 
 /* Like System */
-.like-btn {
+.like-system {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
+    gap: 5px;
     z-index: 3;
 }
 
+.like-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
 .like-btn:hover {
-    background: rgba(255, 100, 100, 0.8);
+    background: rgba(255, 0, 0, 0.8);
 }
 
-.like-btn.liked {
-    background: rgba(255, 100, 100, 0.8);
-}
-
-.like-btn i {
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.like-btn.liked i {
-    color: #ff7676;
+.like-count {
+    font-size: 1rem;
+    color: white;
 }
 
 /* Floating Glow Effect */

@@ -1682,7 +1682,6 @@ body.dark .video-container video:hover {
 body.dark .video-divider {
     background: linear-gradient(90deg, #ff7676, #7676ff);
 }
-
 /* Advanced & High-Level 3D Animated Audio Section */
 #audio {
     background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Soft Light Gradient */
@@ -1695,8 +1694,11 @@ body.dark .video-divider {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     margin-top: 80px;  /* ऊपर का गैप */
     margin-bottom: 80px; /* नीचे का गैप */
-    animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out, colorShiftAudio 10s infinite alternate;
     transition: background 3s ease-in-out;
+    border: 4px solid transparent;
+    border-image: linear-gradient(135deg, #ff9a9e, #fad0c4) 1;
+    border-image-slice: 1;
 }
 
 /* Dark Theme */
@@ -1704,6 +1706,7 @@ body.dark #audio {
     background: linear-gradient(135deg, #1f1c2c, #928dab); /* Dark Gradient */
     color: white;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-image: linear-gradient(135deg, #2b5876, #4e4376) 1;
 }
 
 /* Dynamic 3D Background Animation */
@@ -1730,6 +1733,7 @@ body.dark #audio {
 
 #audio:hover {
     animation: colorShiftAudio 10s infinite alternate;
+    border-image: linear-gradient(135deg, #ff9a9e, #fad0c4) 1;
 }
 
 /* Floating Glow Effect */
@@ -1790,17 +1794,22 @@ audio {
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #ff9a9e, #fad0c4) 1;
+    border-image-slice: 1;
 }
 
 body.dark audio {
     background: rgba(0, 0, 0, 0.8);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-image: linear-gradient(135deg, #2b5876, #4e4376) 1;
 }
 
 /* 3D Audio Player Hover Effect */
 audio:hover {
     transform: scale(1.1) rotateY(10deg);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-image: linear-gradient(135deg, #ff9a9e, #fad0c4) 1;
 }
 
 /* 3D Floating Animations */
@@ -1839,7 +1848,6 @@ body.dark .audio-divider {
 .next-section {
     padding-top: 80px; /* ऊपर का गैप */
 }
-
 /* Projects Section */
 #projects {
     background: linear-gradient(to right, #ffffff, #f8f9fa);

@@ -886,6 +886,13 @@ function initializeGallery() {
 
 // Initialize the gallery when the page loads
 window.onload = initializeGallery;
+document.querySelectorAll('.like-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const likeCount = button.previousElementSibling;
+        let count = parseInt(likeCount.textContent);
+        likeCount.textContent = count + 1;
+    });
+});
 
 /* ================== video Section - High-Level CSS ================== */
 

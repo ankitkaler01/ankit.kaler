@@ -52,13 +52,13 @@ header:hover {
         transform: rotateY(0deg);
     }
     100% {
-        transform: rotateY(360deg);
+        transform: rotateY(180deg);
     }
 }
 /* Logo Section */
 .logo-section {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%) rotateY(0deg);
     text-align: center;

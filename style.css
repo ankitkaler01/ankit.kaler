@@ -72,6 +72,7 @@ header {
 
 /* Logo Hover Effect */
 .logo-container img:hover {
+    margin-top: 12px;
     transform: rotateY(360deg) scale(1.3);
 }
 
@@ -122,14 +123,14 @@ header::before, header::after {
 }
 
 header::before {
-    top: -40px;
+    top: 0%px;
     left: -40px;
     background: radial-gradient(circle, rgba(255, 150, 150, 0.5), transparent);
 }
 
 header::after {
-    bottom: -40px;
-    right: -40px;
+    bottom: 0px;
+    right: 0px;
     background: radial-gradient(circle, rgba(150, 150, 255, 0.5), transparent);
 }
 

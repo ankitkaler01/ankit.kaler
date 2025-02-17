@@ -16,11 +16,18 @@ header {
     align-items: center;
     justify-content: center;
     height: 240px; /* Height ko 300px se 240px reduce kiya gaya hai */
-    background-color: #0d4b04; /* Solid background color */
+    background-color: whitesmoke;
+    background: linear-gradient(135deg, #0d4b04, #1f8c3a, #3f790c, #7beb0b, #0d4b04, #1f8c3a, #3f790c, #7beb0b); /* New gradient colors */
+    background-size: 400% 400%; /* Gradient ko bada aur moving banata hai */
+    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite; /* Animations add ki gayi hain */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 3D effect ke liye shadow */
     overflow: hidden; /* Content ko overflow hone se roka gaya hai */
     perspective: 1000px; /* 3D perspective cool effects ke liye */
     z-index: 1000; /* Yeh ensure karta hai ki header baaki content ke upar rahe */
+    color: white; /* Text color white for better visibility */
+    font-size: 24px; /* Font size increased */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
 }
 
 /* Smooth background gradient animation ke liye keyframes */
@@ -53,10 +60,9 @@ header:hover {
         transform: rotateY(0deg); /* Start mein koi rotation nahi */
     }
     100% {
-        transform: rotateY(180deg); /* Header ko 180 degree rotate karte hain */
+        transform: rotateY(30deg); /* Header ko 360 degree rotate karte hain */
     }
 }
-
 /* Logo Section */
 .logo-section {
     position: absolute;

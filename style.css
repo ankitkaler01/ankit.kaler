@@ -190,6 +190,7 @@ header::after {
     animation: none; /* Remove all animations */
     transform: scale(1) rotate(0deg); /* Reset any transformations */
     z-index: 1000; /* Ensure it stays on top of other elements */
+    transform-origin: right;
 }
 
 /* QR Code Hover Effects */

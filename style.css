@@ -6,29 +6,33 @@ body {
     overflow-x: hidden;
 }
 
-/* Header styles */
+/* Fixed & Non-Transparent Header */
 header {
-    position: fixed; /* Fixed position keeps the header on top */
+    position: fixed; /* Header ko ek jagah fix karne ke liye */
     top: 0;
     left: 0;
     width: 100%;
+    height: 190px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 240px; /* Height reduced from 300px to 240px */
-    background: linear-gradient(135deg, #070e06, #1f8c3a, #3f790c, #7beb0b, #0d4b04, #1f8c3a, #3f790c, #7beb0b); /* New gradient colors */
-    background-size: 400% 400%; /* Gradient size for moving effect */
-    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite; /* Animations */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 3D effect shadow */
-    overflow: hidden; /* Prevent content overflow */
-    perspective: 1000px; /* 3D perspective for cool effects */
-    z-index: 1000; /* Ensure header is on top of other content */
-    color: white; /* Text color white for better visibility */
-    font-size: 24px; /* Font size increased */
+    
+    /* Fully Opaque Gradient Background */
+    background: linear-gradient(135deg, #28c912, #1f8c3a, #3f790c, #7beb0b, #0d4b04, #1f8c3a, #3f790c, #7beb0b);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    
+    /* Ensuring It Stays on Top */
+    z-index: 9999; /* Sabse upar rahega */
+    color: white;
+    font-size: 24px;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(201, 247, 36, 0.5); /* Text shadow for better readability */
+    text-shadow: 2px 2px 4px rgba(201, 247, 36, 0.5);
+    box-shadow: 0 4px 15px rgba(59, 121, 2, 0.5);
 }
+
+/* Solid Opaque Layer to Block Background */
 header::before {
     content: "";
     position: absolute;
@@ -36,54 +40,37 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: black; /* Solid black base */
-    opacity: 0.85; /* Adjust opacity to control visibility */
+    background: rgb(90, 245, 1); /* Pure solid black */
     z-index: -1;
 }
 
+/* Disable Scrolling Effect for Header */
+body {
+    padding-top: 240px; /* Header ki height jitna padding de diya, taki content niche dikhe */
+}
+
+/* Gradient Animation */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-@keyframes shimmer {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
-}
-
-/* Gradient background animation */
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Shimmer effect for glowing effect */
+/* Shimmer Effect */
 @keyframes shimmer {
     0%, 100% {
-        transform: translateZ(0) scale(1); /* Normal state */
-        opacity: 1; /* Fully visible */
+        transform: translateZ(0) scale(1);
+        opacity: 1;
     }
     50% {
-        transform: translateZ(50px) scale(1.1); /* Slightly zoomed in effect for glowing */
-        opacity: 0.8; /* Reduced opacity for shimmer effect */
+        transform: translateZ(20px) scale(1.05);
+        opacity: 0.9;
     }
 }
 
-/* Optional: 3D rotation effect on hover */
+/* Disable Hover Rotation */
 header:hover {
-    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite, rotate3D 5s linear infinite; /* Add rotation on hover */
-}
-
-/* 3D rotation keyframes */
-@keyframes rotate3D {
-    0% {
-        transform: rotateY(0deg); /* Start with no rotation */
-    }
-    100% {
-        transform: rotateY(30deg); /* Rotate header by 360 degrees */
-    }
+    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite;
 }
 
 /* Logo Section */
@@ -94,7 +81,7 @@ header:hover {
     transform: translateY(-50%) rotateY(0deg); /* Vertical centering and initial rotation */
     text-align: center;
     z-index: 2;
-    animation: rotateLogo 8s infinite linear; /* Rotate logo animation */
+    animation: rotateLogo 0s infinite linear; /* Rotate logo animation */
 }
 
 .logo-container {
@@ -109,7 +96,7 @@ header:hover {
     width: 100px;
     border-radius: 50%;
     border: 3px solid #ffffff;
-    box-shadow: 0 0 20px rgba(77, 60, 71, 0.5);
+    box-shadow: 0 0 20px black(3, 13, 200, 0.5);
     transition: transform 0.5s ease;
 }
 
@@ -136,7 +123,7 @@ header:hover {
 }
 
 @keyframes subtextColorChange {
-    0% { color: #ffffff; }
+    0% { color: #e5e7e0; }
     50% { color: #f0f0f0; }
     100% { color: #ffffff; }
 }
@@ -155,16 +142,17 @@ header:hover {
     position: absolute;
     top: 20px;
     left: 20px; /* Positioned to the left of the logo */
-    padding: 10px 20px;
-    background: rgba(12, 10, 10, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(251, 235, 7, 0.5);
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ffdd57, #ff7eb3); /* Gradient Background */
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255, 206, 84, 0.8);
     animation: glow 2s infinite alternate, rotateBox 6s infinite linear;
+    transition: all 0.3s ease-in-out;
 }
 
 @keyframes glow {
-    0% { box-shadow: 0 0 20px rgba(124, 227, 22, 0.5); }
-    100% { box-shadow: 0 0 40px rgba(101, 190, 81, 0.9); }
+    0% { box-shadow: 0 0 20px rgba(255, 183, 77, 0.5); }
+    100% { box-shadow: 0 0 40px rgba(255, 94, 77, 0.9); }
 }
 
 @keyframes rotateBox {
@@ -172,20 +160,27 @@ header:hover {
     100% { transform: rotateY(360deg); }
 }
 
-.name-box h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #1b1010;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    animation: colorChange 5s infinite;
+.name-box:hover {
+    transform: scale(1.1) rotateY(10deg); /* Subtle Hover Effect */
+    box-shadow: 0 0 50px rgba(255, 94, 77, 0.9);
 }
 
+/* Name Text Styling */
+.name-box h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    animation: colorChange 4s infinite linear;
+}
+
+/* Color Changing Effect */
 @keyframes colorChange {
-    0% { color: #1a1a2e; } /* Deep Navy Blue */
-    25% { color: #16213e; } /* Dark Blue */
-    50% { color: #0f3460; } /* Ocean Blue */
-    75% { color: #e94560; } /* Vibrant Pink */
-    100% { color: #1a1a2e; } /* Deep Navy Blue */
+    0% { color: #ffdd57; } /* Yellow Gold */
+    25% { color: #ff7eb3; } /* Soft Pink */
+    50% { color: #3687ff; } /* Electric Blue */
+    75% { color: #00c2cb; } /* Cyan */
+    100% { color: #f95f62; } /* Coral Red */
 }
 
 /* Quote Section */
@@ -194,8 +189,8 @@ header:hover {
     bottom: 25px; /* Positioned slightly above the bottom */
     font-size: 18px; /* Font size for quote */
     font-style: italic; /* Italic text */
-    color: #f1bbbb; /* Initial color */
-    text-shadow: 2px 2px 4px rgba(193, 179, 179, 0.5); /* Text shadow */
+    color: #8e8686; /* Initial color */
+    text-shadow: 2px 2px 4px rgba(209, 137, 137, 0.5); /* Text shadow */
     animation: quoteColorChange 5s infinite; /* Color change animation */
 }
 

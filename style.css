@@ -8,7 +8,7 @@ body {
 
 /* Header styles */
 header {
-    position: fixed;
+    position: fixed; /* Fixed position keeps the header on top */
     top: 0;
     left: 0;
     width: 100%;
@@ -16,15 +16,18 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 240px;
-    
-    /* Opaque Background to block transparency */
-    background: linear-gradient(135deg, #070e06, #1f8c3a, #3f790c, #7beb0b, #0d4b04, #1f8c3a, #3f790c, #7beb0b);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite;
-    
-    /* Solid Color Layer to prevent transparency */
-    position: relative;
+    height: 240px; /* Height reduced from 300px to 240px */
+    background: linear-gradient(135deg, #070e06, #1f8c3a, #3f790c, #7beb0b, #0d4b04, #1f8c3a, #3f790c, #7beb0b); /* New gradient colors */
+    background-size: 400% 400%; /* Gradient size for moving effect */
+    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite; /* Animations */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 3D effect shadow */
+    overflow: hidden; /* Prevent content overflow */
+    perspective: 1000px; /* 3D perspective for cool effects */
+    z-index: 1000; /* Ensure header is on top of other content */
+    color: white; /* Text color white for better visibility */
+    font-size: 24px; /* Font size increased */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(201, 247, 36, 0.5); /* Text shadow for better readability */
 }
 header::before {
     content: "";

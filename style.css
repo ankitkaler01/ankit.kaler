@@ -6,8 +6,9 @@ body {
     overflow-x: hidden;
 }
 
+/* Header styles */
 header {
-    position: fixed; /* Fixed position se header hamesha upar rahega */
+    position: fixed; /* Fixed position keeps the header on top */
     top: 0;
     left: 0;
     width: 100%;
@@ -15,54 +16,188 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 240px; /* Height ko 300px se 240px reduce kiya gaya hai */
-    background-color: whitesmoke;
+    height: 240px; /* Height reduced from 300px to 240px */
     background: linear-gradient(135deg, #0d4b04, #1f8c3a, #3f790c, #7beb0b, #0d4b04, #1f8c3a, #3f790c, #7beb0b); /* New gradient colors */
-    background-size: 400% 400%; /* Gradient ko bada aur moving banata hai */
-    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite; /* Animations add ki gayi hain */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 3D effect ke liye shadow */
-    overflow: hidden; /* Content ko overflow hone se roka gaya hai */
-    perspective: 1000px; /* 3D perspective cool effects ke liye */
-    z-index: 1000; /* Yeh ensure karta hai ki header baaki content ke upar rahe */
+    background-size: 400% 400%; /* Gradient size for moving effect */
+    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite; /* Animations */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 3D effect shadow */
+    overflow: hidden; /* Prevent content overflow */
+    perspective: 1000px; /* 3D perspective for cool effects */
+    z-index: 1000; /* Ensure header is on top of other content */
     color: white; /* Text color white for better visibility */
     font-size: 24px; /* Font size increased */
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
 }
 
-/* Smooth background gradient animation ke liye keyframes */
+/* Gradient background animation */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Shimmer effect jo glowing effect deta hai */
+/* Shimmer effect for glowing effect */
 @keyframes shimmer {
     0%, 100% {
         transform: translateZ(0) scale(1); /* Normal state */
-        opacity: 1; /* Pura visible */
+        opacity: 1; /* Fully visible */
     }
     50% {
-        transform: translateZ(50px) scale(1.1); /* Thoda zoomed in effect for glowing */
+        transform: translateZ(50px) scale(1.1); /* Slightly zoomed in effect for glowing */
         opacity: 0.8; /* Reduced opacity for shimmer effect */
     }
 }
 
-/* Optional: Hover karte waqt 3D rotation effect */
+/* Optional: 3D rotation effect on hover */
 header:hover {
-    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite, rotate3D 5s linear infinite; /* Hover pe rotation add hota hai */
+    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite, rotate3D 5s linear infinite; /* Add rotation on hover */
 }
 
-/* 3D rotation ke liye keyframes */
+/* 3D rotation keyframes */
 @keyframes rotate3D {
     0% {
-        transform: rotateY(0deg); /* Start mein koi rotation nahi */
+        transform: rotateY(0deg); /* Start with no rotation */
     }
     100% {
-        transform: rotateY(30deg); /* Header ko 360 degree rotate karte hain */
+        transform: rotateY(30deg); /* Rotate header by 360 degrees */
     }
 }
+
+/* Logo Section */
+.logo-section {
+    position: absolute;
+    top: 40%; /* Logo positioned slightly above the center */
+    left: 50%; /* Logo horizontally centered */
+    transform: translate(-50%, -50%) rotateY(0deg); /* Center align and set initial rotation */
+    text-align: center; /* Center align text */
+    z-index: 2; /* Ensure logo is on top of other content */
+    animation: rotateLogo 8s infinite linear; /* Rotate logo animation */
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Stack logo and text vertically */
+    align-items: center; /* Center align items horizontally */
+    justify-content: center; /* Center align items vertically */
+}
+
+.logo-container img {
+    height: 100px; /* Logo size */
+    width: 100px; /* Logo size */
+    border-radius: 50%; /* Circular logo */
+    border: 3px solid #ffffff; /* White border around logo */
+    box-shadow: 0 0 20px rgba(77, 60, 71, 0.5); /* Shadow effect */
+    transition: transform 0.5s ease; /* Smooth transition on hover */
+}
+
+.logo-container img:hover {
+    transform: scale(1.1) rotate(10deg); /* Zoom and rotate effect on hover */
+}
+
+.logo-text {
+    font-size: 24px; /* Logo text size */
+    font-weight: bold; /* Bold text */
+    color: #281301; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+    margin-top: 10px; /* Space between logo and text */
+    animation: logoTextColor 5s infinite; /* Text color change animation */
+}
+
+/* Text below the logo */
+.logo-subtext {
+    font-size: 18px; /* Smaller font size for subtext */
+    color: #ffffff; /* White color for better visibility */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+    margin-top: 10px; /* Space between logo text and subtext */
+    animation: subtextColorChange 5s infinite; /* Optional: Add color change animation */
+}
+
+@keyframes subtextColorChange {
+    0% { color: #ffffff; } /* Start color */
+    50% { color: #f0f0f0; } /* Mid color */
+    100% { color: #ffffff; } /* End color */
+}
+/* QR Code Section */
+.qr-code {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+/* Name Section */
+.name-box {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Positioned to the left of the logo */
+    padding: 10px 20px;
+    background: rgba(12, 10, 10, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(251, 235, 7, 0.5);
+    animation: glow 2s infinite alternate, rotateBox 6s infinite linear;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(124, 227, 22, 0.5); }
+    100% { box-shadow: 0 0 40px rgba(101, 190, 81, 0.9); }
+}
+
+@keyframes rotateBox {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.name-box h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1b1010;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+    0% { color: #1a1a2e; } /* Deep Navy Blue */
+    25% { color: #16213e; } /* Dark Blue */
+    50% { color: #0f3460; } /* Ocean Blue */
+    75% { color: #e94560; } /* Vibrant Pink */
+    100% { color: #1a1a2e; } /* Deep Navy Blue */
+}
+
+/* Quote Section */
+#quote-text {
+    position: absolute; /* Position relative to parent */
+    bottom: 25px; /* Positioned slightly above the bottom */
+    font-size: 18px; /* Font size for quote */
+    font-style: italic; /* Italic text */
+    color: #f1bbbb; /* Initial color */
+    text-shadow: 2px 2px 4px rgba(193, 179, 179, 0.5); /* Text shadow */
+    animation: quoteColorChange 5s infinite; /* Color change animation */
+}
+
+#quote-author {
+    position: absolute; /* Position relative to parent */
+    bottom: 6px; /* Positioned slightly above the bottom */
+    font-size: 14px; /* Font size for author */
+    color: #2c0a0a; /* Initial color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+    animation: authorColorChange 5s infinite; /* Color change animation */
+}
+
+/* Quote text color change animation */
+@keyframes quoteColorChange {
+    0% { color: #3b0709; } /* Deep red */
+    50% { color: #091b3a; } /* Deep blue */
+    100% { color: #0f2112; } /* Deep green */
+}
+
+/* Author name color change animation */
+@keyframes authorColorChange {
+    0% { color: #bb3333; } /* Deep purple */
+    50% { color: #440733; } /* Maroon */
+    100% { color: #3d0f1f; } /* Deep red */
+}
+
 /* Logo Section */
 .logo-section {
     position: absolute;

@@ -15,15 +15,12 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 240px; /* Height ko 300px se 250px reduce kiya gaya hai */
-    background: linear-gradient(135deg, #285347, #7beb0b, #3f790c, #3f4108, #285347, #7beb0b, #3f790c, #3f4108);
-    background-size: 400% 400%; /* Gradient ko bada aur moving banata hai */
-    animation: gradientBG 10s ease infinite, shimmer 3s ease-in-out infinite; /* Animations add ki gayi hain */
+    height: 240px; /* Height ko 300px se 240px reduce kiya gaya hai */
+    background-color: #0d4b04; /* Solid background color */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 3D effect ke liye shadow */
     overflow: hidden; /* Content ko overflow hone se roka gaya hai */
     perspective: 1000px; /* 3D perspective cool effects ke liye */
     z-index: 1000; /* Yeh ensure karta hai ki header baaki content ke upar rahe */
-    background-color: #0d4b04; /* Ensure solid non-transparent background */
 }
 
 /* Smooth background gradient animation ke liye keyframes */
@@ -56,61 +53,61 @@ header:hover {
         transform: rotateY(0deg); /* Start mein koi rotation nahi */
     }
     100% {
-        transform: rotateY(deg); /* Header ko 180 degree rotate karte hain */
+        transform: rotateY(180deg); /* Header ko 180 degree rotate karte hain */
     }
 }
 
 /* Logo Section */
 .logo-section {
     position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotateY(0deg);
-    text-align: center;
-    z-index: 2;
-    animation: rotateLogo 8s infinite linear;
+    top: 40%; /* Logo ko screen ke center ke thoda upar rakha gaya hai */
+    left: 50%; /* Logo ko horizontal center me rakha gaya hai */
+    transform: translate(-50%, -50%) rotateY(0deg); /* Logo ko center me align kiya gaya aur rotateY 0 degree set kiya gaya */
+    text-align: center; /* Logo text ko center me align kiya gaya */
+    z-index: 2; /* Yeh ensure karta hai ki logo baaki content ke upar ho */
+    animation: rotateLogo 8s infinite linear; /* Logo ko rotate karne ke liye animation apply kiya gaya hai */
 }
 
 @keyframes rotateLogo {
-    0% { transform: translate(-50%, -50%) rotateY(0deg); }
-    50% { transform: translate(-50%, -50%) rotateY(180deg); }
-    100% { transform: translate(-50%, -50%) rotateY(360deg); }
+    0% { transform: translate(-50%, -50%) rotateY(0deg); } /* 0% pe logo rotate nahi hoga */
+    50% { transform: translate(-50%, -50%) rotateY(180deg); } /* 50% pe logo 180 degree rotate hoga */
+    100% { transform: translate(-50%, -50%) rotateY(360deg); } /* 100% pe logo 360 degree rotate hoga */
 }
 
 .logo-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Logo aur text ko vertically center me align kiya gaya hai */
+    justify-content: center; /* Logo aur text ko horizontally center me rakha gaya hai */
 }
 
 .logo-container img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    border: 3px solid #ffffff;
-    box-shadow: 0 0 20px rgba(77, 60, 71, 0.5);
-    transition: transform 0.5s ease;
+    height: 100px; /* Logo ka size 100px set kiya gaya hai */
+    width: 100px; /* Logo ka width 100px set kiya gaya hai */
+    border-radius: 50%; /* Logo ko circular banane ke liye border-radius use kiya gaya */
+    border: 3px solid #ffffff; /* Logo ke aas-paas white border diya gaya hai */
+    box-shadow: 0 0 20px rgba(77, 60, 71, 0.5); /* Logo ko shadow effect diya gaya hai */
+    transition: transform 0.5s ease; /* Logo hover pe smooth transition effect diya gaya hai */
 }
 
 .logo-container img:hover {
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.1) rotate(10deg); /* Hover karte waqt logo ko thoda zoom aur rotate effect diya gaya hai */
 }
 
 .logo-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: #281301;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-left: 10px;
-    animation: logoTextColor 5s infinite;
+    font-size: 24px; /* Logo text ka size 24px set kiya gaya hai */
+    font-weight: bold; /* Logo text ko bold banaya gaya hai */
+    color: #281301; /* Logo text ka color set kiya gaya hai */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Logo text ko shadow effect diya gaya hai */
+    margin-left: 10px; /* Logo aur text ke beech space diya gaya hai */
+    animation: logoTextColor 5s infinite; /* Logo text ke color ko change karne ke liye animation apply kiya gaya hai */
 }
 
 @keyframes logoTextColor {
-    0% { color: #ff9a9e; }
-    25% { color: #fad0c4; }
-    50% { color: #fbc2eb; }
-    75% { color: #a6c1ee; }
-    100% { color: #ff9a9e; }
+    0% { color: #ff9a9e; } /* 0% pe text ka color #ff9a9e hoga */
+    25% { color: #fad0c4; } /* 25% pe text ka color #fad0c4 hoga */
+    50% { color: #fbc2eb; } /* 50% pe text ka color #fbc2eb hoga */
+    75% { color: #a6c1ee; } /* 75% pe text ka color #a6c1ee hoga */
+    100% { color: #ff9a9e; } /* 100% pe text ka color dobara se #ff9a9e hoga */
 }
 
 /* QR Code Section */
@@ -166,8 +163,8 @@ header:hover {
     bottom: 25px; /* टेक्स्ट को थोड़ा ऊपर सेट किया गया */
     font-size: 18px; /* उद्धरण के लिए फॉन्ट साइज */
     font-style: italic; /* टेक्स्ट को इटैलिक बनाए */
-    color: #e51e1e; /* उद्धरण का प्रारंभिक रंग */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* टेक्स्ट पर शैडो इफेक्ट */
+    color: #f1bbbb; /* उद्धरण का प्रारंभिक रंग */
+    text-shadow: 2px 2px 4px rgba(193, 179, 179, 0.5); /* टेक्स्ट पर शैडो इफेक्ट */
     animation: quoteColorChange 5s infinite; /* रंग बदलने के लिए एनीमेशन */
 }
 
@@ -186,7 +183,7 @@ header:hover {
 @keyframes quoteColorChange {
     0% { color: #3b0709; } /* गहरा लाल रंग */
     50% { color: #091b3a; } /* गहरा नीला रंग */
-    100% { color: #04400e; } /* गहरा हरा रंग */
+    100% { color: #0f2112; } /* गहरा हरा रंग */
 }
 
 /* लेखक के नाम के रंग बदलने के लिए कीफ्रेम्स (authorName color change animation) */

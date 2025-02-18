@@ -1,584 +1,584 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit Kaler - Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ankit Kaler - Website</title>
-        <link rel="stylesheet" href="style.css">
+       
+        <!-- ✅ Google Analytics (gtag) को यहां जोड़ें -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX'); // अपनी Google Analytics ID डालें
+        </script>
+    
+        <!-- ✅ आपके पहले से मौजूद script.js को लोड करने वाला कोड -->
         <script src="script.js" defer></script>
-        <head>
-           
-            <!-- ✅ Google Analytics (gtag) को यहां जोड़ें -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-XXXXXXXXXX'); // अपनी Google Analytics ID डालें
-            </script>
-        
-            <!-- ✅ आपके पहले से मौजूद script.js को लोड करने वाला कोड -->
-            <script src="script.js" defer></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.0.0/qrcode.min.js"></script>
-        </head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.0.0/qrcode.min.js"></script>
     </head>
-    <body>
-        <header>
-            <div class="logo-section">
-                <div class="logo-container">
-                    <img src="image/AnkitKalerlogo.webp" height="100px" width="100px" alt="Logo">
-                    <div class="logo-text">&nbsp;&nbsp;&nbsp;<u>ANKIT</u>&nbsp;<u>KALER</u></div>
-                </div>            
-            </div>        
-            <div class="name-box">
-                <h1>ANKIT KALER</h1>
-            </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="logo-section">
+            <div class="logo-container">
+                <img src="image/AnkitKalerlogo.webp" height="100px" width="100px" alt="Logo">
+                <div class="logo-text">&nbsp;&nbsp;&nbsp;<u>ANKIT</u>&nbsp;<u>KALER</u></div>
+            </div>            
+        </div>        
+        <div class="name-box">
+            <h1>ANKIT KALER</h1>
         </div>
-        
-        <p id="quote-text" style="font-size: 14px; font-style: italic; text-align: center; font-weight: bold;"></p>
-        <p id="quote-author" style="font-size: 12px; text-align: center;"></p>     
-        <p id="quote-author" style="font-size: 12px; text-align: center;"></p> 
-        
-        <div class="logo-text">
-            <!-- Logo or other content can go here -->
-        </div>
-        <h2 style="text-align: center; width: 100%;" class="typing-text"></h2>
-        <p>
-            <h2>🌟Welcome to My Digital World!🌟</h2>
-                </header>
+    </div>
+    
+    <p id="quote-text" style="font-size: 14px; font-style: italic; text-align: center; font-weight: bold;"></p>
+    <p id="quote-author" style="font-size: 12px; text-align: center;"></p>     
+    <p id="quote-author" style="font-size: 12px; text-align: center;"></p> 
+    
+    <div class="logo-text">
+        <!-- Logo or other content can go here -->
+    </div>
+    <h2 style="text-align: center; width: 100%;" class="typing-text"></h2>
+    <p>
+        <h2>🌟Welcome to My Digital World!🌟</h2>
+            </header>
 
 <!-- Hamburger Menu (3 Lines) -->
 <div class="hamburger-menu" onclick="toggleMenu()">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
 </div>
 
 <!-- Sidebar Navigation -->
 <div id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-        <span class="close-btn" onclick="toggleMenu()">✖</span>
-        <h2>📌 Navigation</h2>
-    </div>
-
-   <!-- Profile Image in Circle with Jump Animation -->
-<div class="profile-container">
-    <img src="D:\github\ankit.kaler\image/Ankit.jpg" alt="Profile Image" class="profile-photo">
+<div class="sidebar-header">
+    <span class="close-btn" onclick="toggleMenu()">✖</span>
+    <h2>📌 Navigation</h2>
 </div>
-    <ul class="sidebar-menu">
-        <li><a href="#home">🏡 Home</a></li>
-        <li><a href="#about">✨ About Me</a></li>
-        <li><a href="#gallery">📸 Gallery</a></li>
-        <li><a href="#videos">🎥 Videos</a></li>
-        <li><a href="#audio">🎧 Audio</a></li>
-        <li><a href="#projects">📂 Projects</a></li>
-        <li><a href="#leave a review">Review</a></li>
-        <li><a href="#ask a question">Ask Question</a></li>
-        <li><a href="#message">Message</a></li>
-        <li><a href="#contact">📞 Contact</a></li>
-        
-        <li class="divider"></li>
-        <li><a href="#" onclick="toggleTheme()">🌗 Dark/Light Mode</a></li>
-        <li><a href="#" onclick="startVoiceAssistant()">🎤 Voice Assistant</a></li>
-        <button id="voice-command">Start Voice Assistant</button>
-        <li><a href="#" id="language-toggle-en">🇬🇧 English</a></li>
-        <li><a href="#" id="language-toggle-hi">🇮🇳 हिंदी</a></li>
-        <li class="divider"></li>
 
-        <li id="live-time">🕒 Loading...</li>
-    </ul>
+<!-- Profile Image in Circle with Jump Animation -->
+<div class="profile-container">
+<img src="D:\github\ankit.kaler\image/Ankit.jpg" alt="Profile Image" class="profile-photo">
+</div>
+<ul class="sidebar-menu">
+    <li><a href="#home">🏡 Home</a></li>
+    <li><a href="#about">✨ About Me</a></li>
+    <li><a href="#gallery">📸 Gallery</a></li>
+    <li><a href="#videos">🎥 Videos</a></li>
+    <li><a href="#audio">🎧 Audio</a></li>
+    <li><a href="#projects">📂 Projects</a></li>
+    <li><a href="#leave a review">Review</a></li>
+    <li><a href="#ask a question">Ask Question</a></li>
+    <li><a href="#message">Message</a></li>
+    <li><a href="#contact">📞 Contact</a></li>
+    
+    <li class="divider"></li>
+    <li><a href="#" onclick="toggleTheme()">🌗 Dark/Light Mode</a></li>
+    <li><a href="#" onclick="startVoiceAssistant()">🎤 Voice Assistant</a></li>
+    <button id="voice-command">Start Voice Assistant</button>
+    <li><a href="#" id="language-toggle-en">🇬🇧 English</a></li>
+    <li><a href="#" id="language-toggle-hi">🇮🇳 हिंदी</a></li>
+    <li class="divider"></li>
+
+    <li id="live-time">🕒 Loading...</li>
+</ul>
 </div>
 
 <section id="home">
-    
-    <p id="quote-text" style="font-size: 14px; font-style: italic; text-align: center; font-weight: bold;"></p>
-    <p id="quote-author" style="font-size: 12px; text-align: center;"></p> 
-    
 
-    </div>
-    <h2 style="text-align: center; width: 100%;" class="typing-text"></h2>
-    <p>
-        <strong><u>आपका स्वागत है मेरी दुनिया में,</u></strong> <br>
-        जहां हर विचार, हर पल, और हर ख्वाब है अनमोल।
-    </p>
+<p id="quote-text" style="font-size: 14px; font-style: italic; text-align: center; font-weight: bold;"></p>
+<p id="quote-author" style="font-size: 12px; text-align: center;"></p> 
+
+
+</div>
+<h2 style="text-align: center; width: 100%;" class="typing-text"></h2>
+<p>
+    <strong><u>आपका स्वागत है मेरी दुनिया में,</u></strong> <br>
+    जहां हर विचार, हर पल, और हर ख्वाब है अनमोल।
+</p>
+<p style="font-size: 14px; font-style: italic; text-align: center;">
+    <strong><u>"सपनों की दुनिया में स्वागत है, जहाँ मेहनत से हर सपना सच होता है।"<br>
+    "Welcome to the world of dreams, where hard work turns dreams into reality."</u></strong>
+</p>
+<p style="font-size: 14px; font-style: italic; text-align: center;">
+    <strong></strong>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<div>
     <p style="font-size: 14px; font-style: italic; text-align: center;">
-        <strong><u>"सपनों की दुनिया में स्वागत है, जहाँ मेहनत से हर सपना सच होता है।"<br>
-        "Welcome to the world of dreams, where hard work turns dreams into reality."</u></strong>
+        <strong><u>"रुक मत, देख आगे क्या नया है,<br>
+        मेरी दुनिया में स्वागत है, जहां हर पल जिया है।"</u></strong>
+        -<b><small><u>ankit kaler</u></small></b>
     </p>
-    <p style="font-size: 14px; font-style: italic; text-align: center;">
-        <strong></strong>
-    </p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-    <div>
-        <p style="font-size: 14px; font-style: italic; text-align: center;">
-            <strong><u>"रुक मत, देख आगे क्या नया है,<br>
-            मेरी दुनिया में स्वागत है, जहां हर पल जिया है।"</u></strong>
-            -<b><small><u>ankit kaler</u></small></b>
-        </p>
-    </div>
+</div>
 </section>
 
 <section id="about">
-        <h2><u>✨About Me</u></h2>
-        <div style="display: flex; justify-content: space-between; font-size: 14px; font-style: italic;">
-            <p style="text-align: left; width: 33%;"><strong><u>"सूरज की रौशनी से नहीं,<br>अपने इरादों से चमकते हैं हम।"</u></strong></p>
-            <p style="text-align: center; width: 33%;"><strong><u>"सपने बड़ी आँखों से नहीं, दिल से देखे जाते हैं,<br>मेरी पहचान उन्हीं सपनों के पीछे है जो कभी अजनबी थे।"</u></strong></p>
-            <p style="text-align: right; width: 33%;"><strong><u>"जिंदगी के सफर में मैंने रास्ते खुद बनाए,<br>हर मुश्किल को अपना साथी और हर खुशी को अपना राज़ बनाया।"</u></strong></p>
-        </div>
-        <p>🚀 Achievements, work, projects, and personal interests.</p>
-        <p>🚀 उपलब्धियाँ, कार्य, परियोजनाएँ, और व्यक्तिगत रुचियाँ।</p>
-        <p>💼 Profession: Entrepreneur & Tech Enthusiast</p>
-        <p>💼 पेशा: उद्यमी और तकनीकी उत्साही</p>
-        <p>🎯 Interests: Good food, traveling, exploring old things, collecting antiques</p>
-        <p>🎯 रुचियाँ: अच्छा खाना, यात्रा, पुरानी चीज़ों की खोज, प्राचीन वस्तुओं का संग्रह</p>
+    <h2><u>✨About Me</u></h2>
+    <div style="display: flex; justify-content: space-between; font-size: 14px; font-style: italic;">
+        <p style="text-align: left; width: 33%;"><strong><u>"सूरज की रौशनी से नहीं,<br>अपने इरादों से चमकते हैं हम।"</u></strong></p>
+        <p style="text-align: center; width: 33%;"><strong><u>"सपने बड़ी आँखों से नहीं, दिल से देखे जाते हैं,<br>मेरी पहचान उन्हीं सपनों के पीछे है जो कभी अजनबी थे।"</u></strong></p>
+        <p style="text-align: right; width: 33%;"><strong><u>"जिंदगी के सफर में मैंने रास्ते खुद बनाए,<br>हर मुश्किल को अपना साथी और हर खुशी को अपना राज़ बनाया।"</u></strong></p>
+    </div>
+    <p>🚀 Achievements, work, projects, and personal interests.</p>
+    <p>🚀 उपलब्धियाँ, कार्य, परियोजनाएँ, और व्यक्तिगत रुचियाँ।</p>
+    <p>💼 Profession: Entrepreneur & Tech Enthusiast</p>
+    <p>💼 पेशा: उद्यमी और तकनीकी उत्साही</p>
+    <p>🎯 Interests: Good food, traveling, exploring old things, collecting antiques</p>
+    <p>🎯 रुचियाँ: अच्छा खाना, यात्रा, पुरानी चीज़ों की खोज, प्राचीन वस्तुओं का संग्रह</p>
 
-        <h1>My Skills</h1>
-        <p style="text-align: left ; font-style: italic; width: 133%;color: rgb(10, 11, 14) ;">
-        <li>🔥 Web Development (HTML, CSS, JS)</li>
-        <li>💡 AI & Machine Learning</li>
-        <li>🎨 Graphic Designing</li>
-        <li>🎯 Digital Marketing</li>
-      </p>
-        </div>   
-    </section>
-   
-    <section id="gallery">
-        <h2><u>📸Gallery </u></h2>
-        <div style="display: flex; justify-content: space-between; font-size: 10px; font-style: italic;">
-            <p><strong><u>कभी हंसी, कभी खुशी, कभी ग़म की पहचान,<br>हर तस्वीर में छुपा है एक नया अरमान।</u></strong></p>
-            <p><strong><u>कैमरा तो बस एक ज़रिया है,<br>असल में तस्वीरें जज़्बातों का दरिया है।</u></strong></p>
-            <p><strong><u>वक़्त ठहर जाता है तस्वीरों में कहीं,<br>एक तस्वीर में समेटे होते हैं हम भी कहीं।</u></strong></p>
-            <p><strong><u>लम्हों को संभाल कर रखा है मैंने,<br>हर तस्वीर में जिंदगी को जिया है मैंने।</u></strong></p>
-        </div>
-     <div class="gallery-container">
-        <figure>
-            <figcaption>📸Udaipur❤️ (बाहुबली हिल्स)</figcaption>
-            <p>Nature Beauty</p>
-            <img src="image/User1.jpg" height="300px" width="300px">
-            <div class="like-system">
-                <span class="like-count">4.1k</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </figure>
-        <figure>
-            <figcaption>📸Udaipur❤️ (बाहुबली हिल्स)</figcaption>
-            <p>Mountain View</p>  
-            <img src="image/User2.jpg" height="300px" width="300px" >
-            <div class="like-system">
-                <span class="like-count">1k</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </figure>
+    <h1>My Skills</h1>
+    <p style="text-align: left ; font-style: italic; width: 133%;color: rgb(10, 11, 14) ;">
+    <li>🔥 Web Development (HTML, CSS, JS)</li>
+    <li>💡 AI & Machine Learning</li>
+    <li>🎨 Graphic Designing</li>
+    <li>🎯 Digital Marketing</li>
+  </p>
+    </div>   
+</section>
 
-        <figure>
-            <figcaption> 📸Udaipur❤️(बाहुबली हिल्स)</figcaption>  
-            <p>Nature Beauty</p>       
-        <img src="image/User3.jpg"  height="300px" width="300px" >
+<section id="gallery">
+    <h2><u>📸Gallery </u></h2>
+    <div style="display: flex; justify-content: space-between; font-size: 10px; font-style: italic;">
+        <p><strong><u>कभी हंसी, कभी खुशी, कभी ग़म की पहचान,<br>हर तस्वीर में छुपा है एक नया अरमान।</u></strong></p>
+        <p><strong><u>कैमरा तो बस एक ज़रिया है,<br>असल में तस्वीरें जज़्बातों का दरिया है।</u></strong></p>
+        <p><strong><u>वक़्त ठहर जाता है तस्वीरों में कहीं,<br>एक तस्वीर में समेटे होते हैं हम भी कहीं।</u></strong></p>
+        <p><strong><u>लम्हों को संभाल कर रखा है मैंने,<br>हर तस्वीर में जिंदगी को जिया है मैंने।</u></strong></p>
+    </div>
+ <div class="gallery-container">
+    <figure>
+        <figcaption>📸Udaipur❤️ (बाहुबली हिल्स)</figcaption>
+        <p>Nature Beauty</p>
+        <img src="image/User1.jpg" height="300px" width="300px">
         <div class="like-system">
-            <span class="like-count">999</span>
+            <span class="like-count">4.1k</span>
             <button class="like-btn">❤️ Like</button>
         </div>
     </figure>
-
-        <figure>
-            <figcaption> 📸Udaipur❤️(केलेश्वर महादेव Waterfall) </figcaption>   
-            <p>Nature Beauty</p>      
-        <img src="image/User4.jpg"  height="300px" width="300px">
+    <figure>
+        <figcaption>📸Udaipur❤️ (बाहुबली हिल्स)</figcaption>
+        <p>Mountain View</p>  
+        <img src="image/User2.jpg" height="300px" width="300px" >
         <div class="like-system">
-            <span class="like-count">1.1k</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-        <figure>
-            <figcaption> 📸Udaipur❤️ </figcaption>  
-            <p>fatech sagar</p>       
-        <img src="image/User5.jpg"  height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">5k</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-        <figure>
-            <figcaption>📸Udaipur❤️(फूलों की घाटी) </figcaption>
-            <p>Nature Beauty</p>   
-        <img src="image/User6.jpg"  height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">1.2k</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-        <figure>
-            <figcaption>📸Jhunjhunu❤️(Bholenath) </figcaption> 
-        <img src="image/User7.jpg"  height="300px" width="300px" >
-            <div class="like-system">
-            <span class="like-count">2.2k</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-        <figure>
-            <figcaption>📸Udaipur❤️(केलेश्वर महादेव Waterfall) </figcaption>         
-        <img src="image/User8.jpg"  height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">3k</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-        <figure>
-            <figcaption>📸Bholenath </figcaption>        
-        <img src="image/User9.jpg"  height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">716</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-        <figure>
-            <figcaption> 📸Udaipur❤️ (बाहुबली हिल्स) </figcaption> 
-            <p>Mountain View</p>        
-        <img src="image/User10.jpg"  height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">912</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-        <figure>
-            <figcaption> 📸Udaipur❤️(बाहुबली हिल्स) </figcaption>
-            <p>Nature Beauty</p>        
-        <img src="image/User11.jpg"  height="300px" width="300px">
-        <div class="like-system">
-            <span class="like-count">831</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-        <figure>
-            <figcaption> 📸Udaipur❤️(बाहुबली हिल्स) </figcaption>  
-            <p>Sunset</p>       
-        <img src="image/User12.jpg"  height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">891</span>
+            <span class="like-count">1k</span>
             <button class="like-btn">❤️ Like</button>
         </div>
     </figure>
 
     <figure>
-        <figcaption> 📸Udaipur❤️</figcaption>        
-        <img src="image/User13.jpg" height="300px" width="300px">
-        <div class="like-system">
-            <span class="like-count">1.7k</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-
-
-    <figure>
-            <figcaption> 📸Udaipur❤️</figcaption>        
-        <img src="image/User14.jpg"  height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">677</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-           <figure>
-            <figcaption> 📸Udaipur❤️</figcaption>        
-        <img src="image/User15.jpg"  height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">951</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-
-     <figure>
-       <figcaption> </figcaption>         
-      <img src="image/User16.jpg"  height="300px" width="300px" >
-      <div class="like-system">
-        <span class="like-count">311</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-   </figure>
-
-   <figure>
-     <figcaption> </figcaption>     
-      <img src="image/User17.jpg"  height="300px" width="300px" >
-      <div class="like-system">
-        <span class="like-count">771</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-   </figure>
-
- <figure>
-    <figcaption></figcaption> 
-    <img src="image/User18.jpg"  height="300px" width="300px" >
+        <figcaption> 📸Udaipur❤️(बाहुबली हिल्स)</figcaption>  
+        <p>Nature Beauty</p>       
+    <img src="image/User3.jpg"  height="300px" width="300px" >
     <div class="like-system">
-        <span class="like-count">511</span>
+        <span class="like-count">999</span>
         <button class="like-btn">❤️ Like</button>
     </div>
- </figure>
+</figure>
 
- <figure>
-   <figcaption> </figcaption>      
-   <img src="image/User19.jpg"  height="300px" width="300px" >
-   <div class="like-system">
-    <span class="like-count">741</span>
-    <button class="like-btn">❤️ Like</button>
-</div>
- </figure>
+    <figure>
+        <figcaption> 📸Udaipur❤️(केलेश्वर महादेव Waterfall) </figcaption>   
+        <p>Nature Beauty</p>      
+    <img src="image/User4.jpg"  height="300px" width="300px">
+    <div class="like-system">
+        <span class="like-count">1.1k</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
 
+    <figure>
+        <figcaption> 📸Udaipur❤️ </figcaption>  
+        <p>fatech sagar</p>       
+    <img src="image/User5.jpg"  height="300px" width="300px" >
+    <div class="like-system">
+        <span class="like-count">5k</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+    <figure>
+        <figcaption>📸Udaipur❤️(फूलों की घाटी) </figcaption>
+        <p>Nature Beauty</p>   
+    <img src="image/User6.jpg"  height="300px" width="300px" >
+    <div class="like-system">
+        <span class="like-count">1.2k</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+    <figure>
+        <figcaption>📸Jhunjhunu❤️(Bholenath) </figcaption> 
+    <img src="image/User7.jpg"  height="300px" width="300px" >
+        <div class="like-system">
+        <span class="like-count">2.2k</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+    <figure>
+        <figcaption>📸Udaipur❤️(केलेश्वर महादेव Waterfall) </figcaption>         
+    <img src="image/User8.jpg"  height="300px" width="300px" >
+    <div class="like-system">
+        <span class="like-count">3k</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+    <figure>
+        <figcaption>📸Bholenath </figcaption>        
+    <img src="image/User9.jpg"  height="300px" width="300px" >
+    <div class="like-system">
+        <span class="like-count">716</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+    <figure>
+        <figcaption> 📸Udaipur❤️ (बाहुबली हिल्स) </figcaption> 
+        <p>Mountain View</p>        
+    <img src="image/User10.jpg"  height="300px" width="300px" >
+    <div class="like-system">
+        <span class="like-count">912</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+    <figure>
+        <figcaption> 📸Udaipur❤️(बाहुबली हिल्स) </figcaption>
+        <p>Nature Beauty</p>        
+    <img src="image/User11.jpg"  height="300px" width="300px">
+    <div class="like-system">
+        <span class="like-count">831</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+    <figure>
+        <figcaption> 📸Udaipur❤️(बाहुबली हिल्स) </figcaption>  
+        <p>Sunset</p>       
+    <img src="image/User12.jpg"  height="300px" width="300px" >
+    <div class="like-system">
+        <span class="like-count">891</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+<figure>
+    <figcaption> 📸Udaipur❤️</figcaption>        
+    <img src="image/User13.jpg" height="300px" width="300px">
+    <div class="like-system">
+        <span class="like-count">1.7k</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+
+
+<figure>
+        <figcaption> 📸Udaipur❤️</figcaption>        
+    <img src="image/User14.jpg"  height="300px" width="300px" >
+    <div class="like-system">
+        <span class="like-count">677</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
+
+       <figure>
+        <figcaption> 📸Udaipur❤️</figcaption>        
+    <img src="image/User15.jpg"  height="300px" width="300px" >
+    <div class="like-system">
+        <span class="like-count">951</span>
+        <button class="like-btn">❤️ Like</button>
+    </div>
+</figure>
 
  <figure>
    <figcaption> </figcaption>         
-   <img src="image/User20.jpg"  height="300px" width="300px" >
-   <div class="like-system">
-    <span class="like-count">601</span>
+  <img src="image/User16.jpg"  height="300px" width="300px" >
+  <div class="like-system">
+    <span class="like-count">311</span>
     <button class="like-btn">❤️ Like</button>
 </div>
- </figure>
+</figure>
 
- <figure>
-    <figcaption> </figcaption>         
-    <img src="image/User21.jpg" height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">1k</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-  </figure>
-  <figure>
+<figure>
+ <figcaption> </figcaption>     
+  <img src="image/User17.jpg"  height="300px" width="300px" >
+  <div class="like-system">
+    <span class="like-count">771</span>
+    <button class="like-btn">❤️ Like</button>
+</div>
+</figure>
 
-    <figcaption>  </figcaption>         
-    <img src="image\User22.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">925</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-  </figure>
+<figure>
+<figcaption></figcaption> 
+<img src="image/User18.jpg"  height="300px" width="300px" >
+<div class="like-system">
+    <span class="like-count">511</span>
+    <button class="like-btn">❤️ Like</button>
+</div>
+</figure>
 
-        <!-- Add more images here -->
-  
-    </div>
-       </section>
+<figure>
+<figcaption> </figcaption>      
+<img src="image/User19.jpg"  height="300px" width="300px" >
+<div class="like-system">
+<span class="like-count">741</span>
+<button class="like-btn">❤️ Like</button>
+</div>
+</figure>
 
 
-    <section id="videos">
-        <h2><u>🎥Videos</u></h2>
-     <p> <strong> <small>हर फ्रेम में छुपी है एक कहानी,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; वीडियो में बसी है यादों की रवानी।"</small> </strong> 
-         </p>
-         <p style="font-size: 14px; font-style: italic; text-align: center;">
-       <strong>वीडियो वो आईना है, जिसमें बीता कल भी मुस्कुराता है,<br>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; और आने वाला कल भी उम्मीदें जगाता है।"</strong>
-    </p>
+<figure>
+<figcaption> </figcaption>         
+<img src="image/User20.jpg"  height="300px" width="300px" >
+<div class="like-system">
+<span class="like-count">601</span>
+<button class="like-btn">❤️ Like</button>
+</div>
+</figure>
 
-    <div class="video-container">
-        <video controls>
-            <source src="video/waterfall.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
+<figure>
+<figcaption> </figcaption>         
+<img src="image/User21.jpg" height="300px" width="300px" >
+<div class="like-system">
+    <span class="like-count">1k</span>
+    <button class="like-btn">❤️ Like</button>
+</div>
+</figure>
+<figure>
 
-        <video controls>
-            <source src="video/watertour.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
-    
-        <video controls>
-            <source src="video/travel train.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
+<figcaption>  </figcaption>         
+<img src="image\User22.jpg"  height="300px" width="300px" >
+<div class="like-system">
+    <span class="like-count">925</span>
+    <button class="like-btn">❤️ Like</button>
+</div>
+</figure>
 
-        <video controls>
-            <source src="video/v3.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
-       
-        <video controls>
-            <source src="video/v4.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
+    <!-- Add more images here -->
 
-        <video controls>
-            <source src="video/lion.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
+</div>
+   </section>
 
-        <video controls>
-            <source src="video/leapord.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
 
-        <video controls>
-            <source src="video/bear.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
+<section id="videos">
+    <h2><u>🎥Videos</u></h2>
+ <p> <strong> <small>हर फ्रेम में छुपी है एक कहानी,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; वीडियो में बसी है यादों की रवानी।"</small> </strong> 
+     </p>
+     <p style="font-size: 14px; font-style: italic; text-align: center;">
+   <strong>वीडियो वो आईना है, जिसमें बीता कल भी मुस्कुराता है,<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; और आने वाला कल भी उम्मीदें जगाता है।"</strong>
+</p>
 
-        <video controls>
-            <source src="video/tiger.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
-
-        <video controls>
-            <source src="video/ostrich.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
-
-        <video controls>
-            <source src="video/udai lake.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
-
-        <video controls>
-            <source src="video/udailake.mp4" type="video/mp4">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </video>
-
-            <!-- Add more videos here -->
-
-    </div>
-    </section>
-    
-    
-    <section id="audio">
-        <h2><u>🎧Audio</u></h2>
-        <audio controls>
-            <source src="audio/audio1.mp3" type="audio/mpeg">
-            <div class="like-system">
-                <span class="like-count">0</span>
-                <button class="like-btn">❤️ Like</button>
-            </div>
-        </audio>
-         <!-- Add more audio files here -->
-    </section>
-    
-    <section id="projects">
-        <h2><u>📂Projects</u></h2>
-        <h1>My Projects – My Style | मेरे प्रोजेक्ट्स – मेरे अंदाज़ में</h1>
-        <p style="text-align: left ; font-style: italic; width: 50%;color: rgb(108, 98, 63) ;">
-             जिन्हें किसी भी मुश्किल से डर नहीं लगता,<br>
-            &nbsp;&nbsp;वही अपने सपनों को असलियत बना सकते हैं।"
-        </p>
-        <p style="text-align: center ; font-style: italic; width: 50%;color: rgb(129, 139, 218) ;">
-                <strong>"आँखों में उम्मीद और होठों पे मुस्कान हो,<br>
-                    दिल में कुछ बड़ा करने का अरमान हो।"</strong>
-            </p>
-     <p style="text-align: right ; font-style: italic; width: 50%;color: rgb(123, 130, 42) ;">
-     <strong>मंजिलों को पाने का हौसला रखो,<br>
-       रास्ते खुद-ब-खुद आसान हो जाते हैं।"</strong>
-    </p> 
-    <div style="margin-top: 20px; font-size: 16px;">
-        <h3><u>1. Personal Portfolio Website | व्यक्तिगत पोर्टफोलियो वेबसाइट</u></h3>
-        <p>A simple website to showcase your skills and projects. | अपनी क्षमताओं और प्रोजेक्ट्स को दिखाने के लिए एक साधारण वेबसाइट।</p>
-        <h3><u>2. Blog Website | ब्लॉग वेबसाइट</u></h3>
-        <p>A platform to share articles and thoughts. | लेख और विचार साझा करने के लिए एक प्लेटफ़ॉर्म।</p>
-     </div>
-  </section>
-
-<section id="review">
-    <div class="review-section">
-        <h2>Leave a Review</h2>
-        <!-- Star Rating with 3D Animation -->
-        <div class="rating">
-            <span class="star" data-value="1">★</span>
-            <span class="star" data-value="2">★</span>
-            <span class="star" data-value="3">★</span>
-            <span class="star" data-value="4">★</span>
-            <span class="star" data-value="5">★</span>
+<div class="video-container">
+    <video controls>
+        <source src="video/waterfall.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
         </div>
-        <!-- Review Form -->
-        <textarea id="review-text" placeholder="Write your review..."></textarea>
-        <!-- Photo Upload -->
-        <div class="photo-upload">
-            <input type="file" id="review-photo" accept="image/*" style="display: none;">
-            <button onclick="document.getElementById('review-photo').click()">Add Photo</button>
-            <span id="photo-name"></span>
+    </video>
+
+    <video controls>
+        <source src="video/watertour.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
         </div>
-        <!-- Submit Button -->
-        <button class="submit-btn" onclick="submitReview()">Submit Review</button>
-        <!-- Display Reviews -->
-        <div class="reviews-list">
-            <h3>User Reviews</h3>
-            <ul id="review-list"></ul>
+    </video>
+
+    <video controls>
+        <source src="video/travel train.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
         </div>
-    </div>
+    </video>
+
+    <video controls>
+        <source src="video/v3.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+   
+    <video controls>
+        <source src="video/v4.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+
+    <video controls>
+        <source src="video/lion.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+
+    <video controls>
+        <source src="video/leapord.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+
+    <video controls>
+        <source src="video/bear.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+
+    <video controls>
+        <source src="video/tiger.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+
+    <video controls>
+        <source src="video/ostrich.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+
+    <video controls>
+        <source src="video/udai lake.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+
+    <video controls>
+        <source src="video/udailake.mp4" type="video/mp4">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </video>
+
+        <!-- Add more videos here -->
+
+</div>
 </section>
 
-          
+
+<section id="audio">
+    <h2><u>🎧Audio</u></h2>
+    <audio controls>
+        <source src="audio/audio1.mp3" type="audio/mpeg">
+        <div class="like-system">
+            <span class="like-count">0</span>
+            <button class="like-btn">❤️ Like</button>
+        </div>
+    </audio>
+     <!-- Add more audio files here -->
+</section>
+
+<section id="projects">
+    <h2><u>📂Projects</u></h2>
+    <h1>My Projects – My Style | मेरे प्रोजेक्ट्स – मेरे अंदाज़ में</h1>
+    <p style="text-align: left ; font-style: italic; width: 50%;color: rgb(108, 98, 63) ;">
+         जिन्हें किसी भी मुश्किल से डर नहीं लगता,<br>
+        &nbsp;&nbsp;वही अपने सपनों को असलियत बना सकते हैं।"
+    </p>
+    <p style="text-align: center ; font-style: italic; width: 50%;color: rgb(129, 139, 218) ;">
+            <strong>"आँखों में उम्मीद और होठों पे मुस्कान हो,<br>
+                दिल में कुछ बड़ा करने का अरमान हो।"</strong>
+        </p>
+ <p style="text-align: right ; font-style: italic; width: 50%;color: rgb(123, 130, 42) ;">
+ <strong>मंजिलों को पाने का हौसला रखो,<br>
+   रास्ते खुद-ब-खुद आसान हो जाते हैं।"</strong>
+</p> 
+<div style="margin-top: 20px; font-size: 16px;">
+    <h3><u>1. Personal Portfolio Website | व्यक्तिगत पोर्टफोलियो वेबसाइट</u></h3>
+    <p>A simple website to showcase your skills and projects. | अपनी क्षमताओं और प्रोजेक्ट्स को दिखाने के लिए एक साधारण वेबसाइट।</p>
+    <h3><u>2. Blog Website | ब्लॉग वेबसाइट</u></h3>
+    <p>A platform to share articles and thoughts. | लेख और विचार साझा करने के लिए एक प्लेटफ़ॉर्म।</p>
+ </div>
+</section>
+
+<section id="review">
+<div class="review-section">
+    <h2>Leave a Review</h2>
+    <!-- Star Rating with 3D Animation -->
+    <div class="rating">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+    </div>
+    <!-- Review Form -->
+    <textarea id="review-text" placeholder="Write your review..."></textarea>
+    <!-- Photo Upload -->
+    <div class="photo-upload">
+        <input type="file" id="review-photo" accept="image/*" style="display: none;">
+        <button onclick="document.getElementById('review-photo').click()">Add Photo</button>
+        <span id="photo-name"></span>
+    </div>
+    <!-- Submit Button -->
+    <button class="submit-btn" onclick="submitReview()">Submit Review</button>
+    <!-- Display Reviews -->
+    <div class="reviews-list">
+        <h3>User Reviews</h3>
+        <ul id="review-list"></ul>
+    </div>
+</div>
+</section>
+
+      
 <section id="ask-question">
-    <h2>Ask a Question</h2>
-    <form id="question-form">
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" required>
+<h2>Ask a Question</h2>
+<form id="question-form">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
 
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" required>
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required>
 
-        <label for="question">Your Question:</label>
-        <textarea id="question" name="question" rows="4" required></textarea>
+    <label for="question">Your Question:</label>
+    <textarea id="question" name="question" rows="4" required></textarea>
 
-        <button type="submit">Submit</button>
-    </form>
-    <p id="response-message" style="display: none;">Thank you for your question! We will get back to you soon.</p>
+    <button type="submit">Submit</button>
+</form>
+<p id="response-message" style="display: none;">Thank you for your question! We will get back to you soon.</p>
 
 </section>
 
 <a href="https://wa.me/9216996531" target="_blank" class="chat-button">💬 Chat with Me</a>
 
 <section id="subscribe">
-    <h2>Subscribe to My Updates</h2>
-    <input type="email" id="email" placeholder="Enter your email">
-    <button onclick="subscribe()">Subscribe</button>
+<h2>Subscribe to My Updates</h2>
+<input type="email" id="email" placeholder="Enter your email">
+<button onclick="subscribe()">Subscribe</button>
 </section>
 <section>
 <form id="contact-form" onsubmit="sendEmail(event)">
-    <input type="text" id="contact-name" placeholder="Your Name" required>
-    <input type="email" id="contact-email" placeholder="Your Email" required>
-    <textarea id="contact-message" placeholder="Your Message" required></textarea>
-    <button type="submit">📨 Send Message</button>
+<input type="text" id="contact-name" placeholder="Your Name" required>
+<input type="email" id="contact-email" placeholder="Your Email" required>
+<textarea id="contact-message" placeholder="Your Message" required></textarea>
+<button type="submit">📨 Send Message</button>
 </form>
 </section>
 
@@ -586,87 +586,87 @@
 <div id="live-datetime"></div>
 
 <footer>
-    
-    <div class="footer-container">
-        <div class="footer-section">
-            <section id="Address">
-<p style="text-align: center ; width: 100%;color: rgb(58, 67, 168) ;"><h3>Address</h3></p>
-            <p>📍 Jhunjhunu, Rajasthan, India</p>
-            </div>
-            <div class="footer-container">
-                <div class="footer-section">
-                    <section id="contact">
-                        <p style="text-align: center ; width: 100%;color: rgb(211, 212, 222) ;"><h3>Contact</h3></p>
-            <div style="display: flex; justify-content: space-between; font-size: 14px; font-style: italic;">
-                <p style="text-align: left; width: 50%;"><strong>फ़ासले चाहे जितने भी हों दरमियान,<br>एक कॉल, एक मैसेज से मिट जाते हैं सारे ग़ुमान।"</strong></p>
-                <p style="text-align: right; width: 50%;"><strong>फोन की घंटी नहीं, दिल की आवाज़ सुनो,<br>हम तो वहीं हैं, बस एक कॉल से जुड़ो।"</strong></p>
-            </div>
-            
-            <p>📞 <a href="tel:9216996531">+91 9216996531</a></p>
-            <p>✉️ <a href="mailto:kankit77021@gmail.com">kankit77021@gmail.com</a></p>
-            
-            
-            <div id="weather">Loading Weather...</div>
 
+<div class="footer-container">
+    <div class="footer-section">
+        <section id="Address">
+<p style="text-align: center ; width: 100%;color: rgb(58, 67, 168) ;"><h3>Address</h3></p>
+        <p>📍 Jhunjhunu, Rajasthan, India</p>
         </div>
-        <div class="footer-section">
-            <h3>Follow Me</h3>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61550104302662" target="_blank">📘 Facebook</a>
-                <a href="https://www.instagram.com/ankit_kaler_01?igsh=MWR6MWV5MzBlZWFsNg==" target="_blank">📸 Instagram</a>
-                <a href="https://wa.me/9216996531" target="_blank">💬 WhatsApp</a>
-                <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener noreferrer">
-                    ▶️YouTube
-                </a>
-                
-            </div>
+        <div class="footer-container">
+            <div class="footer-section">
+                <section id="contact">
+                    <p style="text-align: center ; width: 100%;color: rgb(211, 212, 222) ;"><h3>Contact</h3></p>
+        <div style="display: flex; justify-content: space-between; font-size: 14px; font-style: italic;">
+            <p style="text-align: left; width: 50%;"><strong>फ़ासले चाहे जितने भी हों दरमियान,<br>एक कॉल, एक मैसेज से मिट जाते हैं सारे ग़ुमान।"</strong></p>
+            <p style="text-align: right; width: 50%;"><strong>फोन की घंटी नहीं, दिल की आवाज़ सुनो,<br>हम तो वहीं हैं, बस एक कॉल से जुड़ो।"</strong></p>
+        </div>
+        
+        <p>📞 <a href="tel:9216996531">+91 9216996531</a></p>
+        <p>✉️ <a href="mailto:kankit77021@gmail.com">kankit77021@gmail.com</a></p>
+        
+        
+        <div id="weather">Loading Weather...</div>
+
+    </div>
+    <div class="footer-section">
+        <h3>Follow Me</h3>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61550104302662" target="_blank">📘 Facebook</a>
+            <a href="https://www.instagram.com/ankit_kaler_01?igsh=MWR6MWV5MzBlZWFsNg==" target="_blank">📸 Instagram</a>
+            <a href="https://wa.me/9216996531" target="_blank">💬 WhatsApp</a>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener noreferrer">
+                ▶️YouTube
+            </a>
+            
         </div>
     </div>
-        <div class="social-icons">
-            <!-- Facebook QR Scanner -->
-            <div class="scanner" data-link="https://www.facebook.com/profile.php?id=61550104302662" title="Facebook">
-                <img src="image/Facebook.jpg" alt="Facebook QR Code" class="qr-code">
-            </div>
-            <!-- Instagram QR Scanner -->
-            <div class="scanner" data-link="https://www.instagram.com/ankit_kaler_01?igsh=MWR6MWV5MzBlZWFsNg==" title="Instagram">
-                <img src="image/instagram.jpg" alt="Instagram QR Code" class="qr-code">
-            </div>
-            <!-- WhatsApp QR Scanner -->
-            <div class="scanner" data-link="https://alvo.chat/5EOF" title="WhatsApp">
-                <img src="image/whatsapp.jpg" alt="WhatsApp QR Code" class="qr-code">
-            </div>
-            <!-- YouTube QR Scanner -->
-            <div class="scanner" data-link="https://www.youtube.com" title="YouTube">
-                <img src="image/youtube.jpg" alt="YouTube QR Code" class="qr-code">
-            </div>
+</div>
+    <div class="social-icons">
+        <!-- Facebook QR Scanner -->
+        <div class="scanner" data-link="https://www.facebook.com/profile.php?id=61550104302662" title="Facebook">
+            <img src="image/Facebook.jpg" alt="Facebook QR Code" class="qr-code">
         </div>
+        <!-- Instagram QR Scanner -->
+        <div class="scanner" data-link="https://www.instagram.com/ankit_kaler_01?igsh=MWR6MWV5MzBlZWFsNg==" title="Instagram">
+            <img src="image/instagram.jpg" alt="Instagram QR Code" class="qr-code">
+        </div>
+        <!-- WhatsApp QR Scanner -->
+        <div class="scanner" data-link="https://alvo.chat/5EOF" title="WhatsApp">
+            <img src="image/whatsapp.jpg" alt="WhatsApp QR Code" class="qr-code">
+        </div>
+        <!-- YouTube QR Scanner -->
+        <div class="scanner" data-link="https://www.youtube.com" title="YouTube">
+            <img src="image/youtube.jpg" alt="YouTube QR Code" class="qr-code">
+        </div>
+    </div>
 
 <div class="live-container">
-    <div class="live-time" id="liveTime"></div>
-    <div class="my-name">Ankit Kaler</div>
+<div class="live-time" id="liveTime"></div>
+<div class="my-name">Ankit Kaler</div>
 </div>
 
 <div class="footer-bottom">
-    <div class="made-by">
-        <div>
-            <h2 class="typing-text"></h2>
-        </div>
-        <p>Made by: <u><b>Ankit</u> <u>Kaler</b></u> 🚀 | All Rights Reserved © 2025</p>
-
-            <!-- Other footer content goes here -->
-        
-            <!-- Back To Top Link -->
-            <ul>
-                <li><a href="#home"><u>Back To Top</u></a></li>
-            </ul>
-        </footer>
-        
-
+<div class="made-by">
+    <div>
+        <h2 class="typing-text"></h2>
     </div>
+    <p>Made by: <u><b>Ankit</u> <u>Kaler</b></u> 🚀 | All Rights Reserved © 2025</p>
+
+        <!-- Other footer content goes here -->
+    
+        <!-- Back To Top Link -->
+        <ul>
+            <li><a href="#home"><u>Back To Home</u></a></li>
+        </ul>
+    </footer>
+    
+
 </div>
-     </footer>
-    </div>
-   </footer>
-  </body>
- </html>
+</div>
+ </footer>
+</div>
+</footer>
+</body>
+</html>
 </html>

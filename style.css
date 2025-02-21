@@ -140,7 +140,7 @@ header:hover {
 /* Name Section */
 .name-box {
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: 20px; /* Positioned to the left of the logo */
     padding: 12px 25px;
     background: linear-gradient(135deg, #ffdd57, #ff7eb3); /* Gradient Background */
@@ -167,7 +167,7 @@ header:hover {
 
 /* Name Text Styling */
 .name-box h1 {
-    font-size: 26px;
+    font-size: 16px;
     font-weight: bold;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
@@ -621,6 +621,7 @@ body.light .theme-toggle:hover {
 
 /* Advanced & High-Level 3D Animated Home Section */
 #home {
+    width: 100%;
     text-align: center;
     background: linear-gradient(135deg, #1f1c2c, #928dab); /* Default Gradient for Dark Theme */
     color: white;
@@ -666,6 +667,7 @@ body.light #home {
 
 /* Advanced & High-Level 3D Animated Home Section */
 #home {
+    width: 99%;
     text-align: center;
     background: linear-gradient(135deg, #526169, #8f947b); /* Light Gradient for Default Theme */
     color: #333; /* Default text color */
@@ -907,6 +909,7 @@ body.light #home p small {
 }
 /* Default Dark Theme */
 #about {
+    width: 100%;
     background: linear-gradient(135deg, #1a1a2e, #16213e); /* Dark Gradient */
     color: white;
     padding: 120px 20px;
@@ -1264,6 +1267,7 @@ body.light #about {
 
 /* Advanced 3D Animated Gallery Section */
 #gallery {
+    width: 98%;
     background: linear-gradient(135deg, #1f1c2c, #928dab); /* Default Dark Gradient */
     color: white;
     padding: 120px 20px;
@@ -1502,6 +1506,7 @@ body.light .gallery-divider {
 
 /* Advanced & High-Level 3D Animated Video Gallery */
 #videos {
+    width: 98%;
     background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Default Gradient */
     color: #333;
     padding: 120px 20px;
@@ -1705,10 +1710,12 @@ body.dark .video-container video:hover {
 }
 
 body.dark .video-divider {
-    background: linear-gradient(90deg, #ff7676, #7676ff);
+ background: linear-gradient(90deg, #ff7676, #7676ff);
 }
+
 /* Advanced & High-Level 3D Animated Audio Section */
 #audio {
+    width: 97.3%;
     background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Soft Light Gradient */
     color: #333;
     padding: 120px 20px;
@@ -1873,8 +1880,10 @@ body.dark .audio-divider {
 .next-section {
     padding-top: 80px; /* ऊपर का गैप */
 }
+
 /* Projects Section */
 #projects {
+    width: 97.3%;
     background: linear-gradient(to right, #ffffff, #f8f9fa);
     padding: 80px 20px;
     text-align: center;
@@ -2390,22 +2399,6 @@ button:hover {
     }
 }
 
-/* General Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
-}
-
-/* Accessibility Improvements */
-.chat-button:focus {
-    outline: 2px solid #25D366;
-    outline-offset: 2px;
-}
-
 /* Subscribe Section */
 #subscribe {
     background: linear-gradient(135deg, #3498db, #8e44ad);
@@ -2415,6 +2408,7 @@ body {
     border-radius: 15px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     margin: 40px auto;
+    width: 100%;
     max-width: 800px;
     animation: fadeIn 1s ease-in-out;
 }
@@ -2442,7 +2436,8 @@ body {
 }
 
 #subscribe input {
-    width: 90%;
+    width: 60%;
+    align-self: center;
     max-width: 400px;
     padding: 12px;
     border-radius: 25px;
@@ -2460,7 +2455,8 @@ body {
 }
 
 #subscribe button {
-    width: 90%;
+    width: 80%;
+    align-self: center;
     max-width: 400px;
     padding: 12px;
     background: #ff4757;
@@ -2530,6 +2526,7 @@ body {
 }
 /* Contact Form Section */
 #contact-form {
+    width: 99.8%;
     background: white;
     max-width: 500px;
     margin: 40px auto;
@@ -2579,7 +2576,7 @@ body {
 }
 
 #contact-form button {
-    width: 100%;
+    width: 99%;
     padding: 12px;
     background: linear-gradient(135deg, #2ecc71, #27ae60);
     color: white;
@@ -2693,6 +2690,7 @@ body {
 
 /* 🌟 Footer Styling */
 footer {
+    width: 100%;
     background: linear-gradient(135deg, #2c3e50, #34495e);
     color: white;
     padding: 50px 20px;

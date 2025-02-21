@@ -2011,6 +2011,7 @@ body.dark .audio-divider {
 
 /* Top-Level High-Quality CSS for Review Section */
 .review-section {
+    width: 100%;
     max-width: 700px;
     margin: 40px auto;
     padding: 25px;
@@ -2084,6 +2085,8 @@ h2, h3 {
 }
 
 .photo-upload button {
+    width: 78%;
+    align-self: center;
     background: linear-gradient(45deg, #007bff, #0056b3);
     color: #fff;
     border: none;
@@ -2107,8 +2110,9 @@ h2, h3 {
 
 /* Submit Button */
 .submit-btn {
-    width: 100%;
+    width: 80%;
     padding: 14px;
+    align-self: center;
     background: linear-gradient(45deg, #28a745, #1e7e34);
     color: #fff;
     border: none;
@@ -2247,9 +2251,10 @@ label {
 }
 
 input, textarea {
-    width: 100%;
+    width: 90%;
     padding: 12px;
     border-radius: 8px;
+    align-self: center;
     border: 1px solid #ccc;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -2263,9 +2268,10 @@ input:focus, textarea:focus {
 }
 
 button {
-    width: 100%;
+    width: 80%;
     padding: 12px;
     background: linear-gradient(45deg, #3498db, #2980b9);
+    align-self: center;
     color: white;
     border: none;
     border-radius: 8px;

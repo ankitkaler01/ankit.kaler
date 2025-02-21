@@ -1,7 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // ✅ Get user's name from localStorage or prompt
-    let userName = localStorage.getItem('userName') || prompt("Enter your name:");
-    if (!userName) userName = "Guest"; // Default name
 
     // ✅ Time-based greeting logic
     const hour = new Date().getHours();
@@ -208,4 +204,3 @@ document.addEventListener("DOMContentLoaded", function () {
         const utterance = new SpeechSynthesisUtterance(text);
         window.speechSynthesis.speak(utterance);
     }
-});

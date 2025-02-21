@@ -11,7 +11,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
     height: 100px; /* ✅ हेडर की फिक्स ऊँचाई */
     display: flex;
     align-items: center;

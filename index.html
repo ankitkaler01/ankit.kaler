@@ -1,143 +1,752 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ✅ SEO Optimization -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ankit Kaler - Website</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <head>
-       
-        <!-- ✅ Google Analytics (gtag) को यहां जोड़ें -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX'); // अपनी Google Analytics ID डालें
-        </script>
+    <meta name="description" content="Ankit Kaler - Advanced AI Portfolio">
+    <meta name="keywords" content="Ankit, Ankit Kaler, Ankit Kumar, Ankit Portfolio, Ankit Web Developer, AI Developer, Ankit Kaler Jhunjhunu, Ankit Jhunjhunu">
+    <meta name="author" content="Ankit Kaler">
+    <meta name="robots" content="index, follow">
     
-        <!-- ✅ आपके पहले से मौजूद script.js को लोड करने वाला कोड -->
-        <script src="script.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.0.0/qrcode.min.js"></script>
-    </head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- ✅ Open Graph (For Social Media Preview) -->
+    <meta property="og:title" content="Ankit Kaler - AI & Web Developer">
+    <title>Ankit Kaler - Website</title>
+    <meta property="og:description" content="Explore Ankit Kaler's Advanced AI & Web Development Portfolio.">
+    <meta property="og:image" content="https://yourwebsite.com/profile.jpg">
+    <meta property="og:url" content="https://yourwebsite.github.io">
+    <meta property="og:type" content="website">
+    
+    <!-- ✅ Favicon & Theme Color -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon-192x192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#ffffff">
 
+    <!-- ✅ Preloading Fonts for Faster Loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+    <!-- ✅ Auto Detect Dark/Light Mode -->
+    <script>
+        if (localStorage.getItem("theme") === "dark" || 
+            (!localStorage.getItem("theme") && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- ✅ Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+<style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f8f9fa;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+        </style>
+    
+        <!-- ✅ ✅ External JavaScript Files -->
+        <script async src="script.js"></script>
+        <script defer src="analytics.js"></script>
 </head>
-<body>
-    <header>
-        <div class="logo-section">
-            <div class="logo-container">
-                <img src="image/AnkitKalerlogo.webp" height="100px" width="100px" alt="Logo">
-                <div class="logo-text">&nbsp;&nbsp;&nbsp;<u>ANKIT</u>&nbsp;<u>KALER</u></div>
-            </div>            
-        </div>        
-        <div class="name-box">
-            <h1>ANKIT KALER</h1>
+
+<header>
+    
+         <!--- header name --->
+         <p><small><B><u>ANKIT</U> <U>KALER</u></B></small></p>
+          
+            <h1><u><b>Welcome To My Porfolio! </b></u></h1>
+
+        <!-- ✅ 3 Lines (☰) Hamburger Menu - right Side -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+</header>
+
+    <!-- ✅ Full JavaScript Code -->
+   <script>
+   
+
+// ✅ Logo Hover Effect with Animation
+const logoImg = document.querySelector(".logo-container img");
+if (logoImg) {
+    logoImg.addEventListener("mouseover", () => {
+        logoImg.style.transform = "rotateY(0deg) scale(1.3)";
+    });
+    logoImg.addEventListener("mouseout", () => {
+        logoImg.style.transform = "rotateY(0deg) scale(1)";
+    });
+}
+
+let typingIndex = 0;
+let charIndex = 0;
+const typingElement = document.querySelector(".typing-text");
+
+if (typingElement) {
+    function typeEffect() {
+        if (charIndex < typingTexts[typingIndex].length) {
+            typingElement.textContent += typingTexts[typingIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeEffect, 100);
+        } else {
+            setTimeout(eraseEffect, 2000);
+        }
+    }
+    
+    function eraseEffect() {
+        if (charIndex > 0) {
+            typingElement.textContent = typingTexts[typingIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(eraseEffect, 50);
+        } else {
+            typingIndex = (typingIndex + 1) % typingTexts.length;
+            setTimeout(typeEffect, 500);
+        }
+    }
+    
+    document.addEventListener("DOMContentLoaded", typeEffect);
+} else {
+    console.error("Error: '.typing-text' element not found!");
+}
+
+// ✅ Responsive Hamburger Menu
+function toggleMenu() {
+    let sidebar = document.getElementById("sidebar");
+    if (sidebar) {
+        sidebar.classList.toggle("active");
+    }
+}
+   </script>
+
+
+<!-- ✅ Hidden Sidebar Navigation with 3D Rotating Profile -->
+<nav id="sidebar" class="sidebar">
+        
+    <div class="profile-container" onclick="handleProfileClick()">
+        <div class="profile-box">
+            <img src="image/Ankit.jpg" class="profile-photo" id="photo1">
+            <img src="image/ak1.jpg" class="profile-photo" id="photo2">
         </div>
     </div>
+    <div class="overlay" id="overlay">
+        <span class="close-btn" onclick="closeOverlay()">❌</span>
+        <img id="overlayImg">
+        <p class="profile-name" id="profileName">ANKIT KALER</p>
+    </div>
+
+    <span class="close-btn" onclick="toggleMenu()">❌</span> 
+    <ul>
+        <li><a href="#home">🏡 Home</a></li>
+        <li><a href="#about">✨ About Me</a></li>
+        <li><a href="#gallery">📸 Gallery</a></li>
+        <li><a href="#videos">🎥 Videos</a></li>
+        <li><a href="#audio">🎧 Audio</a></li>
+        <li><a href="#projects">📂 Projects</a></li>
+        <li><a href="#review">📝 Leave a Review</a></li>
+        <li><a href="#ask a question">❓ Ask a Question</a></li>
+        <li><a href="#message">💬 Message</a></li>
+        <li><a href="#contact">📞 Contact</a></li>
+        <li class="divider"></li>
+        <li><a href="#" onclick="toggleTheme()">🌗 Dark/Light Mode</a></li>
+        <li><button id="voice-command" onclick="startVoiceAssistant()">🎤 Start Voice Assistant</button></li>
+        <li><a href="#" id="language-toggle-en">🇬🇧 English</a></li>
+        <li><a href="#" id="language-toggle-hi">🇮🇳 हिंदी</a></li>
+        <li id="live-time">🕒 Loading...</li>
+    </ul>
+</nav>
+
+<!-- ✅ CSS for Profile Animation -->
+<style>
+ .profile-section {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.profile-container {
+    position: relative;
+    width: 100px; /* Increased size */
+    height: 100px; /* Increased size */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ddd; /* Added border for visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3; /* Background for visibility */
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+    display: block;
+}
+
+.profile-name {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 14px; /* Slightly larger text for readability */
+    color: #333; /* Darker color for better visibility */
+}
+</style>
+
+<!----------------------------------------------------- hidden side bar or , vc, live time, hin / eng, lng. , dark / light mode ------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------->
+<!-- ✅ Full JavaScript Code----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<script>
+
+ clickCount = 0;        
+function handleProfileClick() {
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlayImg");
+    const profileName = document.getElementById("profileName");
     
-    <p id="quote-text" style="font-size: 14px; font-style: italic; text-align: center; font-weight: bold;"></p>
-    <p id="quote-author" style="font-size: 12px; text-align: center;"></p>     
-    <p id="quote-author" style="font-size: 12px; text-align: center;"></p> 
-    <h2>🌟Welcome to My Digital World!🌟</h2>
-            </header>
+    clickCount++;
+    if (clickCount === 1) {
+        overlayImg.src = document.getElementById("photo1").src;
+        overlay.style.display = "flex";
+    } else if (clickCount === 2) {
+        profileName.style.display = "block";
+    } else {
+        closeOverlay();
+    }
+}
 
-<!-- Hamburger Menu (3 Lines) -->
-<div class="hamburger-menu" onclick="toggleMenu()">
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-</div>
+function closeOverlay() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("profileName").style.display = "none";
+    clickCount = 0;
+}
 
-<!-- Sidebar Navigation -->
-<div id="sidebar" class="sidebar">
-<div class="sidebar-header">
-    <span class="close-btn" onclick="toggleMenu()">✖</span>
-    <h2>📌 Navigation</h2>
-</div>
+// ✅ Sidebar Toggle Functionality
+function toggleMenu() {
+    let sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("active");
 
-<!-- Profile Image in Circle with Jump Animation -->
-<div class="profile-container">
-<img src="image\ak1" alt="Profile Image" class="profile-photo">
-</div>
-<ul class="sidebar-menu">
-    <li><a href="#home">🏡 Home</a></li>
-    <li><a href="#about">✨ About Me</a></li>
-    <li><a href="#gallery">📸 Gallery</a></li>
-    <li><a href="#videos">🎥 Videos</a></li>
-    <li><a href="#audio">🎧 Audio</a></li>
-    <li><a href="#projects">📂 Projects</a></li>
-    <li><a href="#leave a review">Review</a></li>
-    <li><a href="#ask a question">Ask Question</a></li>
-    <li><a href="#message">Message</a></li>
-    <li><a href="#contact">📞 Contact</a></li>
-    <li class="divider"></li>
-    <li><a href="#" onclick="toggleTheme()">🌗 Dark/Light Mode</a></li>
-    <li><a href="#" onclick="startVoiceAssistant()">🎤 Voice Assistant</a></li>
-    <button id="voice-command">Start Voice Assistant</button>
-    <li><a href="#" id="language-toggle-en">🇬🇧 English</a></li>
-    <li><a href="#" id="language-toggle-hi">🇮🇳 हिंदी</a></li>
-    <li class="divider"></li>
+    // ✅ Lock body scroll when sidebar is open
+    if (sidebar.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "auto";
+    }
+}
 
-    <li id="live-time">🕒 Loading...</li>
-</ul>
-</div>
+// ✅ Close Sidebar on Click Outside
+document.addEventListener("click", function(event) {
+    let sidebar = document.getElementById("sidebar");
+    let hamburger = document.querySelector(".hamburger-menu");
+
+    if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+        sidebar.classList.remove("active");
+        document.body.style.overflow = "auto"; // ✅ Re-enable body scroll
+    }
+});
+
+// ✅ Touch Swipe to Open/Close Sidebar (Mobile Support)
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", function(event) {
+    touchStartX = event.touches[0].clientX;
+});
+
+document.addEventListener("touchend", function(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    let sidebar = document.getElementById("sidebar");
+
+    if (touchStartX < 50 && touchEndX > touchStartX + 50) {
+        sidebar.classList.add("active"); // 👉 Left to Right Swipe (Open Menu)
+        document.body.style.overflow = "hidden"; // ✅ Lock body scroll
+    }
+    if (touchStartX > 50 && touchEndX < touchStartX - 50) {
+        sidebar.classList.remove("active"); // 👉 Right to Left Swipe (Close Menu)
+        document.body.style.overflow = "auto"; // ✅ Re-enable body scroll
+    }
+});
+
+// ✅ Live Time Update
+function updateLiveTime() {
+    let timeElement = document.getElementById("live-time");
+    let now = new Date();
+    let timeString = now.toLocaleTimeString();
+    timeElement.innerText = `🕒 ${timeString}`;
+}
+setInterval(updateLiveTime, 1000);
+updateLiveTime();
+
+// ✅ Voice Assistant (Advanced Implementation)
+let recognition;
+let isListening = false;
+let currentLanguage = 'english'; // Default language
+let userName = "";
+
+// ✅ Voice Command List
+const commands = {
+    home: ['home', 'ghar', 'main menu', 'mukhya menu', 'start', 'shuru'],
+    about: ['about', 'about me', 'mera parichay', 'introduction'],
+    gallery: ['gallery', 'photo gallery', 'image gallery'],
+    videos: ['videos', 'watch videos', 'video library'],
+    audio: ['audio', 'listen audio', 'audio library'],
+    projects: ['projects', 'my projects', 'project list'],
+    review: ['review', 'leave a review', 'feedback'],
+    question: ['question', 'ask a question', 'sawal'],
+    message: ['message', 'send message', 'contact message'],
+    contact: ['contact', 'contact me', 'contact details'],
+    dark_mode: ['dark mode', 'night mode', 'dark theme'],
+    light_mode: ['light mode', 'day mode', 'light theme']
+};
+
+// ✅ Start Voice Assistant
+function startVoiceAssistant() {
+    if (!('webkitSpeechRecognition' in window)) {
+        alert('⚠️ Your browser does not support voice assistant. Please use Chrome.');
+        return;
+    }
+
+    recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.lang = currentLanguage === 'hindi' ? 'hi-IN' : 'en-US';
+
+    recognition.onstart = () => {
+        isListening = true;
+        speak(currentLanguage === 'hindi' ? '🎤 सुन रहा हूँ...' : '🎤 Listening...');
+    };
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[event.results.length - 1][0].transcript.toLowerCase();
+        handleVoiceCommand(transcript);
+    };
+
+    recognition.onerror = (event) => {
+        console.error('⚠️ Voice Recognition Error:', event.error);
+        speak(currentLanguage === 'hindi' ? 'त्रुटि हुई। कृपया पुनः प्रयास करें।' : 'An error occurred. Please try again.');
+    };
+
+    recognition.onend = () => {
+        isListening = false;
+        speak(currentLanguage === 'hindi' ? '🎤 सुनना बंद कर दिया।' : '🎤 Stopped listening.');
+    };
+
+    recognition.start();
+}
+
+// ✅ Handle Voice Commands
+function handleVoiceCommand(transcript) {
+    let commandFound = false;
+
+    for (const [command, aliases] of Object.entries(commands)) {
+        if (aliases.some(alias => transcript.includes(alias))) {
+            commandFound = true;
+            executeCommand(command);
+            break;
+        }
+    }
+
+    if (!commandFound) {
+        speak(currentLanguage === 'hindi' ? '⚠️ मुझे समझ में नहीं आया। कृपया सही कमांड बोलें।' : '⚠️ I did not understand. Please try again.');
+        setTimeout(suggestCommands, 2000); // Suggest commands after 2 seconds
+    }
+}
+
+// ✅ Execute Voice Commands
+function executeCommand(command) {
+    switch (command) {
+        case 'home':
+            navigateToSection('#home', 'आप होम पेज पर जा रहे हैं।', 'Navigating to the home page');
+            break;
+        case 'about':
+            navigateToSection('#about', 'आप मेरे बारे में जानकारी देख रहे हैं।', 'Navigating to the about page');
+            break;
+        case 'gallery':
+            navigateToSection('#gallery', 'गैलरी खोली जा रही है।', 'Opening the gallery');
+            break;
+        case 'videos':
+            navigateToSection('#videos', 'वीडियो खोले जा रहे हैं।', 'Opening the videos');
+            break;
+        case 'audio':
+            navigateToSection('#audio', 'ऑडियो चलाया जा रहा है।', 'Playing audio');
+            break;
+        case 'projects':
+            navigateToSection('#projects', 'प्रोजेक्ट्स दिखाए जा रहे हैं।', 'Displaying projects');
+            break;
+        case 'review':
+            navigateToSection('#review', 'रिव्यु सेक्शन खोला जा रहा है।', 'Opening the review section');
+            break;
+        case 'question':
+            navigateToSection('#ask-question', 'प्रश्न सेक्शन खोला जा रहा है।', 'Opening the question section');
+            break;
+        case 'message':
+            navigateToSection('#message', 'संदेश सेक्शन खोला जा रहा है।', 'Opening the message section');
+            break;
+        case 'contact':
+            navigateToSection('#contact', 'संपर्क सेक्शन खोला जा रहा है।', 'Opening the contact section');
+            break;
+        case 'dark_mode':
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
+            speak(currentLanguage === 'hindi' ? '🌙 डार्क मोड चालू कर दिया गया।' : '🌙 Dark mode enabled.');
+            break;
+        case 'light_mode':
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled');
+            speak(currentLanguage === 'hindi' ? '☀️ लाइट मोड चालू कर दिया गया।' : '☀️ Light mode enabled.');
+            break;
+        default:
+            speak(currentLanguage === 'hindi' ? '⚠️ कमांड नहीं मिला।' : '⚠️ Command not found.');
+    }
+}
+
+// ✅ Navigate to Section with Smooth Scroll
+function navigateToSection(sectionId, hindiMessage, englishMessage) {
+    speak(currentLanguage === 'hindi' ? hindiMessage : englishMessage);
+    document.querySelector(sectionId).scrollIntoView({ behavior: "smooth" });
+    history.pushState(null, null, sectionId);
+}
+
+// ✅ Speak Text with Advanced Settings
+function speak(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = currentLanguage === 'hindi' ? 'hi-IN' : 'en-US';
+    utterance.rate = 1;
+    utterance.pitch = 1.2;
+    utterance.volume = 1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+}
+
+// ✅ Suggest Commands on Incorrect Input
+function suggestCommands() {
+    const suggestions = [
+        "Try saying: 'Go to Home', 'Open Gallery', 'Enable Dark Mode'",
+        "Try: 'Navigate to About', 'Play Videos', 'Switch to Light Mode'",
+        "Example Commands: 'Show Projects', 'Contact Me', 'Leave a Review'"
+    ];
+    const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+    speak(randomSuggestion);
+}
+
+// ✅ Voice Assistant Button Event Listener
+document.getElementById('voice-command').addEventListener('click', () => {
+    if (!isListening) {
+        startVoiceAssistant();
+    } else {
+        recognition.stop();
+        speak(currentLanguage === 'hindi' ? '🎤 सुनना बंद कर दिया गया।' : '🎤 Stopped listening.');
+    }
+});    
+</script>
 
 <section id="home">
+        <!-- ✨ Dynamic Quote Box -->
+        <div class="quote-box">
+            <p id="quote-text" class="quote">"Loading inspirational quote..."</p>
+            <p id="quote-author" class="author">- Ankit Kaler</p>
+        </div>
+         
+        <!-- 🌟 Inspirational Quotes -->
+        <p class="quote-highlight"> 
+            <strong><u>आपका स्वागत है मेरी दुनिया में,</u></strong> <br>
+            जहां हर विचार, हर पल, और हर ख्वाब अनमोल है।
+        </p>
 
-<p id="quote-text" style="font-size: 14px; font-style: italic; text-align: center; font-weight: bold;"></p>
-<p id="quote-author" style="font-size: 12px; text-align: center;"></p> 
+        <p class="quote-highlight">
+            <strong><u>"सपनों की दुनिया में स्वागत है, जहाँ मेहनत से हर सपना सच होता है।"<br>
+            "Welcome to the world of dreams, where hard work turns dreams into reality."</u></strong>
+        </p>
 
+        <!-- 🏆 Personal Quote -->
+        <p class="personal-quote">
+            <strong><u>"रुक मत, देख आगे क्या नया है,<br> मेरी दुनिया में स्वागत है, जहां हर पल जिया है।"</u></strong>
+        </p>
+    </section>
+  
+  <style>
+    
+/* ✅ General Styling */
+#home {
+    text-align: center;
+    padding: 150px 20px;
+    background: linear-gradient(135deg, #dfe1df, #cdcfca); /* Light Gradient */
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
 
-</div>
-<h2 style="text-align: center; width: 100%;" class="typing-text"></h2>
-<p>
-    <strong><u>आपका स्वागत है मेरी दुनिया में,</u></strong> <br>
-    जहां हर विचार, हर पल, और हर ख्वाब है अनमोल।
-</p>
-<p style="font-size: 14px; font-style: italic; text-align: center;">
-    <strong><u>"सपनों की दुनिया में स्वागत है, जहाँ मेहनत से हर सपना सच होता है।"<br>
-    "Welcome to the world of dreams, where hard work turns dreams into reality."</u></strong>
-</p>
-<p style="font-size: 14px; font-style: italic; text-align: center;">
-    <strong></strong>
-</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<div>
-    <p style="font-size: 14px; font-style: italic; text-align: center;">
-        <strong><u>"रुक मत, देख आगे क्या नया है,<br>
-        मेरी दुनिया में स्वागत है, जहां हर पल जिया है।"</u></strong>
-        -<b><small><u>ankit kaler</u></small></b>
-    </p>
-</div>
-</section>
+/* ✨ Dynamic Quote Box */
+.quote-box {
+    background: rgba(204, 218, 181, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 20px auto;
+    transition: transform 0.5s, box-shadow 0.5s;
+    transform-style: preserve-3d;
+    animation: float 6s infinite ease-in-out;
+}
 
-<section id="about">
-    <h2><u>✨About Me</u></h2>
-    <div style="display: flex; justify-content: space-between; font-size: 14px; font-style: italic;">
-        <p style="text-align: left; width: 33%;"><strong><u>"सूरज की रौशनी से नहीं,<br>अपने इरादों से चमकते हैं हम।"</u></strong></p>
-        <p style="text-align: center; width: 33%;"><strong><u>"सपने बड़ी आँखों से नहीं, दिल से देखे जाते हैं,<br>मेरी पहचान उन्हीं सपनों के पीछे है जो कभी अजनबी थे।"</u></strong></p>
-        <p style="text-align: right; width: 33%;"><strong><u>"जिंदगी के सफर में मैंने रास्ते खुद बनाए,<br>हर मुश्किल को अपना साथी और हर खुशी को अपना राज़ बनाया।"</u></strong></p>
+.quote-box:hover {
+    transform: translateZ(50px) scale(1.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.quote {
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(73, 72, 72, 0.5);
+}
+
+.author {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ff7676;
+    margin-top: 15px;
+    text-shadow: 0 0 10px rgba(255, 118, 118, 0.5);
+}
+
+/* 🌟 Inspirational Quotes */
+.quote-highlight, .personal-quote {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    background: rgba(114, 201, 186, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s, box-shadow 0.5s;
+    transform-style: preserve-3d;
+    animation: float 6s infinite ease-in-out;
+}
+
+.quote-highlight:hover, .personal-quote:hover {
+    transform: translateZ(50px) scale(1.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* 🌌 Particle Animation Canvas */
+#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 3D Floating Effect */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotateX(0) rotateY(0);
+    }
+    50% {
+        transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+    }
+}
+
+/* Background Gradient Animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #9a9171, #7cbdbd, #5db968, #c5baba);
+    background-size: 400% 400%;
+    z-index: -2;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Smooth Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px) translateZ(-50px); }
+    to { opacity: 1; transform: translateY(0) translateZ(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #home {
+        padding: 100px 15px;
+    }
+
+    .quote-box, .quote-highlight, .personal-quote {
+        padding: 20px;
+    }
+
+    .typing-text {
+        font-size: 2.5rem;
+    }
+
+    .quote {
+        font-size: 1.5rem;
+    }
+
+    .author {
+        font-size: 1rem;
+    }
+}
+</style>
+    <!-- ✅ JavaScript (Advanced Functionalities) -->
+    <script>
+        // ✅ Dynamic Quotes System
+        const quotes = [
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Ankit Kaler" },
+            { text: "Dream big, work hard, stay focused, and surround yourself with good people.", author: "Ankit Kaler" },
+            { text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Ankit Kaler" }
+        ];
+        function setRandomQuote() {
+            let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quote-text").textContent = `"${randomQuote.text}"`;
+            document.getElementById("quote-author").textContent = `- ${randomQuote.author}`;
+        }
+        setRandomQuote();
+
+        // ✅ Double Click Opens a New Page, Triple Click Returns to Main Page
+        let clickCount = 0;
+        document.getElementById("home").addEventListener("click", function() {
+            clickCount++;
+            setTimeout(() => { clickCount = 0; }, 800);
+
+            if (clickCount === 2) {
+                window.open("newpage.html", "_blank");
+            } else if (clickCount === 3) {
+                window.location.href = "index.html";
+            }
+        });
+
+        // ✅ Particle Animation
+        const particles = document.getElementById("particles");
+        const ctx = particles.getContext("2d");
+        particles.width = window.innerWidth;
+        particles.height = window.innerHeight;
+        
+        let stars = [];
+        for (let i = 0; i < 100; i++) {
+            stars.push({
+                x: Math.random() * particles.width,
+                y: Math.random() * particles.height,
+                radius: Math.random() * 2,
+                speedX: Math.random() * 0.5,
+                speedY: Math.random() * 0.5
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, particles.width, particles.height);
+            ctx.fillStyle = "white";
+            for (let i = 0; i < stars.length; i++) {
+                ctx.beginPath();
+                ctx.arc(stars[i].x, stars[i].y, stars[i].radius, 0, Math.PI * 2);
+                ctx.fill();
+                stars[i].x += stars[i].speedX;
+                stars[i].y += stars[i].speedY;
+                if (stars[i].x > particles.width || stars[i].y > particles.height) {
+                    stars[i].x = Math.random() * particles.width;
+                    stars[i].y = Math.random() * particles.height;
+                }
+            }
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+    </script>
+
+<!---- about sec -->
+    <section id="about">
+    <h2><u>✨ About Me</u></h2>
+
+    <!-- 📝 Motivational Quotes -->
+    <div class="about-quotes">
+        <p class="left-quote"><strong>🌟 "सूरज की रौशनी से नहीं,<br> अपने इरादों से चमकते हैं हम।"</strong></p>
+        <p class="center-quote"><strong>🚀 "सपने बड़ी आँखों से नहीं, दिल से देखे जाते हैं,<br> मेरी पहचान उन्हीं सपनों के पीछे है जो कभी अजनबी थे।"</strong></p>
+        <p class="right-quote"><strong>🎯 "जिंदगी के सफर में मैंने रास्ते खुद बनाए,<br> हर मुश्किल को अपना साथी और हर खुशी को अपना राज़ बनाया।"</strong></p>
     </div>
-    <p>🚀 Achievements, work, projects, and personal interests.</p>
-    <p>🚀 उपलब्धियाँ, कार्य, परियोजनाएँ, और व्यक्तिगत रुचियाँ।</p>
-    <p>💼 Profession: Entrepreneur & Tech Enthusiast</p>
-    <p>💼 पेशा: उद्यमी और तकनीकी उत्साही</p>
-    <p>🎯 Interests: Good food, traveling, exploring old things, collecting antiques</p>
-    <p>🎯 रुचियाँ: अच्छा खाना, यात्रा, पुरानी चीज़ों की खोज, प्राचीन वस्तुओं का संग्रह</p>
 
-    <h1>My Skills</h1>
-    <p style="text-align: left ; font-style: italic; width: 133%;color: rgb(10, 11, 14) ;">
-    <li>🔥 Web Development (HTML, CSS, JS)</li>
-    <li>💡 AI & Machine Learning</li>
-    <li>🎨 Graphic Designing</li>
-    <li>🎯 Digital Marketing</li>
-  </p>
-    </div>   
+    <!-- 🌍 Personal Details -->
+    <div class="about-content">
+        <p>🚀 <strong>Achievements, work, projects, and personal interests.</strong></p>
+        <p>🚀 <strong>उपलब्धियाँ, कार्य, परियोजनाएँ, और व्यक्तिगत रुचियाँ।</strong></p>
+        <p>💼 <strong>Profession:</strong> Entrepreneur & Tech Enthusiast</p>
+        <p>💼 <strong>पेशा:</strong> उद्यमी और तकनीकी उत्साही</p>
+        <p>🎯 <strong>Interests:</strong> Good food, traveling, exploring old things, collecting antiques</p>
+        <p>🎯 <strong>रुचियाँ:</strong> अच्छा खाना, यात्रा, पुरानी चीज़ों की खोज, प्राचीन वस्तुओं का संग्रह</p>
+    </div>
+
+    <!-- 🛠️ My Skills -->
+    <h2>💡 My Skills</h2>
+    <div class="skills-container">
+        <div class="skill-card">🔥 Web Development (HTML, CSS, JS)</div>
+        <div class="skill-card">💡 AI & Machine Learning</div>
+        <div class="skill-card">🎨 Graphic Designing</div>
+        <div class="skill-card">🎯 Digital Marketing</div>
+    </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const quotes = document.querySelectorAll(".about-quotes p");
+        const skills = document.querySelectorAll(".skill-card");
+
+        // Quote Animation on Scroll
+        function revealQuotes() {
+            quotes.forEach((quote, index) => {
+                if (quote.getBoundingClientRect().top < window.innerHeight - 50) {
+                    setTimeout(() => {
+                        quote.classList.add("visible");
+                    }, index * 300);
+                }
+            });
+        }
+        
+        // Skill Hover Effect
+        skills.forEach(skill => {
+            skill.addEventListener("mouseover", () => {
+                skill.classList.add("active");
+            });
+            skill.addEventListener("mouseout", () => {
+                skill.classList.remove("active");
+            });
+        });
+
+        // Scroll Event Listener
+        window.addEventListener("scroll", revealQuotes);
+
+        // Initial Check
+        revealQuotes();
+    });
+</script>
+
 
 <section id="gallery">
     <h2><u>📸Gallery </u></h2>
@@ -148,219 +757,162 @@
         <p><strong><u>लम्हों को संभाल कर रखा है मैंने,<br>हर तस्वीर में जिंदगी को जिया है मैंने।</u></strong></p>
     </div>
  <div class="gallery-container">
-    <figure>
-        <figcaption>📸Udaipur❤️ (बाहुबली हिल्स)</figcaption>
-        <p>Nature Beauty</p>
-        <img src="image/User1.jpg" height="300px" width="300px">
+ <!-- 🖼️ Image Gallery -->
+
+    <!-- Dynamic Gallery Items -->
+    <figure class="gallery-item">
+        <img src="image/User1.jpg" alt="Baahubali Hills, Udaipur">
+        <figcaption>📸 Udaipur ❤️ (बाहुबली हिल्स) - Nature Beauty</figcaption>
         <div class="like-system">
-            <span class="like-count">4.1k</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </figure>
-    <figure>
-        <figcaption>📸Udaipur❤️ (बाहुबली हिल्स)</figcaption>
-        <p>Mountain View</p>  
-        <img src="image/User2.jpg" height="300px" width="300px" >
-        <div class="like-system">
-            <span class="like-count">1k</span>
-            <button class="like-btn">❤️ Like</button>
+            <span class="like-count">4100</span>
+            <button class="like-btn" onclick="increaseLike(this)">❤️ Like</button>
         </div>
     </figure>
 
-    <figure>
-        <figcaption> 📸Udaipur❤️(बाहुबली हिल्स)</figcaption>  
-        <p>Nature Beauty</p>       
-    <img src="image/User3.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">999</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-    <figure>
-        <figcaption> 📸Udaipur❤️(केलेश्वर महादेव Waterfall) </figcaption>   
-        <p>Nature Beauty</p>      
-    <img src="image/User4.jpg"  height="300px" width="300px">
-    <div class="like-system">
-        <span class="like-count">1.1k</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-    <figure>
-        <figcaption> 📸Udaipur❤️ </figcaption>  
-        <p>fatech sagar</p>       
-    <img src="image/User5.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">5k</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-    <figure>
-        <figcaption>📸Udaipur❤️(फूलों की घाटी) </figcaption>
-        <p>Nature Beauty</p>   
-    <img src="image/User6.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">1.2k</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-    <figure>
-        <figcaption>📸Jhunjhunu❤️(Bholenath) </figcaption> 
-    <img src="image/User7.jpg"  height="300px" width="300px" >
+    <figure class="gallery-item">
+        <img src="image/User5.jpg" alt="Fateh Sagar, Udaipur">
+        <figcaption>📸 Udaipur ❤️ - Fateh Sagar Lake</figcaption>
         <div class="like-system">
-        <span class="like-count">2.2k</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
+            <span class="like-count">5000</span>
+            <button class="like-btn" onclick="increaseLike(this)">❤️ Like</button>
+        </div>
+    </figure>
+    
+    <figure class="gallery-item">
+        <img src="image/User6.jpg" alt="Valley of Flowers">
+        <figcaption>📸 <small> Udaipur (फूलों की घाटी)</small> ❤️ </figcaption>
+        <div class="like-system">
+            <span class="like-count">1200</span>
+            <button class="like-btn" onclick="increaseLike(this)">❤️ Like</button>
+        </div>
+    </figure>
 
-    <figure>
-        <figcaption>📸Udaipur❤️(केलेश्वर महादेव Waterfall) </figcaption>         
-    <img src="image/User8.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">3k</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-    <figure>
-        <figcaption>📸Bholenath </figcaption>        
-    <img src="image/User9.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">716</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-    <figure>
-        <figcaption> 📸Udaipur❤️ (बाहुबली हिल्स) </figcaption> 
-        <p>Mountain View</p>        
-    <img src="image/User10.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">912</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-    <figure>
-        <figcaption> 📸Udaipur❤️(बाहुबली हिल्स) </figcaption>
-        <p>Nature Beauty</p>        
-    <img src="image/User11.jpg"  height="300px" width="300px">
-    <div class="like-system">
-        <span class="like-count">831</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-    <figure>
-        <figcaption> 📸Udaipur❤️(बाहुबली हिल्स) </figcaption>  
-        <p>Sunset</p>       
-    <img src="image/User12.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">891</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-<figure>
-    <figcaption> 📸Udaipur❤️</figcaption>        
-    <img src="image/User13.jpg" height="300px" width="300px">
-    <div class="like-system">
-        <span class="like-count">1.7k</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-
-
-<figure>
-        <figcaption> 📸Udaipur❤️</figcaption>        
-    <img src="image/User14.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">677</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
-       <figure>
-        <figcaption> 📸Udaipur❤️</figcaption>        
-    <img src="image/User15.jpg"  height="300px" width="300px" >
-    <div class="like-system">
-        <span class="like-count">951</span>
-        <button class="like-btn">❤️ Like</button>
-    </div>
-</figure>
-
- <figure>
-   <figcaption> </figcaption>         
-  <img src="image/User16.jpg"  height="300px" width="300px" >
-  <div class="like-system">
-    <span class="like-count">311</span>
-    <button class="like-btn">❤️ Like</button>
+    <figure class="gallery-item">
+        <img src="image/User9.jpg" alt="Bholenath Temple, Jhunjhunu">
+        <figcaption>📸 <small>Bholenath</small>❤️</figcaption>
+        <div class="like-system">
+            <span class="like-count">2200</span>
+            <button class="like-btn" onclick="increaseLike(this)">❤️ Like</button>
+        </div>
+    </figure>
+    
+    <figure class="gallery-item">
+        <img src="image/User10.jpg" alt="Kaleshwar Mahadev Waterfall">
+        <figcaption>📸 <small>Bhaubali Hills Udaipur</small> ❤️</figcaption>
+        <div class="like-system">
+            <span class="like-count">3000</span>
+            <button class="like-btn" onclick="increaseLike(this)">❤️ Like</button>
+        </div>
+    </figure>
+    
+    <figure class="gallery-item">
+        <img src="image/User12.jpg" alt="Bholenath Temple">
+        <figcaption>📸<small>Bhaubali Hills Udaipur</small> ❤️</figcaption>
+        <div class="like-system">
+            <span class="like-count">716</span>
+            <button class="like-btn" onclick="increaseLike(this)">❤️ Like</button>
+        </div>
+    </figure>
 </div>
-</figure>
 
-<figure>
- <figcaption> </figcaption>     
-  <img src="image/User17.jpg"  height="300px" width="300px" >
-  <div class="like-system">
-    <span class="like-count">771</span>
-    <button class="like-btn">❤️ Like</button>
+
+</section>
+<!-- Fullscreen Viewer -->
+<div id="fullScreenViewer">
+    <span class="close-btn" id="closeViewer">&times;</span>
+    <img id="fullScreenImage" class="zoom-effect">
+    <div class="nav-btn prev-btn">&#10094;</div>
+    <div class="nav-btn next-btn">&#10095;</div>
 </div>
-</figure>
 
-<figure>
-<figcaption></figcaption> 
-<img src="image/User18.jpg"  height="300px" width="300px" >
-<div class="like-system">
-    <span class="like-count">511</span>
-    <button class="like-btn">❤️ Like</button>
-</div>
-</figure>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // ✅ Like Button Functionality
+        document.querySelectorAll(".like-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                button.classList.toggle("liked");
+                let likeCount = button.previousElementSibling;
+                let count = parseInt(likeCount.textContent.replace("k", "000"));
 
-<figure>
-<figcaption> </figcaption>      
-<img src="image/User19.jpg"  height="300px" width="300px" >
-<div class="like-system">
-<span class="like-count">741</span>
-<button class="like-btn">❤️ Like</button>
-</div>
-</figure>
+                count = button.classList.contains("liked") ? count + 1 : count - 1;
+                likeCount.textContent = count >= 1000 ? (count / 1000).toFixed(1) + "k" : count;
+            });
+        });
+
+        // ✅ Fullscreen Image Viewer
+        let fullScreenViewer = document.getElementById("fullScreenViewer");
+        let fullScreenImage = document.getElementById("fullScreenImage");
+        let closeBtn = document.getElementById("closeViewer");
+        let prevBtn = document.querySelector(".prev-btn");
+        let nextBtn = document.querySelector(".next-btn");
+        let images = Array.from(document.querySelectorAll(".gallery-item img"));
+        let currentIndex = 0;
+        let clickTimer = null;
+
+        // ✅ Open Image in Fullscreen (Single Click) + Open in New Tab (Double Click)
+        document.querySelectorAll(".gallery-item img").forEach((image, index) => {
+            image.addEventListener("click", function () {
+                if (clickTimer === null) {
+                    clickTimer = setTimeout(() => {
+                        clickTimer = null;
+                        openImageInFullScreen(index);
+                    }, 300); // Delay to detect double-click
+                } else {
+                    clearTimeout(clickTimer);
+                    clickTimer = null;
+                    window.open(image.src, "_blank"); // Double Click for New Tab
+                }
+            });
+        });
+
+        function openImageInFullScreen(index) {
+            currentIndex = index;
+            fullScreenImage.src = images[currentIndex].src;
+            fullScreenViewer.style.display = "flex";
+            fullScreenImage.classList.add("zoom-effect");
+            document.body.style.overflow = "hidden"; // Disable scrolling
+        }
+
+        // ✅ Close Fullscreen Viewer
+        closeBtn.addEventListener("click", function () {
+            fullScreenViewer.style.display = "none";
+            document.body.style.overflow = "auto"; // Enable scrolling
+            window.location.href = "#gallery"; // Redirect to main page
+        });
+
+        // ✅ Keyboard Navigation
+        document.addEventListener("keydown", function (event) {
+            if (fullScreenViewer.style.display === "flex") {
+                if (event.key === "Escape") {
+                    fullScreenViewer.style.display = "none";
+                    document.body.style.overflow = "auto";
+                } else if (event.key === "ArrowRight") {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    fullScreenImage.src = images[currentIndex].src;
+                } else if (event.key === "ArrowLeft") {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    fullScreenImage.src = images[currentIndex].src;
+                }
+            }
+        });
+
+        // ✅ Navigation Buttons
+        prevBtn.addEventListener("click", function () {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            fullScreenImage.src = images[currentIndex].src;
+        });
+
+        nextBtn.addEventListener("click", function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            fullScreenImage.src = images[currentIndex].src;
+        });
+    });
+</script>
 
 
-<figure>
-<figcaption> </figcaption>         
-<img src="image/User20.jpg"  height="300px" width="300px" >
-<div class="like-system">
-<span class="like-count">601</span>
-<button class="like-btn">❤️ Like</button>
-</div>
-</figure>
 
-<figure>
-<figcaption> </figcaption>         
-<img src="image/User21.jpg" height="300px" width="300px" >
-<div class="like-system">
-    <span class="like-count">1k</span>
-    <button class="like-btn">❤️ Like</button>
-</div>
-</figure>
-<figure>
 
-<figcaption>  </figcaption>         
-<img src="image\User22.jpg"  height="300px" width="300px" >
-<div class="like-system">
-    <span class="like-count">925</span>
-    <button class="like-btn">❤️ Like</button>
-</div>
-</figure>
 
-    <!-- Add more images here -->
-
-</div>
-   </section>
 
 
 <section id="videos">
@@ -384,14 +936,6 @@
 
     <video controls>
         <source src="video/watertour.mp4" type="video/mp4">
-        <div class="like-system">
-            <span class="like-count">0</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </video>
-
-    <video controls>
-        <source src="video/travel train.mp4" type="video/mp4">
         <div class="like-system">
             <span class="like-count">0</span>
             <button class="like-btn">❤️ Like</button>
@@ -454,62 +998,277 @@
         </div>
     </video>
 
-    <video controls>
-        <source src="video/udai lake.mp4" type="video/mp4">
-        <div class="like-system">
-            <span class="like-count">0</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </video>
-
-    <video controls>
-        <source src="video/udailake.mp4" type="video/mp4">
-        <div class="like-system">
-            <span class="like-count">0</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </video>
-
         <!-- Add more videos here -->
 
 </div>
 </section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll(".video-container video");
+    const popup = document.createElement("div");
+    popup.id = "video-popup";
+    popup.innerHTML = `
+        <div id="popup-overlay"></div>
+        <div id="popup-content">
+            <span id="popup-close">✖</span>
+            <video id="popup-video" controls></video>
+        </div>
+    `;
+    document.body.appendChild(popup);
+
+    const popupOverlay = document.getElementById("popup-overlay");
+    const popupContent = document.getElementById("popup-content");
+    const popupClose = document.getElementById("popup-close");
+    const popupVideo = document.getElementById("popup-video");
+
+    videos.forEach((video) => {
+        video.addEventListener("click", function (e) {
+            e.stopPropagation();
+            stopAllVideos();
+            const source = video.querySelector("source").src;
+            popupVideo.src = source;
+            popup.style.display = "flex";
+            popupVideo.play();
+        });
+    });
+
+    popupClose.addEventListener("click", closePopup);
+    popupOverlay.addEventListener("click", closePopup);
+
+    function closePopup() {
+        popup.style.display = "none";
+        popupVideo.pause();
+        popupVideo.src = "";
+    }
+
+    function stopAllVideos() {
+        videos.forEach((vid) => vid.pause());
+    }
+});
+</script>
 
 
 <section id="audio">
-    <h2><u>🎧Audio</u></h2>
-    <audio controls>
-        <source src="audio/audio1.mp3" type="audio/mpeg">
-        <div class="like-system">
-            <span class="like-count">0</span>
-            <button class="like-btn">❤️ Like</button>
-        </div>
-    </audio>
-     <!-- Add more audio files here -->
+    <h2><u>🎧 Audio Playlist</u></h2>
+    <div id="audio-container">
+        <!-- JavaScript se audio automatic load ho ga   -->
+    </div>
 </section>
 
+<script>
+    // 🎵 Audio Files List
+    let audioFiles = [
+        { src: "audio/audio1.mp3", title: "🎶 Audio Track 1" },
+        { src: "audio/audio2.mp3", title: "🎵 Audio Track 2" },
+        
+    ];
+
+    let currentAudioIndex = 0;
+
+    function loadAudio() {
+        let container = document.getElementById("audio-container");
+        container.innerHTML = "";
+
+        audioFiles.forEach((audio, index) => {
+            let audioDiv = document.createElement("div");
+            audioDiv.classList.add("audio-item");
+
+            audioDiv.innerHTML = `
+                <h3>${audio.title}</h3>
+                <audio controls id="audio-${index}">
+                    <source src="${audio.src}" type="audio/mpeg">
+                    Your browser does not support the audio tag.
+                </audio>
+                <div class="like-system">
+                    <span class="like-count" id="like-count-${index}">0</span>
+                    <button class="like-btn" onclick="likeAudio(${index})">❤️ Like</button>
+                </div>
+            `;
+
+            container.appendChild(audioDiv);
+        });
+
+        loadLikes(); // पहले से सेव लाइक्स दिखाने के लिए
+        setupAutoPlay(); // Auto Play Function सेट करना
+    }
+
+    function likeAudio(index) {
+        let likeCountElement = document.getElementById(`like-count-${index}`);
+        let likes = JSON.parse(localStorage.getItem("audioLikes")) || {};
+        
+        likes[index] = (likes[index] || 0) + 1; // लाइक्स बढ़ाना
+        localStorage.setItem("audioLikes", JSON.stringify(likes)); // सेव करना
+
+        likeCountElement.innerText = likes[index]; // UI अपडेट करना
+    }
+
+    function loadLikes() {
+        let likes = JSON.parse(localStorage.getItem("audioLikes")) || {};
+        Object.keys(likes).forEach(index => {
+            let likeCountElement = document.getElementById(`like-count-${index}`);
+            if (likeCountElement) {
+                likeCountElement.innerText = likes[index]; // पहले से लाइक किए हुए दिखाना
+            }
+        });
+    }
+
+    function setupAutoPlay() {
+        audioFiles.forEach((audio, index) => {
+            let audioElement = document.getElementById(`audio-${index}`);
+
+            audioElement.addEventListener("ended", function() {
+                currentAudioIndex++;
+                if (currentAudioIndex < audioFiles.length) {
+                    let nextAudio = document.getElementById(`audio-${currentAudioIndex}`);
+                    if (nextAudio) nextAudio.play();
+                }
+            });
+        });
+    }
+
+    // पेज लोड होते ही ऑडियो सेक्शन लोड करें
+    document.addEventListener("DOMContentLoaded", loadAudio);
+</script>
+
+<style>
+    #audio {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background: #927d7d;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        text-align: center;
+    }
+    .audio-item {
+        margin-bottom: 20px;
+        padding: 10px;
+        background: linear-gradient(to right, rgb(206, 237, 137), rgb(255, 182, 193), rgb(173, 216, 230), rgb(255, 255, 153));
+        border-radius: 8px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .like-system {
+        margin-top: 10px;
+    }
+    .like-btn {
+        padding: 5px 10px;
+        background: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .like-btn:hover {
+        background: darkred;
+    }
+</style>
+
+
+
 <section id="projects">
-    <h2><u>📂Projects</u></h2>
+    <h2><u>📂 Projects</u></h2>
     <h1>My Projects – My Style | मेरे प्रोजेक्ट्स – मेरे अंदाज़ में</h1>
-    <p style="text-align: left ; font-style: italic; width: 50%;color: rgb(108, 98, 63) ;">
-         जिन्हें किसी भी मुश्किल से डर नहीं लगता,<br>
-        &nbsp;&nbsp;वही अपने सपनों को असलियत बना सकते हैं।"
+    
+    <p style="text-align: left ; font-style: italic; width: 50%;color: rgb(108, 98, 63);">
+        जिन्हें किसी भी मुश्किल से डर नहीं लगता,<br>
+        &nbsp;&nbsp;वही अपने सपनों को असलियत बना सकते हैं।
     </p>
-    <p style="text-align: center ; font-style: italic; width: 50%;color: rgb(129, 139, 218) ;">
-            <strong>"आँखों में उम्मीद और होठों पे मुस्कान हो,<br>
-                दिल में कुछ बड़ा करने का अरमान हो।"</strong>
-        </p>
- <p style="text-align: right ; font-style: italic; width: 50%;color: rgb(123, 130, 42) ;">
- <strong>मंजिलों को पाने का हौसला रखो,<br>
-   रास्ते खुद-ब-खुद आसान हो जाते हैं।"</strong>
-</p> 
-<div style="margin-top: 20px; font-size: 16px;">
-    <h3><u>1. Personal Portfolio Website | व्यक्तिगत पोर्टफोलियो वेबसाइट</u></h3>
-    <p>A simple website to showcase your skills and projects. | अपनी क्षमताओं और प्रोजेक्ट्स को दिखाने के लिए एक साधारण वेबसाइट।</p>
-    <h3><u>2. Blog Website | ब्लॉग वेबसाइट</u></h3>
-    <p>A platform to share articles and thoughts. | लेख और विचार साझा करने के लिए एक प्लेटफ़ॉर्म।</p>
- </div>
+    <p style="text-align: center ; font-style: italic; width: 50%;color: rgb(129, 139, 218);">
+        <strong>"आँखों में उम्मीद और होठों पे मुस्कान हो,<br>
+        दिल में कुछ बड़ा करने का अरमान हो।"</strong>
+    </p>
+    <p style="text-align: right ; font-style: italic; width: 50%;color: rgb(123, 130, 42);">
+        <strong>मंजिलों को पाने का हौसला रखो,<br>
+        रास्ते खुद-ब-खुद आसान हो जाते हैं।"</strong>
+    </p>
+
+    <input type="text" id="search" placeholder="🔍 Search Project..." onkeyup="searchProjects()" style="padding: 8px; margin-bottom: 10px; width: 100%; border: 1px solid #ccc; border-radius: 5px;">
+    
+    <div id="project-list">
+        <!-- Projects will be added dynamically here -->
+    </div>
+
+    <button id="show-more" onclick="toggleProjects()">Show More</button>
 </section>
+
+<script>
+    let projects = [
+        { title: "Personal Portfolio Website", description: "A simple website to showcase your skills and projects." },
+        { title: "Blog Website", description: "A platform to share articles and thoughts." },
+        { title: "E-commerce Website", description: "An advanced shopping website like Amazon and Flipkart." },
+        { title: "AI Chatbot", description: "An interactive chatbot using AI technology." },
+        { title: "Online Booking System", description: "A system for online reservations and orders." }
+    ];
+
+    let showAll = false; // Initially show only 2 projects
+
+    function displayProjects() {
+        let projectList = document.getElementById("project-list");
+        projectList.innerHTML = "";
+
+        let displayLimit = showAll ? projects.length : 2;
+
+        for (let i = 0; i < displayLimit; i++) {
+            let project = document.createElement("div");
+            project.style.marginBottom = "15px";
+            project.innerHTML = `
+                <h3><u>${projects[i].title}</u></h3>
+                <p>${projects[i].description}</p>
+            `;
+            projectList.appendChild(project);
+        }
+
+        document.getElementById("show-more").innerText = showAll ? "Show Less" : "Show More";
+    }
+
+    function toggleProjects() {
+        showAll = !showAll;
+        displayProjects();
+    }
+
+    function searchProjects() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let projectList = document.getElementById("project-list");
+        projectList.innerHTML = "";
+
+        let filteredProjects = projects.filter(p => p.title.toLowerCase().includes(input));
+
+        filteredProjects.forEach(proj => {
+            let project = document.createElement("div");
+            project.style.marginBottom = "15px";
+            project.innerHTML = `<h3><u>${proj.title}</u></h3><p>${proj.description}</p>`;
+            projectList.appendChild(project);
+        });
+
+        if (filteredProjects.length === 0) {
+            projectList.innerHTML = "<p style='color: red;'>❌ No projects found.</p>";
+        }
+    }
+
+    displayProjects(); // Load projects initially
+</script>
+
+<style>
+    
+    #projects h2 {
+        text-align: center;
+        color: #333;
+    }
+    #show-more {
+        padding: 10px;
+        width: 20%;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    #show-more:hover {
+        background: #0056b3;
+    }
+</style>
+
 
 <section>
     <style>
@@ -527,10 +1286,6 @@
             background: #fff;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: 0.3s;
-        }
-        .review-section:hover {
-            transform: scale(1.02);
         }
         .rating {
             display: flex;
@@ -541,11 +1296,9 @@
             font-size: 2rem;
             color: #ccc;
             cursor: pointer;
-            transition: 0.3s;
         }
-        .star:hover, .star.active {
+        .star.active {
             color: #ffcc00;
-            transform: scale(1.2);
         }
         textarea {
             width: 100%;
@@ -553,36 +1306,26 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 1rem;
         }
-        .photo-upload {
+        .submit-btn, .edit-btn {
             margin-top: 10px;
-        }
-        .submit-btn {
-            margin-top: 15px;
-            padding: 10px 20px;
+            padding: 10px 15px;
             font-size: 1rem;
-            background: #007bff;
-            color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
         }
-        .submit-btn:hover {
-            background: #0056b3;
-        }
+        .submit-btn { background: #007bff; color: white; }
+        .edit-btn { background: #ffcc00; color: black; }
         .review-item {
             background: #f1f1f1;
             padding: 15px;
             border-radius: 10px;
             margin-top: 10px;
+            position: relative;
         }
-        #photo-preview img {
-            width: 80px;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
+        .review-item small { display: block; margin-top: 5px; color: #666; }
+        #see-more { display: none; cursor: pointer; color: blue; margin-top: 10px; }
     </style>
 
     <div class="review-section">
@@ -596,17 +1339,16 @@
             <span id="rating-value">(0/5)</span>
         </div>
         <textarea id="review-text" placeholder="Write your review..."></textarea>
-        <div class="photo-upload">
-            <input type="file" id="review-photo" accept="image/*" style="display: none;">
-            <button onclick="document.getElementById('review-photo').click()">Add Photo</button>
-            <span id="photo-name">No file chosen</span>
-            <div id="photo-preview"></div>
-        </div>
         <button class="submit-btn" onclick="submitReview()">Submit Review</button>
         <div id="reviews"></div>
+        <div id="see-more" onclick="toggleReviews()">See More</div>
     </div>
+
     <script>
         let selectedRating = 0;
+        let reviews = [];
+        let showLimit = 3;
+        
         document.querySelectorAll(".star").forEach(star => {
             star.addEventListener("click", function () {
                 selectedRating = this.getAttribute("data-value");
@@ -617,42 +1359,61 @@
                 }
             });
         });
-        document.getElementById("review-photo").addEventListener("change", function () {
-            let file = this.files[0];
-            if (file) {
-                document.getElementById("photo-name").textContent = file.name;
-                let img = document.createElement("img");
-                img.src = URL.createObjectURL(file);
-                document.getElementById("photo-preview").innerHTML = "";
-                document.getElementById("photo-preview").appendChild(img);
-            }
-        });
+
         function submitReview() {
             let reviewText = document.getElementById("review-text").value.trim();
             if (reviewText === "") {
                 alert("Please write a review before submitting.");
                 return;
             }
-            let reviewItem = document.createElement("div");
-            reviewItem.classList.add("review-item");
-            reviewItem.innerHTML = `<strong>⭐ (${selectedRating}/5)</strong> ${reviewText}`;
-            if (document.getElementById("review-photo").files.length > 0) {
-                let img = document.createElement("img");
-                img.src = URL.createObjectURL(document.getElementById("review-photo").files[0]);
-                img.style.width = "80px";
-                img.style.marginLeft = "10px";
-                reviewItem.appendChild(img);
-            }
-            document.getElementById("reviews").appendChild(reviewItem);
+            let timestamp = new Date().toLocaleString();
+            let reviewData = { rating: selectedRating, text: reviewText, time: timestamp };
+            reviews.unshift(reviewData);
+            updateReviews();
+            sendEmail(reviewText, selectedRating, timestamp);
             document.getElementById("review-text").value = "";
-            document.getElementById("review-photo").value = "";
-            document.getElementById("photo-name").textContent = "No file chosen";
-            document.getElementById("photo-preview").innerHTML = "";
-            selectedRating = 0;
             document.getElementById("rating-value").textContent = "(0/5)";
             document.querySelectorAll(".star").forEach(s => s.classList.remove("active"));
+            selectedRating = 0;
         }
+        
+        function updateReviews() {
+            let reviewContainer = document.getElementById("reviews");
+            reviewContainer.innerHTML = "";
+            let displayReviews = reviews.slice(0, showLimit);
+            displayReviews.forEach((rev, index) => {
+                let reviewItem = document.createElement("div");
+                reviewItem.classList.add("review-item");
+                reviewItem.innerHTML = `<strong>⭐ (${rev.rating}/5)</strong> ${rev.text}
+                    <small>${rev.time}</small>
+                    <button class="edit-btn" onclick="editReview(${index})">Edit</button>`;
+                reviewContainer.appendChild(reviewItem);
+            });
+            document.getElementById("see-more").style.display = reviews.length > showLimit ? "block" : "none";
+        }
+        
+        function editReview(index) {
+            let reviewData = reviews[index];
+            document.getElementById("review-text").value = reviewData.text;
+            reviews.splice(index, 1);
+            updateReviews();
+        }
+        
+        function toggleReviews() {
+            showLimit = showLimit === 3 ? 5 : 3;
+            updateReviews();
+        }
+        
+        function sendEmail(review, rating, date) {
+            let email = "mailto:kankit77021@gmail.com?subject=New Review&body=Rating: " + rating + "/5%0D%0AReview: " + review + "%0D%0ADate: " + date;
+            window.open(email);
+        }
+        
+        document.addEventListener("dblclick", () => {
+            window.location.href = "reviews.html";
+        });
     </script>
+</section>
       
 <section id="ask-question">
 <h2>Ask a Question</h2>
@@ -674,11 +1435,98 @@
 
 <a href="https://wa.me/9216996531" target="_blank" class="chat-button">💬 Chat with Me</a>
 
+
 <section id="subscribe">
-<h2>Subscribe to My Updates</h2>
-<input type="email" id="email" placeholder="Enter your email">
-<button onclick="subscribe()">Subscribe</button>
+    <h2>Subscribe to My Updates</h2>
+    <input type="email" id="subscribe-email" placeholder="Enter your email">
+    <button onclick="subscribe()">Subscribe</button>
+    <p id="subscribe-message" style="display: none; color: green;"></p>
 </section>
+
+<script>
+    function subscribe() {
+        let emailInput = document.getElementById("subscribe-email").value;
+        let message = document.getElementById("subscribe-message");
+
+        // 📧 Email Validation
+        if (!validateEmail(emailInput)) {
+            message.innerText = "❌ Please enter a valid email address!";
+            message.style.color = "red";
+            message.style.display = "block";
+            return;
+        }
+
+        // 🚀 Save Subscription in Local Storage
+        let subscribers = JSON.parse(localStorage.getItem("subscribers")) || [];
+        if (subscribers.includes(emailInput)) {
+            message.innerText = "⚠️ You are already subscribed!";
+            message.style.color = "orange";
+        } else {
+            subscribers.push(emailInput);
+            localStorage.setItem("subscribers", JSON.stringify(subscribers));
+            message.innerText = "✅ Subscription Successful!";
+            message.style.color = "green";
+
+            // 📩 Send Data to Backend (Optional)
+            sendSubscriptionToServer(emailInput);
+
+            // 📬 Send Email Notification to You
+            sendEmailToMe(emailInput);
+        }
+
+        message.style.display = "block";
+        document.getElementById("subscribe-email").value = ""; // Clear input
+    }
+
+    // ✅ Email Validation Function
+    function validateEmail(email) {
+        let re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return re.test(email);
+    }
+
+    // 🔄 Send Subscription Data to Server (Optional)
+    function sendSubscriptionToServer(email) {
+        fetch("https://yourserver.com/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email })
+        }).then(response => response.json())
+          .then(data => console.log("Server Response:", data))
+          .catch(error => console.error("Error:", error));
+    }
+
+    // 📬 Send Email Notification to You
+    function sendEmailToMe(email) {
+        let myEmail = "kankit77021@gmail.com"; // 🔴 अपनी Gmail डालें
+        let subject = "New Subscription Alert!";
+        let body = `New subscriber: ${email}`;
+
+        window.open(`mailto:${myEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    }
+</script>
+
+<style>
+    #subscribe input {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    #subscribe button {
+        padding: 10px 15px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    #subscribe button:hover {
+        background: #0056b3;
+    }
+</style>
+
+
 <section>
 <form id="contact-form" onsubmit="sendEmail(event)">
 <input type="text" id="contact-name" placeholder="Your Name" required>
@@ -687,92 +1535,186 @@
 <button type="submit">📨 Send Message</button>
 </form>
 </section>
+<script>
+    // JavaScript to handle form submission, email sending, and question listing
 
-<!-- Live Date & Time Button -->
-<div id="live-datetime"></div>
+// Store submitted questions
+let questions = [];
 
-<footer>
+// Handle form submission
+document.getElementById("question-form").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-<div class="footer-container">
-    <div class="footer-section">
-        <section id="Address">
-<p style="text-align: center ; width: 100%;color: rgb(58, 67, 168) ;"><h3>Address</h3></p>
-        <p>📍 Jhunjhunu, Rajasthan, India</p>
-        </div>
-        <div class="footer-container">
-            <div class="footer-section">
-                <section id="contact">
-                    <p style="text-align: center ; width: 100%;color: rgb(211, 212, 222) ;"><h3>Contact</h3></p>
-        <div style="display: flex; justify-content: space-between; font-size: 14px; font-style: italic;">
-            <p style="text-align: left; width: 50%;"><strong>फ़ासले चाहे जितने भी हों दरमियान,<br>एक कॉल, एक मैसेज से मिट जाते हैं सारे ग़ुमान।"</strong></p>
-            <p style="text-align: right; width: 50%;"><strong>फोन की घंटी नहीं, दिल की आवाज़ सुनो,<br>हम तो वहीं हैं, बस एक कॉल से जुड़ो।"</strong></p>
-        </div>
-        
-        <p>📞 <a href="tel:9216996531">+91 9216996531</a></p>
-        <p>✉️ <a href="mailto:kankit77021@gmail.com">kankit77021@gmail.com</a></p>
-        
-        
-        <div id="weather">Loading Weather...</div>
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let question = document.getElementById("question").value;
 
+    let questionData = { name, email, question };
+    questions.unshift(questionData); // Add new question to the start
+    updateQuestionList();
+    sendEmail(questionData);
+
+    document.getElementById("response-message").style.display = "block";
+    document.getElementById("question-form").reset();
+});
+
+// Update displayed questions function
+function updateQuestionList() {
+    let questionList = document.getElementById("question-list");
+    questionList.innerHTML = "";
+
+    let displayedQuestions = questions.slice(0, 3);
+    displayedQuestions.forEach((q, index) => {
+        let questionDiv = document.createElement("div");
+        questionDiv.innerHTML = `<strong>${q.name} (${q.email}):</strong> ${q.question}`;
+        questionList.appendChild(questionDiv);
+    });
+}
+
+// Open full questions page on double-click
+document.getElementById("question-list").addEventListener("dblclick", function() {
+    let newPage = window.open("", "_blank");
+    newPage.document.write("<h2>All Questions</h2>");
+    questions.forEach(q => {
+        newPage.document.write(`<p><strong>${q.name} (${q.email}):</strong> ${q.question}</p>`);
+    });
+    newPage.document.write("<button onclick='window.close()'>Close</button>");
+});
+
+// Send email function
+function sendEmail(questionData) {
+    let mailtoLink = `mailto:kankit77021@gmail.com?subject=New Question from ${questionData.name}&body=Name: ${questionData.name}%0AEmail: ${questionData.email}%0AQuestion: ${questionData.question}`;
+    window.location.href = mailtoLink;
+}
+</script>
+
+
+
+<section id="contact">
+    <p style="text-align: center; width: 100%; color: rgb(211, 212, 222);">
+        <h3>Contact</h3>
+    </p>
+
+    <div style="display: flex; justify-content: space-between; font-size: 14px; font-style: italic;">
+        <p style="text-align: left 45%; width: 50%;"><strong>फ़ासले चाहे जितने भी हों दरमियान,<br>एक कॉल, एक मैसेज से मिट जाते हैं सारे ग़ुमान।"</strong></p>
+        <p style="text-align: right 45%; width: 50%;"><strong>फोन की घंटी नहीं, दिल की आवाज़ सुनो,<br>हम तो वहीं हैं, बस एक कॉल से जुड़ो।"</strong></p>
     </div>
-    <div class="footer-section">
+
+    <p>📞 <a href="tel:9216996531" id="phone-link">+91 92xxxxxxx1</a>  
+    </p>
+
+    <p>✉️ <a href="mailto:kankit77021@gmail.com" id="email-link">kankit77021@gmail.com</a> 
+    </p>
+<div>
         <h3>Follow Me</h3>
         <div class="social-icons">
-            <a href="https://www.facebook.com/profile.php?id=61550104302662" target="_blank">📘 Facebook</a>
-            <a href="https://www.instagram.com/ankit_kaler_01?igsh=MWR6MWV5MzBlZWFsNg==" target="_blank">📸 Instagram</a>
-            <a href="https://wa.me/9216996531" target="_blank">💬 WhatsApp</a>
-            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener noreferrer">
-                ▶️YouTube
-            </a>
-            
+            <a href="https://www.facebook.com/profile.php?id=61550104302662" ><i class='bx bxl-Facebook-alt'> Facebook</i></a></li>
+
+            <a href="https://www.instagram.com/ankit_kaler_01?igsh=MWR6MWV5MzBlZWFsNg=="><i class='bx bxl-instagram-alt'> Instagram</i></a></li>
+           
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID"><i class='bx bxl-youtube-alt'> YouTube</i></a></li>
         </div>
     </div>
-</div>
-    <div class="social-icons">
-        <!-- Facebook QR Scanner -->
-        <div class="scanner" data-link="https://www.facebook.com/profile.php?id=61550104302662" title="Facebook">
-            <img src="image/Facebook.jpg" alt="Facebook QR Code" class="qr-code">
-        </div>
-        <!-- Instagram QR Scanner -->
-        <div class="scanner" data-link="https://www.instagram.com/ankit_kaler_01?igsh=MWR6MWV5MzBlZWFsNg==" title="Instagram">
-            <img src="image/instagram.jpg" alt="Instagram QR Code" class="qr-code">
-        </div>
-        <!-- WhatsApp QR Scanner -->
-        <div class="scanner" data-link="https://alvo.chat/5EOF" title="WhatsApp">
-            <img src="image/whatsapp.jpg" alt="WhatsApp QR Code" class="qr-code">
-        </div>
-        <!-- YouTube QR Scanner -->
-        <div class="scanner" data-link="https://www.youtube.com" title="YouTube">
-            <img src="image/youtube.jpg" alt="YouTube QR Code" class="qr-code">
-        </div>
-    </div>
+</section>
+
+<script>
+    // 📋 Copy Function
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Copied: " + text);
+        }).catch(err => {
+            console.error("Error copying text: ", err);
+        });
+    }
+
+    // 🖱️ Double Click Function for New Page
+     clickCount = 0;
+    document.getElementById("contact").addEventListener("click", function () {
+        clickCount++;
+        if (clickCount === 2) {
+            window.location.href = "contact-details.html"; // 🔗 Replace with actual contact details page
+        }
+        setTimeout(() => { clickCount = 0; }, 1000); // ⏳ Reset after 1 second
+    });
+
+    // 🔥 Social Media Hover Effects
+    document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('mouseover', function () {
+            this.style.transform = "scale(1.1)";
+            this.style.transition = "0.3s";
+        });
+        link.addEventListener('mouseleave', function () {
+            this.style.transform = "scale(1)";
+        });
+    });
+</script>
+
+
+<footer>
+    
+<section id="Address">
+    <p style="text-align: center; width: 100%; color: rgb(58, 67, 168);">
+        <h3>Address</h3>
+    </p>
+    <p id="addressText" onclick="copyAddress()" style="cursor: pointer;">📍 Jhunjhunu, Rajasthan, India</p>
+</section>
+
+<script>
+function copyAddress() {
+    var address = document.getElementById("addressText").innerText;
+    navigator.clipboard.writeText(address).then(function() {
+        alert("Address copied: " + address);
+    }).catch(function(err) {
+        console.error('Error copying text: ', err);
+    });
+}
+</script>
 
 <div class="live-container">
 <div class="live-time" id="liveTime"></div>
 <div class="my-name">Ankit Kaler</div>
 </div>
+<script>
+    // ✅ Live Time Function
+function updateLiveTime() {
+    let now = new Date();
+    
+    // ⏰ Hours, Minutes, Seconds Format (HH:MM:SS AM/PM)
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+
+    // ⏳ Convert 24-hour format to 12-hour format
+    hours = hours % 12 || 12;
+
+    // ⏰ Add leading zeros if needed
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    let timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+    // 🕒 Display time in the HTML
+    document.getElementById("liveTime").innerText = timeString;
+}
+
+// 🔄 Update Time Every 1 Second
+setInterval(updateLiveTime, 1000);
+
+// 🚀 Initialize Time Immediately
+updateLiveTime();
+
+</script>
+
 
 <div class="footer-bottom">
 <div class="made-by">
-    <div>
-        <h2 class="typing-text"></h2>
-    </div>
     <p>Made by: <u><b>Ankit</u> <u>Kaler</b></u> 🚀 | All Rights Reserved © 2025</p>
-
-        <!-- Other footer content goes here -->
-    
-        <!-- Back To Top Link -->
-        <ul>
-            <li><a href="#home"><u>Back To Home</u></a></li>
-        </ul>
-    </footer>
-    
-
+    <ul>
+        <li><a href="#home"><u>Back To Home</u></a></li>
+    </ul>
 </div>
 </div>
- </footer>
-</div>
-</footer>
+</footer> 
 </body>
-</html>
 </html>
